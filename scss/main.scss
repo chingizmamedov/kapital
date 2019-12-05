@@ -4,6 +4,24 @@
     box-sizing: border-box;
 }
 
+.tooltip {
+    padding: 5px;
+    background: rgb(153, 44, 44);
+    position: absolute;
+    z-index: 22;
+    color: #fff;
+    opacity: 0;
+    border-radius: 4px;
+    transition: .4s all;
+}
+
+.tooltip-shown {
+    // display: block;
+    opacity: 1;
+}
+.circle {
+    cursor: pointer;
+}
 body {
 
 }

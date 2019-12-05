@@ -77,34 +77,52 @@ function svgPoint(element, x, y) {
     
     $(this).css('fill', '#CBE0BA')
   })
-  console.log('ss')
+  
   for( var i = 0; i < allFilials.length;i++) {
-
-    console.log('ss')
+    console.log('s')
     var
     svgP = svgPoint(svg, allFilials[i].filialX, allFilials[i].filialY),
-    circle = document.createElementNS(NS, 'circle'),
-    title = document.createElement('title');
-    title.innerText = allFilials[i].filialName
-
+    circle = document.createElementNS(NS, 'circle')
+    circle.setAttribute('data-filial', allFilials[i].filialName)
     circle.setAttributeNS(null, 'cx', allFilials[i].filialX);
     circle.setAttributeNS(null, 'cy', allFilials[i].filialY);
     circle.setAttributeNS(null, 'r', 2);
-    circle.classList.add('circle')
-    circle.appendChild(title);
+    circle.classList.add('circle');
     svg.appendChild(circle);
+    console.log('d')
 
   }
 
+  $description = $(".tooltip");
 
   $('.circle').mouseover(function() {
     
     
-    $(this).css('stroke', '#000')
-  })
-  $('#baki').mouseout(function() {
+    $description.addClass('tooltip-shown');
+
+    $description.html($(this).attr('data-filial'));
+
     
-    
-    $(this).css('fill', '#CBE0BA')
+
   })
+  $('.circle').mouseout(function() {
+    
+    $description.removeClass('tooltip-shown');
+    $description.html($(this).attr('data-filial'));
+
+  })
+
+ 
+
+  $(document).on('mousemove', function(e){
+    
+    $description.css({
+      left:  e.pageX,
+      top:   e.pageY - 40
+    });
+    
+  })
+
+
+  
 })

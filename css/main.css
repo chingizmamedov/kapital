@@ -5,6 +5,26 @@
           box-sizing: border-box;
 }
 
+.tooltip {
+  padding: 5px;
+  background: #992c2c;
+  position: absolute;
+  z-index: 22;
+  color: #fff;
+  opacity: 0;
+  border-radius: 4px;
+  -webkit-transition: .4s all;
+  transition: .4s all;
+}
+
+.tooltip-shown {
+  opacity: 1;
+}
+
+.circle {
+  cursor: pointer;
+}
+
 .header {
   height: 100px;
   padding-left: 50px;
