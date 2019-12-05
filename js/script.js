@@ -67,6 +67,18 @@ function svgPoint(element, x, y) {
    * SVG
    */
 
+  $("#baki").click(function() {
+    $(this).parent().hide('slow')
+    $("#map-baki").addClass("map-baki-shown")
+    $(".btn-back").addClass('btn-back-shown')
+  })
+
+  $(".btn-back").click(function() {
+    $(this).removeClass("btn-back-shown")
+    $("#baki").parent().show('slow')
+    $("#map-baki").removeClass("map-baki-shown")
+  })
+
   $('#baki').mouseover(function() {
     
     
@@ -121,6 +133,18 @@ function svgPoint(element, x, y) {
       top:   e.pageY - 40
     });
     
+  })
+
+  // serach
+
+  $("#search").change(function() {
+
+    allFilials = allFilials.map(function(item, index) {
+
+      
+
+    })
+
   })
 
 
