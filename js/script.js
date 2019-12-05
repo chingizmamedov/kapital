@@ -1,0 +1,110 @@
+$(function() {
+
+
+  /**
+   * Global vars
+   */
+    var allFilials = [
+      {
+        "filialX": 480,
+        "filialY": 128,
+        "filialName": "Ordek filiali"
+      },
+      {
+        "filialX": 443,
+        "filialY": 256,
+        "filialName": "Hindushka filiali"
+      },
+      {
+        "filialX": 584,
+        "filialY": 341,
+        "filialName": "CocaCola filiali"
+      },
+      {
+        "filialX": 283,
+        "filialY": 261,
+        "filialName": "Fanta filiali"
+      },
+      {
+        "filialX": 302,
+        "filialY": 425,
+        "filialName": "Dudo"
+      }
+    ]
+  /**
+   * SVG
+   */
+ var svg = document.getElementById('sgs'),
+     NS = svg.getAttribute('xmlns');
+
+
+ function drowSvg() {
+      var
+      t = e.target,
+      x = e.clientX,
+      y = e.clientY,
+      target = (t == svg ? svg : t.parentNode),
+      svgP = svgPoint(target, x, y),
+      circle = document.createElementNS(NS, 'circle');
+
+      circle.setAttributeNS(null, 'cx', Math.round(svgP.x));
+      circle.setAttributeNS(null, 'cy', Math.round(svgP.y));
+      circle.setAttributeNS(null, 'r', 2);
+      target.appendChild(circle);
+ }
+
+ // translate page to SVG co-ordinate
+function svgPoint(element, x, y) {
+  
+   var pt = svg.createSVGPoint();
+   pt.x = x;
+   pt.y = y;
+   return pt.matrixTransform(element.getScreenCTM().inverse());
+   
+ }
+
+   /**
+   * SVG
+   */
+
+  $('#baki').mouseover(function() {
+    
+    
+    $(this).css('fill', 'red')
+  })
+  $('#baki').mouseout(function() {
+    
+    
+    $(this).css('fill', '#CBE0BA')
+  })
+  console.log('ss')
+  for( var i = 0; i < allFilials.length;i++) {
+
+    console.log('ss')
+    var
+    svgP = svgPoint(svg, allFilials[i].filialX, allFilials[i].filialY),
+    circle = document.createElementNS(NS, 'circle'),
+    title = document.createElement('title');
+    title.innerText = allFilials[i].filialName
+
+    circle.setAttributeNS(null, 'cx', allFilials[i].filialX);
+    circle.setAttributeNS(null, 'cy', allFilials[i].filialY);
+    circle.setAttributeNS(null, 'r', 2);
+    circle.classList.add('circle')
+    circle.appendChild(title);
+    svg.appendChild(circle);
+
+  }
+
+
+  $('.circle').mouseover(function() {
+    
+    
+    $(this).css('stroke', '#000')
+  })
+  $('#baki').mouseout(function() {
+    
+    
+    $(this).css('fill', '#CBE0BA')
+  })
+})
