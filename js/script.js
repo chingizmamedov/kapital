@@ -513,6 +513,22 @@ function svgPoint(element, x, y) {
       $description.removeClass('tooltip-shown');
       $description.html($(this).attr('data-filial'));
   
-    })  
+    }) 
+
+
+
+    /***
+     * @table
+     */
+
+    $("#gotable").click(function() {
+      $(".table-wrap").slideToggle('slow')
+      $(this).text() == 'Go table' ? $(this).text('Go Map') : $(this).text('Go table');
+      console.log("TCL: $(this).text()", $(this).text())
+
+    })
+
+
+    $('#example').DataTable();
 
 })
