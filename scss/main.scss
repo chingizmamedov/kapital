@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -24,6 +26,7 @@
 }
 body {
     background: #791f2e;
+    font-family: 'Source Sans Pro', sans-serif;
 }
 
 .header {
@@ -106,6 +109,23 @@ body {
             left: 10px;
         }
     }
+    &-gotable {
+        position: absolute;
+        left: 20px;
+        border: 1px solid #434343;
+        border-radius: 5px;
+        padding: 5px 10px;
+        color: #fff;
+        background: #434343;
+        cursor: pointer;
+        font-weight: bold;
+        text-transform: uppercase;
+        transition: .2s;
+        &:hover {
+            border: 1px solid #e73e47;
+            background: #e73e47;
+        }
+    }
 }
 
 #search {
@@ -129,7 +149,7 @@ body {
     align-items: center;
 }
 .tab {
-    padding: 10px 20px;
+    padding: 9px 20px;
     &-btn {
         padding: 5px;
         cursor: pointer;
@@ -228,11 +248,14 @@ body {
 #baki:hover {
     cursor: pointer;
 }
-circle {
+.circle {
     stroke-width: 5;
     stroke: #f00;
     fill: #ff0;
-  }
+    animation-name: circleAnimation;
+    animation-duration: .7s;
+    animation-timing-function: ease-in-out;
+}
 
 
 
@@ -254,4 +277,20 @@ circle {
     border: 1px solid #333;
     border-radius: 5px;
     margin-bottom: 10px;
+}
+
+/** 
+    @keyframe
+*/
+
+@keyframes circleAnimation {
+    0% {
+        stroke-width: 1;
+    }
+    50% {
+        stroke-width: 9;
+    }
+    100% {
+        stroke-width: 5;
+    }
 }
