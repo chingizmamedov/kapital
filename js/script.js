@@ -378,7 +378,235 @@ $(function() {
         "filialY": 130,
         "filialName": "Şəki kart mərkəzi"
       }
-    ]
+    ],
+    filterId = 'map',
+    jsonVar = {
+      "departments": [
+        {
+          "id": 1,
+          "name": "Kassa",
+          "queues": [
+            {
+              "id": 1,
+              "name": "Valyuta Mubadilesi",
+              "ticket_count": 0,
+              "served_customer_count": 0,
+              "waiting_customer_count": 6,
+              "noshow_count": 0,
+              "reject_count": 0,
+              "removed_customer_count": 0,
+              "avg_waiting_time": "1:47:03",
+              "avg_serving_time": "0:00:00",
+              "max_waiting_time": "1:55:55",
+              "max_serving_time": "0:00:00",
+              "first_ticket_time": "11:47:03",
+              "last_ticket_time": "12:47:03"
+            },
+            {
+              "id": 2,
+              "name": "bfcgfg",
+              "ticket_count": 0,
+              "served_customer_count": 0,
+              "waiting_customer_count": 6,
+              "noshow_count": 0,
+              "reject_count": 0,
+              "removed_customer_count": 0,
+              "avg_waiting_time": "1:47:03",
+              "avg_serving_time": "0:00:00",
+              "max_waiting_time": "1:55:55",
+              "max_serving_time": "0:00:00",
+              "first_ticket_time": null,
+              "last_ticket_time": null
+            }
+          ],
+          "ticket_count": 0,
+          "served_customer_count": 0,
+          "waiting_customer_count": 6,
+          "noshow_count": 0,
+          "reject_count": 0,
+          "removed_customer_count": 0,
+          "avg_waiting_time": "1:47:04",
+          "avg_serving_time": "0:00:00",
+          "max_waiting_time": "1:55:55",
+          "max_serving_time": "0:00:00",
+          "first_ticket_time": "1:47:03",
+          "last_ticket_time": "1:47:03",
+          "fte": 1,
+          "online_user_count": 0,
+          "vacation_count": 2,
+          "vacations": [
+            {
+              "name": "Agayev Sadix",
+              "hr_code": 424234,
+              "start_time": "2019-12-04",
+              "end_time": "2019-12-13"
+            },
+            {
+              "name": "Babayev Elvin",
+              "hr_code": 424234,
+              "start_time": "2019-12-04",
+              "end_time": "2019-12-13"
+            }
+          ],
+          "displacement_from_count": 1,
+          "displacements_from": [
+            {
+              "name": "Agayev Sadix",
+              "hr_code": 43434,
+              "branch": "test",
+              "start_time": "2019-12-04",
+              "end_time": "2019-12-13"
+            },
+            {
+              "name": "Babayev Elvin",
+              "hr_code": 43434,
+              "branch": "test",
+              "start_time": "2019-12-04",
+              "end_time": "2019-12-13"
+            }
+          ],
+          "displacement_to_count": 1,
+          "displacements_to": [
+            {
+              "name": "Babayev Elvin",
+              "hr_code": 54545,
+              "branch": "test",
+              "start_time": "2019-12-04",
+              "end_time": "2019-12-20"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "name": "hgdgdgd",
+          "queues": [
+            {
+              "id": 1,
+              "name": "Valyuta Mubadilesi",
+              "ticket_count": 0,
+              "served_customer_count": 0,
+              "waiting_customer_count": 6,
+              "noshow_count": 0,
+              "reject_count": 0,
+              "removed_customer_count": 0,
+              "avg_waiting_time": "1:47:03",
+              "avg_serving_time": "0:00:00",
+              "max_waiting_time": "1:55:55",
+              "max_serving_time": "0:00:00",
+              "first_ticket_time": null,
+              "last_ticket_time": "12:47:03"
+            },
+            {
+              "id": 2,
+              "name": "bfcgfg",
+              "ticket_count": 0,
+              "served_customer_count": 0,
+              "waiting_customer_count": 6,
+              "noshow_count": 0,
+              "reject_count": 0,
+              "removed_customer_count": 0,
+              "avg_waiting_time": "1:47:03",
+              "avg_serving_time": "0:00:00",
+              "max_waiting_time": "1:55:55",
+              "max_serving_time": "0:00:00",
+              "first_ticket_time": null,
+              "last_ticket_time": null
+            }
+          ],
+          "ticket_count": 0,
+          "served_customer_count": 0,
+          "waiting_customer_count": 6,
+          "noshow_count": 0,
+          "reject_count": 0,
+          "removed_customer_count": 0,
+          "avg_waiting_time": "1:47:04",
+          "avg_serving_time": "0:00:00",
+          "max_waiting_time": "1:55:55",
+          "max_serving_time": "0:00:00",
+          "first_ticket_time": "1:47:03",
+          "last_ticket_time": null,
+          "fte": 1,
+          "online_user_count": 0,
+          "vacation_count": 2,
+          "vacations": [],
+          "displacement_from_count": 1,
+          "displacements_from": [
+            {
+              "name": "Agayev Sadix",
+              "hr_code": 43434,
+              "branch": "test",
+              "start_time": "2019-12-04",
+              "end_time": "2019-12-13"
+            }
+          ],
+          "displacement_to_count": 1,
+          "displacements_to": []
+        },
+        {
+          "id": 3,
+          "name": "gdgdrgrdg",
+          "queues": [
+            {
+              "id": 1,
+              "name": "Valyuta Mubadilesi",
+              "ticket_count": 0,
+              "served_customer_count": 0,
+              "waiting_customer_count": 6,
+              "noshow_count": 0,
+              "reject_count": 0,
+              "removed_customer_count": 0,
+              "avg_waiting_time": "1:47:03",
+              "avg_serving_time": "0:00:00",
+              "max_waiting_time": "1:55:55",
+              "max_serving_time": "0:00:00",
+              "first_ticket_time": "11:47:03",
+              "last_ticket_time": "12:47:03"
+            }
+          ],
+          "ticket_count": 0,
+          "served_customer_count": 0,
+          "waiting_customer_count": 6,
+          "noshow_count": 0,
+          "reject_count": 0,
+          "removed_customer_count": 0,
+          "avg_waiting_time": "1:47:04",
+          "avg_serving_time": "0:00:00",
+          "max_waiting_time": "1:55:55",
+          "max_serving_time": "0:00:00",
+          "first_ticket_time": "1:47:03",
+          "last_ticket_time": "1:47:03",
+          "fte": 1,
+          "online_user_count": 0,
+          "vacation_count": 2,
+          "vacations": [
+            {
+              "name": "Agayev Sadix",
+              "hr_code": 424234,
+              "start_time": "2019-12-04",
+              "end_time": "2019-12-13"
+            },
+            {
+              "name": "Babayev Elvin",
+              "hr_code": 424234,
+              "start_time": "2019-12-04",
+              "end_time": "2019-12-13"
+            }
+          ],
+          "displacement_from_count": 1,
+          "displacements_from": [],
+          "displacement_to_count": 1,
+          "displacements_to": [
+            {
+              "name": "Babayev Elvin",
+              "hr_code": 54545,
+              "branch": "test",
+              "start_time": "2019-12-04",
+              "end_time": "2019-12-20"
+            }
+          ]
+        }
+      ]
+    }
 //SVG start
  var svg = document.getElementById('sgs'),
      NS = svg.getAttribute('xmlns');
@@ -523,12 +751,30 @@ function svgPoint(element, x, y) {
 
     $("#gotable").click(function() {
       $(".table-wrap").slideToggle('slow')
+      $(this).text() == 'Go table' ? $('.map-wrap').css('overflow', 'hidden') : $('.map-wrap').css('overflow', 'visible')
       $(this).text() == 'Go table' ? $(this).text('Go Map') : $(this).text('Go table');
-      console.log("TCL: $(this).text()", $(this).text())
+      filterId = filterId == 'map' ? 'table' : 'map'
+      console.log("TCL: filterId", filterId)
 
     })
 
 
-    $('#example').DataTable();
+    $('.table-branch-row').mouseover(function() {
+      
+      $(this).parent().find('td').css({
+        background: '#333',
+        color: '#fff'
+      })
+    })
+    $('.table-branch-row').mouseout(function() {
+      $(".table td").css({
+        background: '#e1e1e1',
+        color: '#000'
+      })
+      $(".table tr:nth-child(2n) td").css({
+        background: '#e52e35',
+        color: '#fff'
+      })
+    })
 
 })
