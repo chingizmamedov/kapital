@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="lib/normalize.css">
     <link rel="stylesheet" href="lib/bootstrap-grid.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/handsontable/dist/handsontable.full.min.css">
     <link rel="stylesheet" href="css/main.min.css">
     <title>Document</title>
 </head>
@@ -546,842 +547,280 @@
                             <thead>
                                 <tr>
                                     <td class="table-branch branch">Branches</td>
-                                    <td data-branch="branches" colspan="6">Branches Total</td>
-                                    <td data-branch="services" colspan="8">Service Department</td>
-                                    <td data-branch="sales" colspan="8">Sales Department</td>
-                                    <td data-branch="cash" colspan="8">Cash department</td>
+                                    <td data-first="1" class="accordion-head" data-accordion="branches" data-branch="branches" colspan="6">Branches Total</td>
+                                    <td data-first="1" class="accordion-head" data-accordion="services" data-branch="services" colspan="8">Service Department</td>
+                                    <td data-first="1" class="accordion-head" data-accordion="sales" data-branch="sales" colspan="8">Sales Department</td>
+                                    <td data-first="1" class="accordion-head" data-accordion="cash" data-branch="cash" colspan="8">Cash department</td>
                                 </tr>
                                 <tr>
                                     <td style="position: absolute; visibility: hidden;"></td>
-                                    <td data-branch="branches">Total Visits</td>
-                                    <td data-branch="branches">Served</td>
-                                    <td data-branch="branches">waiting</td>
-                                    <td data-branch="branches">Max free time</td>
-                                    <td data-branch="branches">Free service points</td>
-                                    <td data-branch="branches">Online users count</td>
-                                    <td data-branch="services">Total Visits</td>
-                                    <td data-branch="services">Served</td>
-                                    <td data-branch="services">waiting</td>
-                                    <td data-branch="services">FTE</td>
-                                    <td data-branch="services">Current Employee</td>
-                                    <td data-branch="services">Vocation</td>
-                                    <td data-branch="services">Trip to</td>
-                                    <td data-branch="services">Trip from</td>
-                                    <td data-branch="sales">Total Visits</td>
-                                    <td data-branch="sales">Served</td>
-                                    <td data-branch="sales">waiting</td>
-                                    <td data-branch="sales">FTE</td>
-                                    <td data-branch="sales">Current Employee</td>
-                                    <td data-branch="sales">Vocation</td>
-                                    <td data-branch="sales">Trip to</td>
-                                    <td data-branch="sales">Trip from</td>
-                                    <td data-branch="cash">Total Visits</td>
-                                    <td data-branch="cash">Served</td>
-                                    <td data-branch="cash">waiting</td>
-                                    <td data-branch="cash">FTE</td>
-                                    <td data-branch="cash">Current Employee</td>
-                                    <td data-branch="cash">Vocation</td>
-                                    <td data-branch="cash">Trip to</td>
-                                    <td data-branch="cash">Trip from</td>
+                                    <td  data-first="1" data-accordion="branches" data-branch="branches">Total Visits</td>
+                                    <td data-accordion="branches" data-branch="branches">Served</td>
+                                    <td data-accordion="branches" data-branch="branches">waiting</td>
+                                    <td data-accordion="branches" data-branch="branches">Max free time</td>
+                                    <td data-accordion="branches" data-branch="branches">Free service points</td>
+                                    <td data-accordion="branches" data-branch="branches">Online users count</td>
+                                    <td data-first="1" data-accordion="services" data-branch="services">Total Visits</td>
+                                    <td data-accordion="services" data-branch="services">Served</td>
+                                    <td data-accordion="services" data-branch="services">waiting</td>
+                                    <td data-accordion="services" data-branch="services">FTE</td>
+                                    <td data-accordion="services" data-branch="services">Current Employee</td>
+                                    <td data-accordion="services" data-branch="services">Vocation</td>
+                                    <td data-accordion="services" data-branch="services">Trip to</td>
+                                    <td data-accordion="services" data-branch="services">Trip from</td>
+                                    <td data-first="1" data-accordion="sales" data-branch="sales">Total Visits</td>
+                                    <td data-accordion="sales" data-branch="sales">Served</td>
+                                    <td data-accordion="sales" data-branch="sales">waiting</td>
+                                    <td data-accordion="sales" data-branch="sales">FTE</td>
+                                    <td data-accordion="sales" data-branch="sales">Current Employee</td>
+                                    <td data-accordion="sales" data-branch="sales">Vocation</td>
+                                    <td data-accordion="sales" data-branch="sales">Trip to</td>
+                                    <td data-accordion="sales" data-branch="sales">Trip from</td>
+                                    <td data-first="1" data-accordion="cash" data-branch="cash">Total Visits</td>
+                                    <td data-accordion="cash" data-branch="cash">Served</td>
+                                    <td data-accordion="cash" data-branch="cash">waiting</td>
+                                    <td data-accordion="cash" data-branch="cash">FTE</td>
+                                    <td data-accordion="cash" data-branch="cash">Current Employee</td>
+                                    <td data-accordion="cash" data-branch="cash">Vocation</td>
+                                    <td data-accordion="cash" data-branch="cash">Trip to</td>
+                                    <td data-accordion="cash" data-branch="cash">Trip from</td>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td class="table-branch table-branch-row">Agcebedi</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
+                                    <td data-first="1" data-accordion="branches"><span>5</span></td>
+                                    <td data-accordion="branches"><span>5</span></td>
+                                    <td data-accordion="branches"><span>5</span></td>
+                                    <td data-accordion="branches"><span>5</span></td>
+                                    <td data-accordion="branches"><span>5</span></td>
+                                    <td data-accordion="branches"><span>5</span></td>
+                                    <td data-first="1" data-accordion="services"><span>6</span></td>
+                                    <td data-accordion="services"><span>6</span></td>
+                                    <td data-accordion="services"><span>6</span></td>
+                                    <td data-accordion="services"><span>6</span></td>
+                                    <td data-accordion="services"><span>6</span></td>
+                                    <td data-accordion="services"><span>6</span></td>
+                                    <td data-accordion="services"><span>6</span></td>
+                                    <td data-accordion="services"><span>6</span></td>
+                                    <td data-first="1" data-accordion="sales"><span>5</span></td>
+                                    <td data-accordion="sales"><span>5</span></td>
+                                    <td data-accordion="sales"><span>5</span></td>
+                                    <td data-accordion="sales"><span>5</span></td>
+                                    <td data-accordion="sales"><span>5</span></td>
+                                    <td data-accordion="sales"><span>5</span></td>
+                                    <td data-accordion="sales"><span>5</span></td>
+                                    <td data-accordion="sales"><span>5</span></td>
+                                    <td data-first="1" data-accordion="cash"><span>5</span></td>
+                                    <td data-accordion="cash"><span>5</span></td>
+                                    <td data-accordion="cash"><span>5</span></td>
+                                    <td data-accordion="cash"><span>5</span></td>
+                                    <td data-accordion="cash"><span>5</span></td>
+                                    <td data-accordion="cash"><span>5</span></td>
+                                    <td data-accordion="cash"><span>5</span></td>
+                                    <td data-accordion="cash"><span>5</span></td>
                                 </tr>
                                 <tr>
                                     <td class="table-branch table-branch-row">Agcebedi</td>
-                                    <td data-branch="branches"><span>5</span></td>
-                                    <td data-branch="branches">5</td>
-                                    <td data-branch="branches">5</td>
-                                    <td data-branch="branches">5</td>
-                                    <td data-branch="branches">5</td>
-                                    <td data-branch="branches">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="cash">5</td>
-                                    <td data-branch="cash">5</td>
-                                    <td data-branch="cash">5</td>
-                                    <td data-branch="cash">5</td>
-                                    <td data-branch="cash">5</td>
-                                    <td data-branch="cash">5</td>
-                                    <td data-branch="cash">5</td>
-                                    <td data-branch="cash">5</td>
+                                    <td data-first="1" data-accordion="branches"><span>5</span></td>
+                                    <td data-accordion="branches"><span>5</span></td>
+                                    <td data-accordion="branches"><span>5</span></td>
+                                    <td data-accordion="branches"><span>5</span></td>
+                                    <td data-accordion="branches"><span>5</span></td>
+                                    <td data-accordion="branches"><span>5</span></td>
+                                    <td data-first="1" data-accordion="services"><span>6</span></td>
+                                    <td data-accordion="services"><span>6</span></td>
+                                    <td data-accordion="services"><span>6</span></td>
+                                    <td data-accordion="services"><span>6</span></td>
+                                    <td data-accordion="services"><span>6</span></td>
+                                    <td data-accordion="services"><span>6</span></td>
+                                    <td data-accordion="services"><span>6</span></td>
+                                    <td data-accordion="services"><span>6</span></td>
+                                    <td data-first="1" data-accordion="sales"><span>5</span></td>
+                                    <td data-accordion="sales"><span>5</span></td>
+                                    <td data-accordion="sales"><span>5</span></td>
+                                    <td data-accordion="sales"><span>5</span></td>
+                                    <td data-accordion="sales"><span>5</span></td>
+                                    <td data-accordion="sales"><span>5</span></td>
+                                    <td data-accordion="sales"><span>5</span></td>
+                                    <td data-accordion="sales"><span>5</span></td>
+                                    <td data-first="1" data-accordion="cash"><span>5</span></td>
+                                    <td data-accordion="cash"><span>5</span></td>
+                                    <td data-accordion="cash"><span>5</span></td>
+                                    <td data-accordion="cash"><span>5</span></td>
+                                    <td data-accordion="cash"><span>5</span></td>
+                                    <td data-accordion="cash"><span>5</span></td>
+                                    <td data-accordion="cash"><span>5</span></td>
+                                    <td data-accordion="cash"><span>5</span></td>
                                 </tr>
                                 <tr>
                                     <td class="table-branch table-branch-row">Agcebedi</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
+                                    <td data-first="1" data-accordion="branches"><span>5</span></td>
+                                    <td data-accordion="branches"><span>5</span></td>
+                                    <td data-accordion="branches"><span>5</span></td>
+                                    <td data-accordion="branches"><span>5</span></td>
+                                    <td data-accordion="branches"><span>5</span></td>
+                                    <td data-accordion="branches"><span>5</span></td>
+                                    <td data-first="1" data-accordion="services"><span>6</span></td>
+                                    <td data-accordion="services"><span>6</span></td>
+                                    <td data-accordion="services"><span>6</span></td>
+                                    <td data-accordion="services"><span>6</span></td>
+                                    <td data-accordion="services"><span>6</span></td>
+                                    <td data-accordion="services"><span>6</span></td>
+                                    <td data-accordion="services"><span>6</span></td>
+                                    <td data-accordion="services"><span>6</span></td>
+                                    <td data-first="1" data-accordion="sales"><span>5</span></td>
+                                    <td data-accordion="sales"><span>5</span></td>
+                                    <td data-accordion="sales"><span>5</span></td>
+                                    <td data-accordion="sales"><span>5</span></td>
+                                    <td data-accordion="sales"><span>5</span></td>
+                                    <td data-accordion="sales"><span>5</span></td>
+                                    <td data-accordion="sales"><span>5</span></td>
+                                    <td data-accordion="sales"><span>5</span></td>
+                                    <td data-first="1" data-accordion="cash"><span>5</span></td>
+                                    <td data-accordion="cash"><span>5</span></td>
+                                    <td data-accordion="cash"><span>5</span></td>
+                                    <td data-accordion="cash"><span>5</span></td>
+                                    <td data-accordion="cash"><span>5</span></td>
+                                    <td data-accordion="cash"><span>5</span></td>
+                                    <td data-accordion="cash"><span>5</span></td>
+                                    <td data-accordion="cash"><span>5</span></td>
                                 </tr>
                                 <tr>
                                     <td class="table-branch table-branch-row">Agcebedi</td>
-                                    <td data-branch="branches"><span>5</span></td>
-                                    <td data-branch="branches">5</td>
-                                    <td data-branch="branches">5</td>
-                                    <td data-branch="branches">5</td>
-                                    <td data-branch="branches">5</td>
-                                    <td data-branch="branches">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="cash">5</td>
-                                    <td data-branch="cash">5</td>
-                                    <td data-branch="cash">5</td>
-                                    <td data-branch="cash">5</td>
-                                    <td data-branch="cash">5</td>
-                                    <td data-branch="cash">5</td>
-                                    <td data-branch="cash">5</td>
-                                    <td data-branch="cash">5</td>
+                                    <td data-first="1" data-accordion="branches"><span>5</span></td>
+                                    <td data-accordion="branches"><span>5</span></td>
+                                    <td data-accordion="branches"><span>5</span></td>
+                                    <td data-accordion="branches"><span>5</span></td>
+                                    <td data-accordion="branches"><span>5</span></td>
+                                    <td data-accordion="branches"><span>5</span></td>
+                                    <td data-first="1" data-accordion="services"><span>6</span></td>
+                                    <td data-accordion="services"><span>6</span></td>
+                                    <td data-accordion="services"><span>6</span></td>
+                                    <td data-accordion="services"><span>6</span></td>
+                                    <td data-accordion="services"><span>6</span></td>
+                                    <td data-accordion="services"><span>6</span></td>
+                                    <td data-accordion="services"><span>6</span></td>
+                                    <td data-accordion="services"><span>6</span></td>
+                                    <td data-first="1" data-accordion="sales"><span>5</span></td>
+                                    <td data-accordion="sales"><span>5</span></td>
+                                    <td data-accordion="sales"><span>5</span></td>
+                                    <td data-accordion="sales"><span>5</span></td>
+                                    <td data-accordion="sales"><span>5</span></td>
+                                    <td data-accordion="sales"><span>5</span></td>
+                                    <td data-accordion="sales"><span>5</span></td>
+                                    <td data-accordion="sales"><span>5</span></td>
+                                    <td data-first="1" data-accordion="cash"><span>5</span></td>
+                                    <td data-accordion="cash"><span>5</span></td>
+                                    <td data-accordion="cash"><span>5</span></td>
+                                    <td data-accordion="cash"><span>5</span></td>
+                                    <td data-accordion="cash"><span>5</span></td>
+                                    <td data-accordion="cash"><span>5</span></td>
+                                    <td data-accordion="cash"><span>5</span></td>
+                                    <td data-accordion="cash"><span>5</span></td>
                                 </tr>
                                 <tr>
                                     <td class="table-branch table-branch-row">Agcebedi</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
+                                    <td data-first="1" data-accordion="branches"><span>5</span></td>
+                                    <td data-accordion="branches"><span>5</span></td>
+                                    <td data-accordion="branches"><span>5</span></td>
+                                    <td data-accordion="branches"><span>5</span></td>
+                                    <td data-accordion="branches"><span>5</span></td>
+                                    <td data-accordion="branches"><span>5</span></td>
+                                    <td data-first="1" data-accordion="services"><span>6</span></td>
+                                    <td data-accordion="services"><span>6</span></td>
+                                    <td data-accordion="services"><span>6</span></td>
+                                    <td data-accordion="services"><span>6</span></td>
+                                    <td data-accordion="services"><span>6</span></td>
+                                    <td data-accordion="services"><span>6</span></td>
+                                    <td data-accordion="services"><span>6</span></td>
+                                    <td data-accordion="services"><span>6</span></td>
+                                    <td data-first="1" data-accordion="sales"><span>5</span></td>
+                                    <td data-accordion="sales"><span>5</span></td>
+                                    <td data-accordion="sales"><span>5</span></td>
+                                    <td data-accordion="sales"><span>5</span></td>
+                                    <td data-accordion="sales"><span>5</span></td>
+                                    <td data-accordion="sales"><span>5</span></td>
+                                    <td data-accordion="sales"><span>5</span></td>
+                                    <td data-accordion="sales"><span>5</span></td>
+                                    <td data-first="1" data-accordion="cash"><span>5</span></td>
+                                    <td data-accordion="cash"><span>5</span></td>
+                                    <td data-accordion="cash"><span>5</span></td>
+                                    <td data-accordion="cash"><span>5</span></td>
+                                    <td data-accordion="cash"><span>5</span></td>
+                                    <td data-accordion="cash"><span>5</span></td>
+                                    <td data-accordion="cash"><span>5</span></td>
+                                    <td data-accordion="cash"><span>5</span></td>
                                 </tr>
                                 <tr>
                                     <td class="table-branch table-branch-row">Agcebedi</td>
-                                    <td data-branch="branches"><span>5</span></td>
-                                    <td data-branch="branches">5</td>
-                                    <td data-branch="branches">5</td>
-                                    <td data-branch="branches">5</td>
-                                    <td data-branch="branches">5</td>
-                                    <td data-branch="branches">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="cash">5</td>
-                                    <td data-branch="cash">5</td>
-                                    <td data-branch="cash">5</td>
-                                    <td data-branch="cash">5</td>
-                                    <td data-branch="cash">5</td>
-                                    <td data-branch="cash">5</td>
-                                    <td data-branch="cash">5</td>
-                                    <td data-branch="cash">5</td>
+                                    <td data-first="1" data-accordion="branches"><span>5</span></td>
+                                    <td data-accordion="branches"><span>5</span></td>
+                                    <td data-accordion="branches"><span>5</span></td>
+                                    <td data-accordion="branches"><span>5</span></td>
+                                    <td data-accordion="branches"><span>5</span></td>
+                                    <td data-accordion="branches"><span>5</span></td>
+                                    <td data-first="1" data-accordion="services"><span>6</span></td>
+                                    <td data-accordion="services"><span>6</span></td>
+                                    <td data-accordion="services"><span>6</span></td>
+                                    <td data-accordion="services"><span>6</span></td>
+                                    <td data-accordion="services"><span>6</span></td>
+                                    <td data-accordion="services"><span>6</span></td>
+                                    <td data-accordion="services"><span>6</span></td>
+                                    <td data-accordion="services"><span>6</span></td>
+                                    <td data-first="1" data-accordion="sales"><span>5</span></td>
+                                    <td data-accordion="sales"><span>5</span></td>
+                                    <td data-accordion="sales"><span>5</span></td>
+                                    <td data-accordion="sales"><span>5</span></td>
+                                    <td data-accordion="sales"><span>5</span></td>
+                                    <td data-accordion="sales"><span>5</span></td>
+                                    <td data-accordion="sales"><span>5</span></td>
+                                    <td data-accordion="sales"><span>5</span></td>
+                                    <td data-first="1" data-accordion="cash"><span>5</span></td>
+                                    <td data-accordion="cash"><span>5</span></td>
+                                    <td data-accordion="cash"><span>5</span></td>
+                                    <td data-accordion="cash"><span>5</span></td>
+                                    <td data-accordion="cash"><span>5</span></td>
+                                    <td data-accordion="cash"><span>5</span></td>
+                                    <td data-accordion="cash"><span>5</span></td>
+                                    <td data-accordion="cash"><span>5</span></td>
                                 </tr>
                                 <tr>
                                     <td class="table-branch table-branch-row">Agcebedi</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                </tr>
-                                <tr>
-                                    <td class="table-branch table-branch-row">Agcebedi</td>
-                                    <td data-branch="branches"><span>5</span></td>
-                                    <td data-branch="branches">5</td>
-                                    <td data-branch="branches">5</td>
-                                    <td data-branch="branches">5</td>
-                                    <td data-branch="branches">5</td>
-                                    <td data-branch="branches">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="cash">5</td>
-                                    <td data-branch="cash">5</td>
-                                    <td data-branch="cash">5</td>
-                                    <td data-branch="cash">5</td>
-                                    <td data-branch="cash">5</td>
-                                    <td data-branch="cash">5</td>
-                                    <td data-branch="cash">5</td>
-                                    <td data-branch="cash">5</td>
-                                </tr>
-                                <tr>
-                                    <td class="table-branch table-branch-row">Agcebedi</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                </tr>
-                                <tr>
-                                    <td class="table-branch table-branch-row">Agcebedi</td>
-                                    <td data-branch="branches"><span>5</span></td>
-                                    <td data-branch="branches">5</td>
-                                    <td data-branch="branches">5</td>
-                                    <td data-branch="branches">5</td>
-                                    <td data-branch="branches">5</td>
-                                    <td data-branch="branches">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="cash">5</td>
-                                    <td data-branch="cash">5</td>
-                                    <td data-branch="cash">5</td>
-                                    <td data-branch="cash">5</td>
-                                    <td data-branch="cash">5</td>
-                                    <td data-branch="cash">5</td>
-                                    <td data-branch="cash">5</td>
-                                    <td data-branch="cash">5</td>
-                                </tr>
-                                <tr>
-                                    <td class="table-branch table-branch-row">Agcebedi</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                </tr>
-                                <tr>
-                                    <td class="table-branch table-branch-row">Agcebedi</td>
-                                    <td data-branch="branches"><span>5</span></td>
-                                    <td data-branch="branches">5</td>
-                                    <td data-branch="branches">5</td>
-                                    <td data-branch="branches">5</td>
-                                    <td data-branch="branches">5</td>
-                                    <td data-branch="branches">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="cash">5</td>
-                                    <td data-branch="cash">5</td>
-                                    <td data-branch="cash">5</td>
-                                    <td data-branch="cash">5</td>
-                                    <td data-branch="cash">5</td>
-                                    <td data-branch="cash">5</td>
-                                    <td data-branch="cash">5</td>
-                                    <td data-branch="cash">5</td>
-                                </tr>
-                                <tr>
-                                    <td class="table-branch table-branch-row">Agcebedi</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                </tr>
-                                <tr>
-                                    <td class="table-branch table-branch-row">Agcebedi</td>
-                                    <td data-branch="branches"><span>5</span></td>
-                                    <td data-branch="branches">5</td>
-                                    <td data-branch="branches">5</td>
-                                    <td data-branch="branches">5</td>
-                                    <td data-branch="branches">5</td>
-                                    <td data-branch="branches">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="cash">5</td>
-                                    <td data-branch="cash">5</td>
-                                    <td data-branch="cash">5</td>
-                                    <td data-branch="cash">5</td>
-                                    <td data-branch="cash">5</td>
-                                    <td data-branch="cash">5</td>
-                                    <td data-branch="cash">5</td>
-                                    <td data-branch="cash">5</td>
-                                </tr>
-                                <tr>
-                                    <td class="table-branch table-branch-row">Agcebedi</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                </tr>
-                                <tr>
-                                    <td class="table-branch table-branch-row">Agcebedi</td>
-                                    <td data-branch="branches"><span>5</span></td>
-                                    <td data-branch="branches">5</td>
-                                    <td data-branch="branches">5</td>
-                                    <td data-branch="branches">5</td>
-                                    <td data-branch="branches">5</td>
-                                    <td data-branch="branches">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="cash">5</td>
-                                    <td data-branch="cash">5</td>
-                                    <td data-branch="cash">5</td>
-                                    <td data-branch="cash">5</td>
-                                    <td data-branch="cash">5</td>
-                                    <td data-branch="cash">5</td>
-                                    <td data-branch="cash">5</td>
-                                    <td data-branch="cash">5</td>
-                                </tr>
-                                <tr>
-                                    <td class="table-branch table-branch-row">Agcebedi</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                </tr>
-                                <tr>
-                                    <td class="table-branch table-branch-row">Agcebedi</td>
-                                    <td data-branch="branches"><span>5</span></td>
-                                    <td data-branch="branches">5</td>
-                                    <td data-branch="branches">5</td>
-                                    <td data-branch="branches">5</td>
-                                    <td data-branch="branches">5</td>
-                                    <td data-branch="branches">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="cash">5</td>
-                                    <td data-branch="cash">5</td>
-                                    <td data-branch="cash">5</td>
-                                    <td data-branch="cash">5</td>
-                                    <td data-branch="cash">5</td>
-                                    <td data-branch="cash">5</td>
-                                    <td data-branch="cash">5</td>
-                                    <td data-branch="cash">5</td>
-                                </tr>
-                                <tr>
-                                    <td class="table-branch table-branch-row">Agcebedi</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                </tr>
-                                <tr>
-                                    <td class="table-branch table-branch-row">Agcebedi</td>
-                                    <td data-branch="branches"><span>5</span></td>
-                                    <td data-branch="branches">5</td>
-                                    <td data-branch="branches">5</td>
-                                    <td data-branch="branches">5</td>
-                                    <td data-branch="branches">5</td>
-                                    <td data-branch="branches">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="cash">5</td>
-                                    <td data-branch="cash">5</td>
-                                    <td data-branch="cash">5</td>
-                                    <td data-branch="cash">5</td>
-                                    <td data-branch="cash">5</td>
-                                    <td data-branch="cash">5</td>
-                                    <td data-branch="cash">5</td>
-                                    <td data-branch="cash">5</td>
-                                </tr>
-                                <tr>
-                                    <td class="table-branch table-branch-row">Agcebedi</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                </tr>
-                                <tr>
-                                    <td class="table-branch table-branch-row">Agcebedi</td>
-                                    <td data-branch="branches"><span>5</span></td>
-                                    <td data-branch="branches">5</td>
-                                    <td data-branch="branches">5</td>
-                                    <td data-branch="branches">5</td>
-                                    <td data-branch="branches">5</td>
-                                    <td data-branch="branches">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="cash">5</td>
-                                    <td data-branch="cash">5</td>
-                                    <td data-branch="cash">5</td>
-                                    <td data-branch="cash">5</td>
-                                    <td data-branch="cash">5</td>
-                                    <td data-branch="cash">5</td>
-                                    <td data-branch="cash">5</td>
-                                    <td data-branch="cash">5</td>
-                                </tr>
-                                <tr>
-                                    <td class="table-branch table-branch-row">Agcebedi</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                </tr>
-                                <tr>
-                                    <td class="table-branch table-branch-row">Agcebedi</td>
-                                    <td data-branch="branches"><span>5</span></td>
-                                    <td data-branch="branches">5</td>
-                                    <td data-branch="branches">5</td>
-                                    <td data-branch="branches">5</td>
-                                    <td data-branch="branches">5</td>
-                                    <td data-branch="branches">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="services">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="sales">5</td>
-                                    <td data-branch="cash">5</td>
-                                    <td data-branch="cash">5</td>
-                                    <td data-branch="cash">5</td>
-                                    <td data-branch="cash">5</td>
-                                    <td data-branch="cash">5</td>
-                                    <td data-branch="cash">5</td>
-                                    <td data-branch="cash">5</td>
-                                    <td data-branch="cash">5</td>
-                                </tr>
+                                    <td data-first="1" data-accordion="branches"><span>5</span></td>
+                                    <td data-accordion="branches"><span>5</span></td>
+                                    <td data-accordion="branches"><span>5</span></td>
+                                    <td data-accordion="branches"><span>5</span></td>
+                                    <td data-accordion="branches"><span>5</span></td>
+                                    <td data-accordion="branches"><span>5</span></td>
+                                    <td data-first="1" data-accordion="services"><span>6</span></td>
+                                    <td data-accordion="services"><span>6</span></td>
+                                    <td data-accordion="services"><span>6</span></td>
+                                    <td data-accordion="services"><span>6</span></td>
+                                    <td data-accordion="services"><span>6</span></td>
+                                    <td data-accordion="services"><span>6</span></td>
+                                    <td data-accordion="services"><span>6</span></td>
+                                    <td data-accordion="services"><span>6</span></td>
+                                    <td data-first="1" data-accordion="sales"><span>5</span></td>
+                                    <td data-accordion="sales"><span>5</span></td>
+                                    <td data-accordion="sales"><span>5</span></td>
+                                    <td data-accordion="sales"><span>5</span></td>
+                                    <td data-accordion="sales"><span>5</span></td>
+                                    <td data-accordion="sales"><span>5</span></td>
+                                    <td data-accordion="sales"><span>5</span></td>
+                                    <td data-accordion="sales"><span>5</span></td>
+                                    <td data-first="1" data-accordion="cash"><span>5</span></td>
+                                    <td data-accordion="cash"><span>5</span></td>
+                                    <td data-accordion="cash"><span>5</span></td>
+                                    <td data-accordion="cash"><span>5</span></td>
+                                    <td data-accordion="cash"><span>5</span></td>
+                                    <td data-accordion="cash"><span>5</span></td>
+                                    <td data-accordion="cash"><span>5</span></td>
+                                    <td data-accordion="cash"><span>5</span></td>
+                                </tr>             
                             </tbody>
                         </table>
                     </div>
-
                 </div>
             </div>
             <div class="table-panel d-flex"></div>
@@ -1390,7 +829,9 @@
 
 
     <script src="lib/jquery.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/handsontable/dist/handsontable.full.min.js"></script>
     <script src="js/script.js"></script>
 </body>
 
 </html>
+

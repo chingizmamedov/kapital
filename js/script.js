@@ -750,11 +750,15 @@ function svgPoint(element, x, y) {
      */
 
     $("#gotable").click(function() {
+      
       $(".table-wrap").slideToggle('slow')
       $(this).text() == 'Go table' ? $('.map-wrap').css('overflow', 'hidden') : $('.map-wrap').css('overflow', 'visible')
       $(this).text() == 'Go table' ? $(this).text('Go Map') : $(this).text('Go table');
       filterId = filterId == 'map' ? 'table' : 'map'
-      console.log("TCL: filterId", filterId)
+      // console.log("TCL: filterId", filterId)
+      console.log("TCL: $('.table').css('width')", $('.table').css('width'))
+      var tableWidth = $('.table').css('width')
+      // $('.table').css('width', tableWidth)
 
     })
 
@@ -771,10 +775,42 @@ function svgPoint(element, x, y) {
         background: '#e1e1e1',
         color: '#000'
       })
-      $(".table tr:nth-child(2n) td").css({
+      $(".table tbody tr:nth-child(2n) td").css({
         background: '#e52e35',
         color: '#fff'
       })
+    })
+
+    var tabletabs = 4;
+
+    $(".accordion-head").click(function() {
+
+      if (tabletabs > 1) {
+
+        --tabletabs
+        var dataAcc = $(this).attr('data-accordion')
+        $(".table td[data-accordion=" + dataAcc +"]").hide()
+        var colName = $(".table td[data-accordion=" + dataAcc + "][data-first=1]").eq(0).html()
+        $(".table td[data-accordion=" + dataAcc +"][data-first=1]").eq(0).after('<td rowspan="2" class="fake" data-fake="' + dataAcc + '" style="background:#bf2127 !important; padding: 0; font-size: 12px;"></td>')
+        $(".table td[data-accordion=" + dataAcc +"][data-first=1]").eq(0).siblings('.fake[data-fake=' + dataAcc + ']').html('<div style="transform: rotate(-90deg); transform-origin: center;">' + colName + '</div>')
+        $(".table td[data-accordion=" + dataAcc +"][data-first=1]").slice(2).after('<td class="fake" data-fake="' + dataAcc + '" style="background:#bf2127 !important;"></td>')
+        
+      } else  {
+
+        return false
+        
+      }
+      
+    })
+
+    $('.table').on('click', '.fake', function() {
+
+      ++tabletabs
+      var fakeCase = $(this).attr('data-fake')
+      console.log("TCL: fakeCase", fakeCase)
+      $(".table td[data-accordion=" + fakeCase +"]").show()
+      $('.fake[data-fake="' + fakeCase + '"]').remove()
+
     })
 
 })
