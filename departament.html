@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="lib/normalize.css">
+    <link rel="stylesheet" href="lib/bootstrap-grid.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/handsontable/dist/handsontable.full.min.css">
+    <link rel="stylesheet" href="css/main.min.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <div class="tooltip"></div>
+    <header class="header d-flex align-items-center">
+        <div class="header-content d-flex justify-content-between">
+            <div class="header-left d-flex align-items-center">
+                <div class="logo">
+                    <img src="assets/images/KapitalBank.svg" alt="">
+                </div>
+                <a href="#" class="link-main">
+                    <img src="assets/images/home.png" alt="">
+                </a>
+            </div>
+            <div class="header-right d-flex align-items-center">
+                <!-- <img class="question-img mr-5" src="assets/images/question.svg" alt=""> -->
+                <svg id="svg-map" class="question-img mr-5" width="30" height="30" viewBox="0 0 24 24" fill="red"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <g id="icon/action/help_outline_24px">
+                        <path id="icon" fill-rule="evenodd" clip-rule="evenodd"
+                            d="M2 12C2 6.48 6.47998 2 12 2C17.52 2 22 6.48 22 12C22 17.52 17.52 22 12 22C6.47998 22 2 17.52 2 12ZM13 16V18H11V16H13ZM12 20C7.58997 20 4 16.41 4 12C4 7.59 7.58997 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20ZM8 10C8 7.79 9.79004 6 12 6C14.21 6 16 7.79 16 10C16 11.2829 15.21 11.9733 14.4408 12.6455C13.7111 13.2833 13 13.9046 13 15H11C11 13.1787 11.9421 12.4566 12.7704 11.8217C13.4203 11.3236 14 10.8792 14 10C14 8.9 13.1 8 12 8C10.9 8 10 8.9 10 10H8Z"
+                            fill="black" fill-opacity="1" />
+                    </g>
+                </svg>
+                <p class="question-text mr-3">Super Administrator</p>
+            </div>
+        </div>
+    </header>
+    <div class="tabs d-flex justify-content-start">
+        <div class="tab">
+            <div data-map="1" class="map-btn tab-btn tab-btn__active">Departament</div>
+        </div>
+        <div class="tab">
+            <div data-map="2" class="map-btn tab-btn">Counters</div>
+        </div>
+        <input id="search" type="search" name="" placeholder="Search here">
+    </div>
+    <div class="tables-wrap">
+        <div class="table-scroller">
+            <div class="table-scrolled">
+                <div class="table-item d-flex flex-column">
+                    <!-- <div class="table-trigger">Service Department</div> -->
+                    <table class="dep-table">
+                        <thead>
+                            <tr>
+                                <td>Departament</td>
+                                <td id="queues">Queues</td>
+                                <td>Total vizits</td>
+                                <td>Served customers</td>
+                                <td>Waiting customers</td>
+                                <td>Average waiting time </td>
+                                <td>Average serving time </td>
+                                <td>Max waiting time </td>
+                                <td>Max serving time </td>
+                                <td>First ticket time </td>
+                                <td>Last ticket time </td>
+                                <td>FTE </td>
+                                <td>Online users </td>
+                                <td>Vocation </td>
+                                <td>Trip to </td>
+                                <td>Trip from </td>
+                                <td>No show </td>
+                                <td>Remove </td>
+                                <td>Reject </td>
+                            </tr>
+                            <tr>
+                                <td>Service Department</td>
+                                <td data-departament="services" class="open">&#62;</td>
+                                <td>23</td>
+                                <td>12</td>
+                                <td>11</td>
+                                <td>0:15:16</td>
+                                <td>0:15:16</td>
+                                <td>0:15:16</td>
+                                <td>0:15:16</td>
+                                <td>0:15:16</td>
+                                <td>0:15:16</td>
+                                <td>5</td>
+                                <td>3</td>
+                                <td>2</td>
+                                <td>3</td>
+                                <td>3</td>
+                                <td>23</td>
+                                <td>40</td>
+                                <td>0</td>
+                            </tr>
+                        </thead>
+                        <tbody style="display: none;" id="services">
+
+                            <tr>
+                                <td></td>
+                                <td>Sosial kartın verilməsi</td>
+                                <td>10</td>
+                                <td>9</td>
+                                <td>2</td>
+                                <td>11</td>
+                                <td>0:15:16</td>
+                                <td>0:15:16</td>
+                                <td>0:15:16</td>
+                                <td>0:15:16</td>
+                                <td>0:15:16</td>
+                                <td>0:15:16</td>
+                                <td>5</td>
+                                <td>3</td>
+                                <td>3</td>
+                                <td>3</td>
+                                <td>23</td>
+                                <td>40</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>Sosial kartın verilməsi</td>
+                                <td>10</td>
+                                <td>9</td>
+                                <td>2</td>
+                                <td>11</td>
+                                <td>0:15:16</td>
+                                <td>0:15:16</td>
+                                <td>0:15:16</td>
+                                <td>0:15:16</td>
+                                <td>0:15:16</td>
+                                <td>0:15:16</td>
+                                <td>5</td>
+                                <td>3</td>
+                                <td>3</td>
+                                <td>3</td>
+                                <td>23</td>
+                                <td>40</td>
+                                <td>0</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="dep-table">
+                        <thead>
+                            <tr>
+                                <td>Departament</td>
+                                <td id="queues">Queues</td>
+                                <td>Total vizits</td>
+                                <td>Served customers</td>
+                                <td>Waiting customers</td>
+                                <td>Average waiting time </td>
+                                <td>Average serving time </td>
+                                <td>Max waiting time </td>
+                                <td>Max serving time </td>
+                                <td>First ticket time </td>
+                                <td>Last ticket time </td>
+                                <td>FTE </td>
+                                <td>Online users </td>
+                                <td>Vocation </td>
+                                <td>Trip to </td>
+                                <td>Trip from </td>
+                                <td>No show </td>
+                                <td>Remove </td>
+                                <td>Reject </td>
+                            </tr>
+                            <tr>
+                                <td>Service Department</td>
+                                <td data-departament="sales" class="open">&#62;</td>
+                                <td>23</td>
+                                <td>12</td>
+                                <td>11</td>
+                                <td>0:15:16</td>
+                                <td>0:15:16</td>
+                                <td>0:15:16</td>
+                                <td>0:15:16</td>
+                                <td>0:15:16</td>
+                                <td>0:15:16</td>
+                                <td>5</td>
+                                <td>3</td>
+                                <td>2</td>
+                                <td>3</td>
+                                <td>3</td>
+                                <td>23</td>
+                                <td>40</td>
+                                <td>0</td>
+                            </tr>
+                        </thead>
+                        <tbody style="display: none;" id="sales">
+
+                            <tr>
+                                <td></td>
+                                <td>Sosial kartın verilməsi</td>
+                                <td>10</td>
+                                <td>9</td>
+                                <td>2</td>
+                                <td>11</td>
+                                <td>0:15:16</td>
+                                <td>0:15:16</td>
+                                <td>0:15:16</td>
+                                <td>0:15:16</td>
+                                <td>0:15:16</td>
+                                <td>0:15:16</td>
+                                <td>5</td>
+                                <td>3</td>
+                                <td>3</td>
+                                <td>3</td>
+                                <td>23</td>
+                                <td>40</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>Sosial kartın verilməsi</td>
+                                <td>10</td>
+                                <td>9</td>
+                                <td>2</td>
+                                <td>11</td>
+                                <td>0:15:16</td>
+                                <td>0:15:16</td>
+                                <td>0:15:16</td>
+                                <td>0:15:16</td>
+                                <td>0:15:16</td>
+                                <td>0:15:16</td>
+                                <td>5</td>
+                                <td>3</td>
+                                <td>3</td>
+                                <td>3</td>
+                                <td>23</td>
+                                <td>40</td>
+                                <td>0</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="dep-table">
+                        <thead>
+                            <tr>
+                                <td>Departament</td>
+                                <td id="queues">Queues</td>
+                                <td>Total vizits</td>
+                                <td>Served customers</td>
+                                <td>Waiting customers</td>
+                                <td>Average waiting time </td>
+                                <td>Average serving time </td>
+                                <td>Max waiting time </td>
+                                <td>Max serving time </td>
+                                <td>First ticket time </td>
+                                <td>Last ticket time </td>
+                                <td>FTE </td>
+                                <td>Online users </td>
+                                <td>Vocation </td>
+                                <td>Trip to </td>
+                                <td>Trip from </td>
+                                <td>No show </td>
+                                <td>Remove </td>
+                                <td>Reject </td>
+                            </tr>
+                            <tr>
+                                <td>Service Department</td>
+                                <td data-departament="cash" class="open">&#62;</td>
+                                <td>23</td>
+                                <td>12</td>
+                                <td>11</td>
+                                <td>0:15:16</td>
+                                <td>0:15:16</td>
+                                <td>0:15:16</td>
+                                <td>0:15:16</td>
+                                <td>0:15:16</td>
+                                <td>0:15:16</td>
+                                <td>5</td>
+                                <td>3</td>
+                                <td>2</td>
+                                <td>3</td>
+                                <td>3</td>
+                                <td>23</td>
+                                <td>40</td>
+                                <td>0</td>
+                            </tr>
+                        </thead>
+                        <tbody style="display: none;" id="cash">
+
+                            <tr>
+                                <td></td>
+                                <td>Sosial kartın verilməsi</td>
+                                <td>10</td>
+                                <td>9</td>
+                                <td>2</td>
+                                <td>11</td>
+                                <td>0:15:16</td>
+                                <td>0:15:16</td>
+                                <td>0:15:16</td>
+                                <td>0:15:16</td>
+                                <td>0:15:16</td>
+                                <td>0:15:16</td>
+                                <td>5</td>
+                                <td>3</td>
+                                <td>3</td>
+                                <td>3</td>
+                                <td>23</td>
+                                <td>40</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>Sosial kartın verilməsi</td>
+                                <td>10</td>
+                                <td>9</td>
+                                <td>2</td>
+                                <td>11</td>
+                                <td>0:15:16</td>
+                                <td>0:15:16</td>
+                                <td>0:15:16</td>
+                                <td>0:15:16</td>
+                                <td>0:15:16</td>
+                                <td>0:15:16</td>
+                                <td>5</td>
+                                <td>3</td>
+                                <td>3</td>
+                                <td>3</td>
+                                <td>23</td>
+                                <td>40</td>
+                                <td>0</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="lib/jquery.js"></script>
+    <script src="https://unpkg.com/popper.js@1"></script>
+    <script src="https://unpkg.com/tippy.js@5"></script>
+    <script src="js/departament.js"></script>
+</body>
+
+</html>

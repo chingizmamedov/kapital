@@ -665,6 +665,7 @@ function svgPoint(element, x, y) {
     svgP = svgPoint(svg, allFilials[i].filialX, allFilials[i].filialY),
     circle = document.createElementNS(NS, 'circle')
     circle.setAttribute('data-filial', allFilials[i].filialName)
+    circle.setAttribute('data-filialId', i)
     circle.setAttributeNS(null, 'cx', allFilials[i].filialX);
     circle.setAttributeNS(null, 'cy', allFilials[i].filialY);
     circle.setAttributeNS(null, 'r', 2);
@@ -741,6 +742,11 @@ function svgPoint(element, x, y) {
       $description.removeClass('tooltip-shown');
       $description.html($(this).attr('data-filial'));
   
+    })
+    $('#sgs').on('click', '.circle', function() {
+      
+      window.open('/departament.html?filial=' + $(this).attr('data-filialId'))
+  
     }) 
 
 
@@ -766,7 +772,9 @@ function svgPoint(element, x, y) {
     $('.table-branch-row').mouseover(function() {
       
       $(this).parent().find('td').css({
-        background: '#333',
+        background: '#333'
+      })
+      $(this).parent().find('td a, td').css({
         color: '#fff'
       })
     })
@@ -775,25 +783,33 @@ function svgPoint(element, x, y) {
         background: '#e1e1e1',
         color: '#000'
       })
+      $(".table td a").css({
+        color: '#000'
+      })
+      
       $(".table tbody tr:nth-child(2n) td").css({
         background: '#e52e35',
         color: '#fff'
       })
+
+      $(".table tbody tr:nth-child(2n) td a").css({
+        color: '#fff'
+      })
     })
 
-    var tabletabs = 4;
+    var tabletabsCount = 4;
 
     $(".accordion-head").click(function() {
 
-      if (tabletabs > 1) {
+      if (tabletabsCount > 1) {
 
-        --tabletabs
+        --tabletabsCount
         var dataAcc = $(this).attr('data-accordion')
         $(".table td[data-accordion=" + dataAcc +"]").hide()
         var colName = $(".table td[data-accordion=" + dataAcc + "][data-first=1]").eq(0).html()
         $(".table td[data-accordion=" + dataAcc +"][data-first=1]").eq(0).after('<td rowspan="2" class="fake" data-fake="' + dataAcc + '" style="background:#bf2127 !important; padding: 0; font-size: 12px;"></td>')
         $(".table td[data-accordion=" + dataAcc +"][data-first=1]").eq(0).siblings('.fake[data-fake=' + dataAcc + ']').html('<div style="transform: rotate(-90deg); transform-origin: center;">' + colName + '</div>')
-        $(".table td[data-accordion=" + dataAcc +"][data-first=1]").slice(2).after('<td class="fake" data-fake="' + dataAcc + '" style="background:#bf2127 !important;"></td>')
+        $(".table td[data-accordion=" + dataAcc +"][data-first=1]").slice(2).after('<td class="fake" data-fake="' + dataAcc + '" style=""></td>')
         
       } else  {
 
@@ -805,12 +821,36 @@ function svgPoint(element, x, y) {
 
     $('.table').on('click', '.fake', function() {
 
-      ++tabletabs
+      ++tabletabsCount
       var fakeCase = $(this).attr('data-fake')
       console.log("TCL: fakeCase", fakeCase)
       $(".table td[data-accordion=" + fakeCase +"]").show()
       $('.fake[data-fake="' + fakeCase + '"]').remove()
 
     })
+
+    // Tooltips
+
+    tippy('.mft', {
+      content: "Max free time"
+    });
+
+    tippy('.fte', {
+      content: "Free service points"
+    });
+
+    tippy('.fsp', {
+      content: "Free service points"
+    });
+
+    var heatmap_url = 'http://192.168.1.194:8000/heatmap';
+    
+    $.ajax({
+      url:  heatmap_url + '/get_branches_data/',
+      type: 'GET',
+      success: function(data) {
+          console.log('data', data)
+      }
+    });
 
 })
