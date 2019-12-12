@@ -17,7 +17,17 @@
     color: #fff;
     opacity: 0;
     border-radius: 4px;
-    transition: .4s all;
+    transition: .3s all;
+    &-time {
+        padding: 2px 5px;
+        background: red;
+        border-radius: 5px;
+        transition: 0;
+    }
+    &-percent {
+        transition: 0;
+    }
+
 }
 
 .tooltip-shown {

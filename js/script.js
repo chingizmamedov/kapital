@@ -6,607 +6,456 @@ $(function() {
       {
         "filialX": 227,
         "filialY": 31,
-        "filialName": "Balakən filialı"
+        "filialName": "Balakən filialı",
+        "id": "7"
       },
       {
         "filialX": 260,
         "filialY": 58,
-        "filialName": "Zaqatala filialı"
+        "filialName": "Zaqatala filialı",
+        "id": "61"
       },
       {
         "filialX": 295,
         "filialY": 87,
-        "filialName": "Qax filialı"
+        "filialName": "Qax filialı",
+        "id": "34"
       },
       {
         "filialX": 321,
         "filialY": 124,
-        "filialName": "Şəki filialı"
+        "filialName": "Şəki filialı",
+        "id": "46"
       },
       {
         "filialX": 362,
         "filialY": 148,
-        "filialName": "Oğuz filialı"
+        "filialName": "Oğuz filialı",
+        "id": "31"
       },
       {
         "filialX": 411,
         "filialY": 160,
-        "filialName": "Qəbələ filialı"
+        "filialName": "Qəbələ filialı",
+        "id": "67"
       },
       {
         "filialX": 459,
         "filialY": 191,
-        "filialName": "İsmayıllı filialı"
+        "filialName": "İsmayıllı filialı",
+        "id": "23"
       },
       {
         "filialX": 478,
         "filialY": 79,
-        "filialName": "Qusar filialı"
+        "filialName": "Qusar filialı",
+        "id": "37"
       },
       {
         "filialX": 542,
         "filialY": 77,
-        "filialName": "Xaçmaz filialı"
+        "filialName": "Xaçmaz filialı",
+        "id": "55"
       },
       {
         "filialX": 508,
         "filialY": 108,
-        "filialName": "Şimal filialı"
+        "filialName": "Şimal filialı",
+        "id": "98"
       },
       {
         "filialX": 494,
         "filialY": 114,
-        "filialName": "Quba filialı"
+        "filialName": "Quba filialı",
+        "id": "36"
       },
       {
         "filialX": 560,
         "filialY": 116,
-        "filialName": "Şabran filialı"
+        "filialName": "Şabran filialı",
+        "id": "44"
       },
       {
         "filialX": 581,
         "filialY": 149,
-        "filialName": "Siyəzən filialı"
+        "filialName": "Siyəzən filialı",
+        "id": "50"
       },
       {
         "filialX": 600,
         "filialY": 202,
-        "filialName": "Xızı filialı"
+        "filialName": "Xızı filialı",
+        "id": "58"
       },
       {
         "filialX": 644,
         "filialY": 228,
-        "filialName": "Qubadlı filialı"
+        "filialName": "Qubadlı filialı",
+        "id": "71"
       },
       {
         "filialX": 656,
         "filialY": 230,
-        "filialName": "Sumqayıt filialı"
+        "filialName": "Sumqayıt filialı",
+        "id": "51"
       },
       {
         "filialX": 654,
         "filialY": 234,
-        "filialName": "Sumqayıt kart mərkəzi"
+        "filialName": "Sumqayıt kart mərkəzi",
+        "id": "52"
       },
       {
         "filialX": 519,
         "filialY": 200,
-        "filialName": "Şamaxı filialı"
+        "filialName": "Şamaxı filialı",
+        "id": "45"
       },
       {
         "filialX": 485,
         "filialY": 227,
-        "filialName": "Ağsu filialı"
+        "filialName": "Ağsu filialı",
+        "id": "86"
       },
       {
         "filialX": 410,
         "filialY": 232,
-        "filialName": "Göyçay filialı"
+        "filialName": "Göyçay filialı",
+        "id": "73"
       },
       {
         "filialX": 406,
         "filialY": 262,
-        "filialName": "Ucar filialı"
+        "filialName": "Ucar filialı",
+        "id": "82"
       },
       {
         "filialX": 360,
         "filialY": 230,
-        "filialName": "Ağdaş filialı"
+        "filialName": "Ağdaş filialı",
+        "id": "84"
       },
       {
         "filialX": 413,
         "filialY": 302,
-        "filialName": "Zərdab filialı"
+        "filialName": "Zərdab filialı",
+        "id": "78"
       },
       {
         "filialX": 456,
         "filialY": 282,
-        "filialName": "Kürdəmir filialı"
+        "filialName": "Kürdəmir filialı",
+        "id": "85"
       },
       {
         "filialX": 75,
         "filialY": 126,
-        "filialName": "Qazax filialı"
+        "filialName": "Qazax filialı",
+        "id": "35"
       },
       {
         "filialX": 98,
         "filialY": 111,
-        "filialName": "Aqstafa filialı"
+        "filialName": "Aqstafa filialı",
+        "id": "5"
       },
       {
         "filialX": 126,
         "filialY": 154,
-        "filialName": "Tovuz filialı"
+        "filialName": "Tovuz filialı",
+        "id": "54"
       },
       {
         "filialX": 183,
         "filialY": 183,
-        "filialName": "Şəmkir filialı"
+        "filialName": "Şəmkir filialı",
+        "id": "75"
       },
       {
         "filialX": 225,
         "filialY": 177,
-        "filialName": "Samux filialı"
+        "filialName": "Samux filialı",
+        "id": "42"
       },
       {
         "filialX": 212,
         "filialY": 211,
-        "filialName": "Gəncə filialı"
+        "filialName": "Gəncə filialı",
+        "id": "15"
       },
       {
         "filialX": 212,
         "filialY": 221,
-        "filialName": "Kəpəz filialı"
+        "filialName": "Kəpəz filialı",
+        "id": "24"
       },
       {
         "filialX": 206,
         "filialY": 215,
-        "filialName": "Gəncə kart mərkəzi"
+        "filialName": "Gəncə kart mərkəzi",
+        "id": "102"
       },
       {
         "filialX": 211,
         "filialY": 238,
-        "filialName": "Göygöl filialı"
+        "filialName": "Göygöl filialı",
+        "id": "19"
       },
       {
         "filialX": 131,
         "filialY": 245,
-        "filialName": "Gədəbəy filialı"
+        "filialName": "Gədəbəy filialı",
+        "id": "80"
       },
       {
         "filialX": 170,
         "filialY": 247,
-        "filialName": "Daşkəsən filialı"
+        "filialName": "Daşkəsən filialı",
+        "id": "68"
       },
       {
         "filialX": 252,
         "filialY": 215,
-        "filialName": "Goranboy filialı"
+        "filialName": "Goranboy filialı",
+        "id": "18"
       },
       {
         "filialX": 305,
         "filialY": 205,
-        "filialName": "Mingəçevir filialı"
+        "filialName": "Mingəçevir filialı",
+        "id": "77"
       },
       {
         "filialX": 320,
         "filialY": 229,
-        "filialName": "Yevlax filialı"
+        "filialName": "Yevlax filialı",
+        "id": "69"
       },
       {
         "filialX": 548,
         "filialY": 600,
-        "filialName": "Astara filialı"
+        "filialName": "Astara filialı",
+        "id": "6"
       },
       {
         "filialX": 550,
         "filialY": 550,
-        "filialName": "Lənkəran filialı"
+        "filialName": "Lənkəran filialı",
+        "id": "62"
       },
       {
         "filialX": 465,
         "filialY": 518,
-        "filialName": "Yardımlı filialı"
+        "filialName": "Yardımlı filialı",
+        "id": "59"
       },
       {
         "filialX": 489,
         "filialY": 550,
-        "filialName": "Lerik filialı"
+        "filialName": "Lerik filialı",
+        "id": "25"
       },
       {
         "filialX": 528,
         "filialY": 505,
-        "filialName": "Masallı filialı"
+        "filialName": "Masallı filialı",
+        "id": "26"
       },
       {
         "filialX": 536,
         "filialY": 505,
-        "filialName": "Cənub filialı"
+        "filialName": "Cənub filialı",
+        "id": "114"
       },
       {
         "filialX": 496,
         "filialY": 473,
-        "filialName": "Cəlilabad filialı"
+        "filialName": "Cəlilabad filialı",
+        "id": "14"
       },
       {
         "filialX": 600,
         "filialY": 444,
-        "filialName": "Neftçala filialı"
+        "filialName": "Neftçala filialı",
+        "id": "64"
       },
       {
         "filialX": 495,
         "filialY": 425,
-        "filialName": "Biləsuvar filialı"
+        "filialName": "Biləsuvar filialı",
+        "id": "9"
       },
       {
         "filialX": 502,
         "filialY": 427,
-        "filialName": "Cəbrayıl filialı"
+        "filialName": "Cəbrayıl filialı",
+        "id": "11"
       },
       {
         "filialX": 576,
         "filialY": 389,
-        "filialName": "Salyan filialı"
+        "filialName": "Salyan filialı",
+        "id": "41"
       },
       {
         "filialX": 442,
         "filialY": 361,
-        "filialName": "İmişli filialı"
+        "filialName": "İmişli filialı",
+        "id": "22"
       },
       {
         "filialX": 490,
         "filialY": 355,
-        "filialName": "Saatlı filialı"
+        "filialName": "Saatlı filialı",
+        "id": "38"
       },
       {
         "filialX": 515,
         "filialY": 333,
-        "filialName": "Sabirabad filialı"
+        "filialName": "Sabirabad filialı",
+        "id": "39"
       },
       {
         "filialX": 567,
         "filialY": 315,
-        "filialName": "Hacıqabul filialı"
+        "filialName": "Hacıqabul filialı",
+        "id": "20"
       },
       {
         "filialX": 558,
         "filialY": 342,
-        "filialName": "Şirvan filialı"
+        "filialName": "Şirvan filialı",
+        "id": "48"
       },
       {
         "filialX": 560,
         "filialY": 229,
-        "filialName": "Qobustan filialı"
+        "filialName": "Qobustan filialı",
+        "id": "97"
       },
       {
         "filialX": 391,
         "filialY": 377,
-        "filialName": "Beyləqan filialı"
+        "filialName": "Beyləqan filialı",
+        "id": "83"
       },
       {
         "filialX": 272,
         "filialY": 254,
-        "filialName": "Naftalan filialı"
+        "filialName": "Naftalan filialı",
+        "id": "63"
       },
       {
         "filialX": 296,
         "filialY": 278,
-        "filialName": "Tərtər filialı"
+        "filialName": "Tərtər filialı",
+        "id": "89"
       },
       {
         "filialX": 364,
         "filialY": 407,
-        "filialName": "Füzuli filialı"
+        "filialName": "Füzuli filialı",
+        "id": "81"
       },
       {
         "filialX": 349,
         "filialY": 333,
-        "filialName": "Ağcəbədi filialı"
+        "filialName": "Ağcəbədi filialı",
+        "id": "88"
       },
       {
         "filialX": 309,
         "filialY": 318,
-        "filialName": "Ağdam filialı"
+        "filialName": "Ağdam filialı",
+        "id": "3"
       },
       {
         "filialX": 328,
         "filialY": 277,
-        "filialName": "Bərdə filialı"
+        "filialName": "Bərdə filialı",
+        "id": "8"
       },
       {
         "filialX": 167,
         "filialY": 519,
-        "filialName": "Ordubad filialı"
+        "filialName": "Ordubad filialı",
+        "id": "115"
       },
       {
         "filialX": 120,
         "filialY": 503,
-        "filialName": "Culfa filialı"
+        "filialName": "Culfa filialı",
+        "id": "108"
       },
       {
         "filialX": 87,
         "filialY": 466,
-        "filialName": "Naxçıvan filialı"
+        "filialName": "Naxçıvan filialı",
+        "id": "113"
       },
       {
         "filialX": 92,
         "filialY": 478,
-        "filialName": "Babək filialı"
+        "filialName": "Babək filialı",
+        "id": "107"
       },
       {
         "filialX": 112,
         "filialY": 431,
-        "filialName": "Şahbuz filialı"
+        "filialName": "Şahbuz filialı",
+        "id": "112"
       },
       {
         "filialX": 13,
         "filialY": 384,
-        "filialName": "Sədərək filialı"
+        "filialName": "Sədərək filialı",
+        "id": "111"
       },
       {
         "filialX": 32,
         "filialY": 415,
-        "filialName": "Şərur filialı"
+        "filialName": "Şərur filialı",
+        "id": "109"
       },
       {
         "filialX": 56,
         "filialY": 442,
-        "filialName": "Kəngərli filialı"
+        "filialName": "Kəngərli filialı",
+        "id": "110"
       },
       {
         "filialX": 336,
         "filialY": 278,
-        "filialName": "Bərdə kart mərkəzi"
+        "filialName": "Bərdə kart mərkəzi",
+        "id": "12"
       },
       {
         "filialX": 360,
         "filialY": 327,
-        "filialName": "Laçın filialı"
+        "filialName": "Laçın filialı",
+        "id": "70"
       },
       {
         "filialX": 532,
         "filialY": 512,
-        "filialName": "Masallı kart mərkəzi"
+        "filialName": "Masallı kart mərkəzi",
+        "id": "27"
       },
       {
         "filialX": 582,
         "filialY": 390,
-        "filialName": "Salyan kart mərkəzi"
+        "filialName": "Salyan kart mərkəzi",
+        "id": "41"
       },
       {
         "filialX": 326,
         "filialY": 130,
-        "filialName": "Şəki kart mərkəzi"
+        "filialName": "Şəki kart mərkəzi",
+        "id": "46"
       }
     ],
     filterId = 'map',
-    jsonVar = {
-      "departments": [
-        {
-          "id": 1,
-          "name": "Kassa",
-          "queues": [
-            {
-              "id": 1,
-              "name": "Valyuta Mubadilesi",
-              "ticket_count": 0,
-              "served_customer_count": 0,
-              "waiting_customer_count": 6,
-              "noshow_count": 0,
-              "reject_count": 0,
-              "removed_customer_count": 0,
-              "avg_waiting_time": "1:47:03",
-              "avg_serving_time": "0:00:00",
-              "max_waiting_time": "1:55:55",
-              "max_serving_time": "0:00:00",
-              "first_ticket_time": "11:47:03",
-              "last_ticket_time": "12:47:03"
-            },
-            {
-              "id": 2,
-              "name": "bfcgfg",
-              "ticket_count": 0,
-              "served_customer_count": 0,
-              "waiting_customer_count": 6,
-              "noshow_count": 0,
-              "reject_count": 0,
-              "removed_customer_count": 0,
-              "avg_waiting_time": "1:47:03",
-              "avg_serving_time": "0:00:00",
-              "max_waiting_time": "1:55:55",
-              "max_serving_time": "0:00:00",
-              "first_ticket_time": null,
-              "last_ticket_time": null
-            }
-          ],
-          "ticket_count": 0,
-          "served_customer_count": 0,
-          "waiting_customer_count": 6,
-          "noshow_count": 0,
-          "reject_count": 0,
-          "removed_customer_count": 0,
-          "avg_waiting_time": "1:47:04",
-          "avg_serving_time": "0:00:00",
-          "max_waiting_time": "1:55:55",
-          "max_serving_time": "0:00:00",
-          "first_ticket_time": "1:47:03",
-          "last_ticket_time": "1:47:03",
-          "fte": 1,
-          "online_user_count": 0,
-          "vacation_count": 2,
-          "vacations": [
-            {
-              "name": "Agayev Sadix",
-              "hr_code": 424234,
-              "start_time": "2019-12-04",
-              "end_time": "2019-12-13"
-            },
-            {
-              "name": "Babayev Elvin",
-              "hr_code": 424234,
-              "start_time": "2019-12-04",
-              "end_time": "2019-12-13"
-            }
-          ],
-          "displacement_from_count": 1,
-          "displacements_from": [
-            {
-              "name": "Agayev Sadix",
-              "hr_code": 43434,
-              "branch": "test",
-              "start_time": "2019-12-04",
-              "end_time": "2019-12-13"
-            },
-            {
-              "name": "Babayev Elvin",
-              "hr_code": 43434,
-              "branch": "test",
-              "start_time": "2019-12-04",
-              "end_time": "2019-12-13"
-            }
-          ],
-          "displacement_to_count": 1,
-          "displacements_to": [
-            {
-              "name": "Babayev Elvin",
-              "hr_code": 54545,
-              "branch": "test",
-              "start_time": "2019-12-04",
-              "end_time": "2019-12-20"
-            }
-          ]
-        },
-        {
-          "id": 2,
-          "name": "hgdgdgd",
-          "queues": [
-            {
-              "id": 1,
-              "name": "Valyuta Mubadilesi",
-              "ticket_count": 0,
-              "served_customer_count": 0,
-              "waiting_customer_count": 6,
-              "noshow_count": 0,
-              "reject_count": 0,
-              "removed_customer_count": 0,
-              "avg_waiting_time": "1:47:03",
-              "avg_serving_time": "0:00:00",
-              "max_waiting_time": "1:55:55",
-              "max_serving_time": "0:00:00",
-              "first_ticket_time": null,
-              "last_ticket_time": "12:47:03"
-            },
-            {
-              "id": 2,
-              "name": "bfcgfg",
-              "ticket_count": 0,
-              "served_customer_count": 0,
-              "waiting_customer_count": 6,
-              "noshow_count": 0,
-              "reject_count": 0,
-              "removed_customer_count": 0,
-              "avg_waiting_time": "1:47:03",
-              "avg_serving_time": "0:00:00",
-              "max_waiting_time": "1:55:55",
-              "max_serving_time": "0:00:00",
-              "first_ticket_time": null,
-              "last_ticket_time": null
-            }
-          ],
-          "ticket_count": 0,
-          "served_customer_count": 0,
-          "waiting_customer_count": 6,
-          "noshow_count": 0,
-          "reject_count": 0,
-          "removed_customer_count": 0,
-          "avg_waiting_time": "1:47:04",
-          "avg_serving_time": "0:00:00",
-          "max_waiting_time": "1:55:55",
-          "max_serving_time": "0:00:00",
-          "first_ticket_time": "1:47:03",
-          "last_ticket_time": null,
-          "fte": 1,
-          "online_user_count": 0,
-          "vacation_count": 2,
-          "vacations": [],
-          "displacement_from_count": 1,
-          "displacements_from": [
-            {
-              "name": "Agayev Sadix",
-              "hr_code": 43434,
-              "branch": "test",
-              "start_time": "2019-12-04",
-              "end_time": "2019-12-13"
-            }
-          ],
-          "displacement_to_count": 1,
-          "displacements_to": []
-        },
-        {
-          "id": 3,
-          "name": "gdgdrgrdg",
-          "queues": [
-            {
-              "id": 1,
-              "name": "Valyuta Mubadilesi",
-              "ticket_count": 0,
-              "served_customer_count": 0,
-              "waiting_customer_count": 6,
-              "noshow_count": 0,
-              "reject_count": 0,
-              "removed_customer_count": 0,
-              "avg_waiting_time": "1:47:03",
-              "avg_serving_time": "0:00:00",
-              "max_waiting_time": "1:55:55",
-              "max_serving_time": "0:00:00",
-              "first_ticket_time": "11:47:03",
-              "last_ticket_time": "12:47:03"
-            }
-          ],
-          "ticket_count": 0,
-          "served_customer_count": 0,
-          "waiting_customer_count": 6,
-          "noshow_count": 0,
-          "reject_count": 0,
-          "removed_customer_count": 0,
-          "avg_waiting_time": "1:47:04",
-          "avg_serving_time": "0:00:00",
-          "max_waiting_time": "1:55:55",
-          "max_serving_time": "0:00:00",
-          "first_ticket_time": "1:47:03",
-          "last_ticket_time": "1:47:03",
-          "fte": 1,
-          "online_user_count": 0,
-          "vacation_count": 2,
-          "vacations": [
-            {
-              "name": "Agayev Sadix",
-              "hr_code": 424234,
-              "start_time": "2019-12-04",
-              "end_time": "2019-12-13"
-            },
-            {
-              "name": "Babayev Elvin",
-              "hr_code": 424234,
-              "start_time": "2019-12-04",
-              "end_time": "2019-12-13"
-            }
-          ],
-          "displacement_from_count": 1,
-          "displacements_from": [],
-          "displacement_to_count": 1,
-          "displacements_to": [
-            {
-              "name": "Babayev Elvin",
-              "hr_code": 54545,
-              "branch": "test",
-              "start_time": "2019-12-04",
-              "end_time": "2019-12-20"
-            }
-          ]
-        }
-      ]
-    }
+    showTimeOnMap = true
 //SVG start
  var svg = document.getElementById('sgs'),
      NS = svg.getAttribute('xmlns');
@@ -681,7 +530,7 @@ function svgPoint(element, x, y) {
   $(document).on('mousemove', function(e){
     $description.css({
       left:  e.pageX,
-      top:   e.pageY - 40
+      top:   e.pageY - 70
     });
     
   })
@@ -698,14 +547,21 @@ function svgPoint(element, x, y) {
         element[index].parentNode.removeChild(element[index]);
     }
     
-    for(var i = 0; i < newArr.length; i++) {
+    for(var i = 0; i < allFilials.length; i++) {
       var
-      svgP = svgPoint(svg, newArr[i].filialX, newArr[i].filialY),
+      svgP = svgPoint(svg, allFilials[i].filialX, allFilials[i].filialY),
       circle = document.createElementNS(NS, 'circle');
-      circle.setAttribute('data-filial', newArr[i].filialName)
-      circle.setAttributeNS(null, 'cx', newArr[i].filialX);
-      circle.setAttributeNS(null, 'cy', newArr[i].filialY);
+      circle.setAttribute('data-filial', allFilials[i].filialName)
+      console.log("TCL: redrow -> allFilialsNew[i].alert.avg_waiting_time.value", allFilials[i].alert)
+      allFilials[i].alert !== undefined ? circle.setAttribute('data-time', allFilials[i].alert.avg_waiting_time.value) : null;
+     
+      allFilials[i].alert ? circle.setAttribute('data-percent', allFilials[i].alert.percent.value) : null
+      circle.setAttributeNS(null, 'cx', allFilials[i].filialX);
+      circle.setAttributeNS(null, 'cy', allFilials[i].filialY);
       circle.setAttributeNS(null, 'r', 2);
+      // console.log("suka", allFilials[i].alert.avg_waiting_time.color);
+      allFilials[i].alert !== undefined ? circle.style.stroke = allFilials[i].alert.avg_waiting_time.color : null;
+      
       circle.classList.add('circle');
       target.appendChild(circle);
   
@@ -734,13 +590,24 @@ function svgPoint(element, x, y) {
 
     $('#sgs').on('mouseover', '.circle', function() {
       $description.addClass('tooltip-shown');
-      $description.html($(this).attr('data-filial'));
+      $description.find('.tooltip-name').html($(this).attr('data-filial'));
+      if(showTimeOnMap) {
+        $description.find('.tooltip-time').html($(this).attr('data-time') ? $(this).attr('data-time') : 'Melumat yoxdur');
+      } else {
+        $description.find('.tooltip-percent').html($(this).attr('data-percent'));
+      }
+      
+      
+      
+      
     })
   
     $('#sgs').on('mouseout', '.circle', function() {
       
+      $description.find('.tooltip-time').html('');
+      $description.find('.tooltip-percent').html('');
       $description.removeClass('tooltip-shown');
-      $description.html($(this).attr('data-filial'));
+      $description.find('.tooltip-name').html('');
   
     })
     $('#sgs').on('click', '.circle', function() {
@@ -749,7 +616,9 @@ function svgPoint(element, x, y) {
   
     }) 
 
+    $('.tab-btn').click(function() {
 
+    })
 
     /***
      * @table
@@ -845,11 +714,38 @@ function svgPoint(element, x, y) {
 
     var heatmap_url = 'http://192.168.1.194:8000/heatmap';
     
+    function setInputData(data) {
+      
+      for (var i = 0; i < data.length; i++) {
+        // console.log('id',data[i].id)
+        for(var j = 0; j < allFilials.length; j++) {
+          console.log("TCL: setInputData -> data[i].id", data[i].id)
+          console.log("TCL: setInputData -> allFilials[j].id", allFilials[j].id)
+          if(data[i].id == allFilials[j].id) {
+          
+          
+
+            
+            allFilials[j].alert = data[i].alert
+            
+            console.log("TCL: setInputData -> data[i].alert", data[i].alert)
+          }
+        }
+        // debugger
+        
+
+      }
+
+      redrow()
+    }
+
     $.ajax({
-      url:  heatmap_url + '/get_branches_data/',
+      url:  heatmap_url + '/get_map_data/',
       type: 'GET',
       success: function(data) {
-          console.log('data', data)
+
+        setInputData(data.branches)
+          
       }
     });
 
