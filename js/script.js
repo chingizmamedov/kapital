@@ -455,7 +455,8 @@ $(function() {
       }
     ],
     filterId = 'map',
-    showTimeOnMap = true
+    showTimeOnMap = true,
+    drowArr = []
 //SVG start
  var svg = document.getElementById('sgs'),
      NS = svg.getAttribute('xmlns');
@@ -471,7 +472,7 @@ $(function() {
 
       circle.setAttributeNS(null, 'cx', Math.round(svgP.x));
       circle.setAttributeNS(null, 'cy', Math.round(svgP.y));
-      circle.setAttributeNS(null, 'r', 2);
+      circle.setAttributeNS(null, 'r', 5);
       target.appendChild(circle);
  }
 
@@ -508,20 +509,20 @@ function svgPoint(element, x, y) {
     $(this).css('fill', '#CBE0BA')
   })
   
-  for( var i = 0; i < allFilials.length;i++) {
+  // for( var i = 0; i < allFilials.length;i++) {
 
-    var
-    svgP = svgPoint(svg, allFilials[i].filialX, allFilials[i].filialY),
-    circle = document.createElementNS(NS, 'circle')
-    circle.setAttribute('data-filial', allFilials[i].filialName)
-    circle.setAttribute('data-filialId', i)
-    circle.setAttributeNS(null, 'cx', allFilials[i].filialX);
-    circle.setAttributeNS(null, 'cy', allFilials[i].filialY);
-    circle.setAttributeNS(null, 'r', 2);
-    circle.classList.add('circle');
-    svg.appendChild(circle);
+  //   var
+  //   svgP = svgPoint(svg, allFilials[i].filialX, allFilials[i].filialY),
+  //   circle = document.createElementNS(NS, 'circle')
+  //   circle.setAttribute('data-filial', allFilials[i].filialName)
+  //   circle.setAttribute('data-filialId', i)
+  //   circle.setAttributeNS(null, 'cx', allFilials[i].filialX);
+  //   circle.setAttributeNS(null, 'cy', allFilials[i].filialY);
+  //   circle.setAttributeNS(null, 'r', 2);
+  //   circle.classList.add('circle');
+  //   svg.appendChild(circle);
 
-  }
+  // }
 
   $description = $(".tooltip");
 
@@ -546,21 +547,87 @@ function svgPoint(element, x, y) {
     for (index = element.length - 1; index >= 0; index--) {
         element[index].parentNode.removeChild(element[index]);
     }
+
+    if(showTimeOnMap != true) {
+
+      for(var i = 0; i < drowArr.length; i++) {
+
+        var
+        svgP = svgPoint(svg, drowArr[i].filialX, drowArr[i].filialY),
+        circle = document.createElementNS(NS, 'circle');
+        circle.setAttribute('data-filial', drowArr[i].filialName)
+        drowArr[i].alert !== undefined ? circle.setAttribute('data-time', drowArr[i].alert.avg_waiting_time.value) : null;
+       
+        drowArr[i].alert ? circle.setAttribute('data-percent', drowArr[i].alert.percent.value) : null
+        circle.setAttributeNS(null, 'cx', drowArr[i].filialX);
+        circle.setAttributeNS(null, 'cy', drowArr[i].filialY);
+
+        circle.setAttributeNS(null, 'r', 2);
+        drowArr[i].alert !== undefined ? circle.style.stroke = drowArr[i].alert.avg_waiting_time.color : null;
+        if( drowArr[i].alert !== undefined) {
+          if(drowArr[i].alert.percent.value.slice(0, -1) > 0 && drowArr[i].alert.percent.value.slice(0, -1) < 40) {
+            circle.setAttributeNS(null, 'r', 1);
+            circle.style.stroke = 'green'
+          }
+          if(drowArr[i].alert.percent.value.slice(0, -1) > 41 && drowArr[i].alert.percent.value.slice(0, -1) < 60) {
+            circle.setAttributeNS(null, 'r', 2);
+            circle.style.stroke = 'yellow'
+          }
+          if(drowArr[i].alert.percent.value.slice(0, -1) > 61 && drowArr[i].alert.percent.value.slice(0, -1) < 80) {
+            circle.setAttributeNS(null, 'r', 3);
+            circle.style.stroke = 'orange'
+          }
+          if(drowArr[i].alert.percent.value.slice(0, -1) > 81 && drowArr[i].alert.percent.value.slice(0, -1) <= 100) {
+            circle.setAttributeNS(null, 'r', 4);
+            circle.style.stroke = 'red'
+          }
+        }
+        
+        circle.classList.add('circle');
+        target.appendChild(circle);
     
-    for(var i = 0; i < allFilials.length; i++) {
+      }
+      return null
+    }
+    for(var i = 0; i < drowArr.length; i++) {
       var
-      svgP = svgPoint(svg, allFilials[i].filialX, allFilials[i].filialY),
+      svgP = svgPoint(svg, drowArr[i].filialX, drowArr[i].filialY),
       circle = document.createElementNS(NS, 'circle');
-      circle.setAttribute('data-filial', allFilials[i].filialName)
-      console.log("TCL: redrow -> allFilialsNew[i].alert.avg_waiting_time.value", allFilials[i].alert)
-      allFilials[i].alert !== undefined ? circle.setAttribute('data-time', allFilials[i].alert.avg_waiting_time.value) : null;
+      circle.setAttribute('data-filial', drowArr[i].filialName)
+      drowArr[i].alert !== undefined ? circle.setAttribute('data-time', drowArr[i].alert.avg_waiting_time.value) : null;
+      var seconds = 0,
+      secondsArr = []
+      // drowArr[i].alert ? console.log("TCL: redrow -> drowArr[i].alert.avg_waiting_time.value", drowArr[i].alert.avg_waiting_time.value.split(':')) : null
+      if(drowArr[i].alert) {
+        secondsArr = drowArr[i].alert.avg_waiting_time.value.split(':')
+        seconds = parseInt(secondsArr[0])*360 + parseInt(secondsArr[1])*60 + parseInt(secondsArr[2])
+        console.log("TCL: redrow -> seconds", seconds)
+        circle.setAttributeNS(null, 'r', 2);
+        if(seconds > 0 && seconds < 600) {
+          circle.style.stroke = 'green'
+          circle.setAttributeNS(null, 'r', 1);
+        }
+        if(seconds > 600 && seconds < 900) {
+          circle.style.stroke = 'yellow'
+          circle.setAttributeNS(null, 'r', 2);
+        }
+        if(seconds > 900 && seconds < 1200) {
+          circle.style.stroke = 'orange'
+          circle.setAttributeNS(null, 'r', 3);
+        }
+        if(seconds > 1200) {
+          circle.style.stroke = 'red'
+          circle.setAttributeNS(null, 'r', 4);
+        }
+      }
+      
+
      
-      allFilials[i].alert ? circle.setAttribute('data-percent', allFilials[i].alert.percent.value) : null
-      circle.setAttributeNS(null, 'cx', allFilials[i].filialX);
-      circle.setAttributeNS(null, 'cy', allFilials[i].filialY);
-      circle.setAttributeNS(null, 'r', 2);
-      // console.log("suka", allFilials[i].alert.avg_waiting_time.color);
-      allFilials[i].alert !== undefined ? circle.style.stroke = allFilials[i].alert.avg_waiting_time.color : null;
+      drowArr[i].alert ? circle.setAttribute('data-percent', drowArr[i].alert.percent.value) : null
+      circle.setAttributeNS(null, 'cx', drowArr[i].filialX);
+      circle.setAttributeNS(null, 'cy', drowArr[i].filialY);
+      
+      // drowArr[i].alert !== undefined ? circle.style.stroke = drowArr[i].alert.avg_waiting_time.color : null;
       
       circle.classList.add('circle');
       target.appendChild(circle);
@@ -571,7 +638,7 @@ function svgPoint(element, x, y) {
   
 
   $("#search").on('input',function(e) {
-    newArr = [];
+    drowArr = [];
     var inputVal = $(this).val()
 
 
@@ -580,7 +647,7 @@ function svgPoint(element, x, y) {
         
     for(var i=0; i < allFilials.length; i++) {
       if(reg.test(allFilials[i].filialName)) {
-        newArr.push(allFilials[i]);
+        drowArr.push(allFilials[i]);
       }
     }
 
@@ -589,17 +656,20 @@ function svgPoint(element, x, y) {
     })
 
     $('#sgs').on('mouseover', '.circle', function() {
+
       $description.addClass('tooltip-shown');
       $description.find('.tooltip-name').html($(this).attr('data-filial'));
+
       if(showTimeOnMap) {
+
         $description.find('.tooltip-time').html($(this).attr('data-time') ? $(this).attr('data-time') : 'Melumat yoxdur');
+
       } else {
+
         $description.find('.tooltip-percent').html($(this).attr('data-percent'));
+
       }
-      
-      
-      
-      
+
     })
   
     $('#sgs').on('mouseout', '.circle', function() {
@@ -616,7 +686,30 @@ function svgPoint(element, x, y) {
   
     }) 
 
-    $('.tab-btn').click(function() {
+    $('.map-btn').click(function() {
+
+      var inText = $(this).text()
+
+      if((showTimeOnMap == true && inText == 'Time') || (showTimeOnMap == false && inText == 'Percent') ) {
+        return false
+      }
+
+      if(inText == 'Time') {
+        $(".map-btn").removeClass('tab-btn__active')
+        $(this).addClass('tab-btn__active')
+        showTimeOnMap = true
+
+      } 
+
+      if (inText == 'Percent') {
+
+        $(".tab-btn").removeClass('tab-btn__active')
+        $(this).addClass('tab-btn__active')
+        showTimeOnMap = false
+
+      }
+
+      redrow()
 
     })
 
@@ -629,9 +722,7 @@ function svgPoint(element, x, y) {
       $(".table-wrap").slideToggle('slow')
       $(this).text() == 'Go table' ? $('.map-wrap').css('overflow', 'hidden') : $('.map-wrap').css('overflow', 'visible')
       $(this).text() == 'Go table' ? $(this).text('Go Map') : $(this).text('Go table');
-      filterId = filterId == 'map' ? 'table' : 'map'
-      // console.log("TCL: filterId", filterId)
-      console.log("TCL: $('.table').css('width')", $('.table').css('width'))
+      filterId = filterId == 'map' ? 'table' : 'map';
       var tableWidth = $('.table').css('width')
       // $('.table').css('width', tableWidth)
 
@@ -692,7 +783,6 @@ function svgPoint(element, x, y) {
 
       ++tabletabsCount
       var fakeCase = $(this).attr('data-fake')
-      console.log("TCL: fakeCase", fakeCase)
       $(".table td[data-accordion=" + fakeCase +"]").show()
       $('.fake[data-fake="' + fakeCase + '"]').remove()
 
@@ -717,26 +807,89 @@ function svgPoint(element, x, y) {
     function setInputData(data) {
       
       for (var i = 0; i < data.length; i++) {
-        // console.log('id',data[i].id)
+        
         for(var j = 0; j < allFilials.length; j++) {
-          console.log("TCL: setInputData -> data[i].id", data[i].id)
-          console.log("TCL: setInputData -> allFilials[j].id", allFilials[j].id)
+          
           if(data[i].id == allFilials[j].id) {
-          
-          
 
-            
-            allFilials[j].alert = data[i].alert
-            
-            console.log("TCL: setInputData -> data[i].alert", data[i].alert)
+            allFilials[j].alert = data[i].alert;
+
           }
         }
         // debugger
         
 
       }
-
+      drowArr = allFilials
       redrow()
+    }
+
+    function setCardData (data) {
+      
+      console.log("TCL: setCardData -> data.avg_serving_time", data.avg_serving_time)
+      $('#avg_serving_time').text(data.avg_serving_time)
+      $('#avg_waiting_time').text(data.avg_waiting_time)
+      $('#max_waiting_time').text(data.max_waiting_time)
+      $('#noshow_count').text(data.noshow_count)
+      $('#waiting_customer_count').text(data.waiting_customer_count)
+      $('#served_customer_count').text(data.served_customer_count)
+      $('#removed_customer_count').text(data.removed_customer_count)
+      $('#open_counter_count').text(data.open_counter_count)
+      $('#closed_counter_count').text(data.closed_counter_count)
+
+    }
+
+    Array.prototype.max = function() {
+      return Math.max.apply(null, this);
+    };
+    
+    Array.prototype.min = function() {
+      return Math.min.apply(null, this);
+    };
+
+
+    function setTable(data) {
+      var table = '',
+          totalVisits = 0,
+          served = 0,
+          waiting = 0,
+          mft = [],
+          mftMax,
+          fsp = 0,
+          osc = 0;
+
+      console.log("TCL: setTable -> datda", data.branches)
+      for(var i = 0; i < data.branches.length; i++) {
+        totalVisits += data.branches[i].departments[0].ticket_count;
+        served += data.branches[i].departments[0].served_customer_count;
+        waiting += data.branches[i].departments[0].waiting_customer_count;
+        mftTimesArr = data.branches[i].max_free_time.split(':')
+        mftTime = parseInt(mftTimesArr[0])*360 + parseInt(mftTimesArr[1])*60 + parseInt(mftTimesArr[2])
+        mft.push(mftTime);
+        fsp += data.branches[i].free_user_count;
+        osc += data.branches[i].open_counter_count;  
+      }
+
+      mftMax = mft.max()
+      function secondsToHms(d) {
+        d = Number(d);
+        var h = Math.floor(d / 3600);
+        var m = Math.floor(d % 3600 / 60);
+        var s = Math.floor(d % 3600 % 60);
+    
+        var hDisplay = h > 0 ? h + (h == 1 ? " hour, " : " hours, ") : "";
+        var mDisplay = m > 0 ? m + (m == 1 ? " minute, " : " minutes, ") : "";
+        var sDisplay = s > 0 ? s + (s == 1 ? " second" : " seconds") : "";
+        return hDisplay + mDisplay + sDisplay; 
+      }
+      var fullMftMax = secondsToHms(mftMax)
+      console.log("TCL: setTable -> mftMax", mftMax)
+      for(var i = 0; i < data.branches.length; i++) {
+        table += '<tr><td class="table-branch table-branch-row"><a href="/departament.html?filial=' + data.branches[i].id + '" target="blank">' + data.branches[i].name + '</a></td><td data-first="1" data-accordion="branches"><span>'+ totalVisits +'</span></td><td data-accordion="branches"><span>'+ served +'</span></td><td data-accordion="branches"><span>'+ waiting +'</span></td><td data-accordion="branches"><span>'+ fullMftMax +'</span></td><td data-accordion="branches"><span>'+ fsp +'</span></td><td data-accordion="branches"><span>'+ osc +'</span></td><td data-first="1" data-accordion="services"><span>' + data.branches[i].departments[0].ticket_count + '</span></td><td data-accordion="services"><span>' + data.branches[i].departments[0].served_customer_count + '</span></td><td data-accordion="services"><span>' + data.branches[i].departments[0].waiting_customer_count + '</span></td><td data-accordion="services"><span>' + data.branches[i].departments[0].fte + '</span></td><td data-accordion="services"><span>' + data.branches[i].departments[0].online_user_count + '</span></td><td data-accordion="services"><span>' + data.branches[i].departments[0].vacation_count + '</span></td><td data-accordion="services"><span>' + data.branches[i].departments[0].displacement_to_count + '</span></td><td data-accordion="services"><span>' + data.branches[i].departments[0].displacement_from_count + '</span></td><td data-first="1" data-accordion="sales"><span>' + data.branches[i].departments[1].ticket_count + '</span></td><td data-accordion="sales"><span>' + data.branches[i].departments[1].served_customer_count + '</span></td><td data-accordion="sales"><span>' + data.branches[i].departments[1].waiting_customer_count + '</span></td><td data-accordion="sales"><span>' + data.branches[i].departments[1].fte + '</span></td><td data-accordion="sales"><span>' + data.branches[i].departments[1].online_user_count + '</span></td><td data-accordion="sales"><span>' + data.branches[i].departments[1].vacation_count + '</span></td><td data-accordion="sales"><span>' + data.branches[i].departments[1].displacement_to_count + '</span></td><td data-accordion="sales"><span>' + data.branches[i].departments[1].displacement_from_count + '</span></td><td data-first="1" data-accordion="cash"><span>' + data.branches[i].departments[2].ticket_count + '</span></td><td data-accordion="cash"><span>' + data.branches[i].departments[2].served_customer_count + '</span></td><td data-accordion="cash"><span>' + data.branches[i].departments[2].waiting_customer_count + '</span></td><td data-accordion="cash"><span>' + data.branches[i].departments[2].fte + '</span></td><td data-accordion="cash"><span>' + data.branches[i].departments[2].online_user_count + '</span></td><td data-accordion="cash"><span>' + data.branches[i].departments[2].vacation_count + '</span></td><td data-accordion="cash"><span>' + data.branches[i].departments[2].displacement_to_count + '</span></td><td data-accordion="cash"><span>' + data.branches[i].departments[1].displacement_from_count + '</span></td></tr>'
+      }
+
+      // console.log('table', table)
+      $('#mainTable_tbody').append(table)
     }
 
     $.ajax({
@@ -745,7 +898,17 @@ function svgPoint(element, x, y) {
       success: function(data) {
 
         setInputData(data.branches)
-          
+        setCardData(data)
+      }
+    });
+
+
+    $.ajax({
+      url:  heatmap_url + '/get_branches_data/',
+      type: 'GET',
+      success: function(data) {
+
+        setTable(data)
       }
     });
 
