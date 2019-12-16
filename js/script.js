@@ -839,56 +839,14 @@ function svgPoint(element, x, y) {
 
     }
 
-    Array.prototype.max = function() {
-      return Math.max.apply(null, this);
-    };
-    
-    Array.prototype.min = function() {
-      return Math.min.apply(null, this);
-    };
-
-
     function setTable(data) {
-      var table = '',
-          totalVisits = 0,
-          served = 0,
-          waiting = 0,
-          mft = [],
-          mftMax,
-          fsp = 0,
-          osc = 0;
+      var table = '';
 
-      console.log("TCL: setTable -> datda", data.branches)
+
       for(var i = 0; i < data.branches.length; i++) {
-        totalVisits += data.branches[i].departments[0].ticket_count;
-        served += data.branches[i].departments[0].served_customer_count;
-        waiting += data.branches[i].departments[0].waiting_customer_count;
-        mftTimesArr = data.branches[i].max_free_time.split(':')
-        mftTime = parseInt(mftTimesArr[0])*360 + parseInt(mftTimesArr[1])*60 + parseInt(mftTimesArr[2])
-        mft.push(mftTime);
-        fsp += data.branches[i].free_user_count;
-        osc += data.branches[i].open_counter_count;  
+        table += '<tr><td class="table-branch table-branch-row"><a href="/departament.html?filial=' + data.branches[i].id + '" target="blank">' + data.branches[i].name + '</a></td><td data-first="1" data-accordion="branches"><span>'+ data.branches[i].ticket_count +'</span></td><td data-accordion="branches"><span>'+ data.branches[i].served_customer_count +'</span></td><td data-accordion="branches"><span>'+ data.branches[i].waiting_customer_count +'</span></td><td data-accordion="branches"><span>'+ data.branches[i].max_free_time +'</span></td><td data-accordion="branches"><span>'+ data.branches[i].free_user_count +'</span></td><td data-accordion="branches"><span>'+ data.branches[i].open_counter_count +'</span></td><td data-first="1" data-accordion="services"><span>' + data.branches[i].departments[0].ticket_count + '</span></td><td data-accordion="services"><span>' + data.branches[i].departments[0].served_customer_count + '</span></td><td data-accordion="services"><span>' + data.branches[i].departments[0].waiting_customer_count + '</span></td><td data-accordion="services"><span>' + data.branches[i].departments[0].fte + '</span></td><td data-accordion="services"><span>' + data.branches[i].departments[0].online_user_count + '</span></td><td data-accordion="services"><span>' + data.branches[i].departments[0].vacation_count + '</span></td><td data-accordion="services"><span>' + data.branches[i].departments[0].displacement_to_count + '</span></td><td data-accordion="services"><span>' + data.branches[i].departments[0].displacement_from_count + '</span></td><td data-first="1" data-accordion="sales"><span>' + data.branches[i].departments[1].ticket_count + '</span></td><td data-accordion="sales"><span>' + data.branches[i].departments[1].served_customer_count + '</span></td><td data-accordion="sales"><span>' + data.branches[i].departments[1].waiting_customer_count + '</span></td><td data-accordion="sales"><span>' + data.branches[i].departments[1].fte + '</span></td><td data-accordion="sales"><span>' + data.branches[i].departments[1].online_user_count + '</span></td><td data-accordion="sales"><span>' + data.branches[i].departments[1].vacation_count + '</span></td><td data-accordion="sales"><span>' + data.branches[i].departments[1].displacement_to_count + '</span></td><td data-accordion="sales"><span>' + data.branches[i].departments[1].displacement_from_count + '</span></td><td data-first="1" data-accordion="cash"><span>' + data.branches[i].departments[2].ticket_count + '</span></td><td data-accordion="cash"><span>' + data.branches[i].departments[2].served_customer_count + '</span></td><td data-accordion="cash"><span>' + data.branches[i].departments[2].waiting_customer_count + '</span></td><td data-accordion="cash"><span>' + data.branches[i].departments[2].fte + '</span></td><td data-accordion="cash"><span>' + data.branches[i].departments[2].online_user_count + '</span></td><td data-accordion="cash"><span>' + data.branches[i].departments[2].vacation_count + '</span></td><td data-accordion="cash"><span>' + data.branches[i].departments[2].displacement_to_count + '</span></td><td data-accordion="cash"><span>' + data.branches[i].departments[1].displacement_from_count + '</span></td></tr>'
       }
 
-      mftMax = mft.max()
-      function secondsToHms(d) {
-        d = Number(d);
-        var h = Math.floor(d / 3600);
-        var m = Math.floor(d % 3600 / 60);
-        var s = Math.floor(d % 3600 % 60);
-    
-        var hDisplay = h > 0 ? h + (h == 1 ? " hour, " : " hours, ") : "";
-        var mDisplay = m > 0 ? m + (m == 1 ? " minute, " : " minutes, ") : "";
-        var sDisplay = s > 0 ? s + (s == 1 ? " second" : " seconds") : "";
-        return hDisplay + mDisplay + sDisplay; 
-      }
-      var fullMftMax = secondsToHms(mftMax)
-      console.log("TCL: setTable -> mftMax", mftMax)
-      for(var i = 0; i < data.branches.length; i++) {
-        table += '<tr><td class="table-branch table-branch-row"><a href="/departament.html?filial=' + data.branches[i].id + '" target="blank">' + data.branches[i].name + '</a></td><td data-first="1" data-accordion="branches"><span>'+ totalVisits +'</span></td><td data-accordion="branches"><span>'+ served +'</span></td><td data-accordion="branches"><span>'+ waiting +'</span></td><td data-accordion="branches"><span>'+ fullMftMax +'</span></td><td data-accordion="branches"><span>'+ fsp +'</span></td><td data-accordion="branches"><span>'+ osc +'</span></td><td data-first="1" data-accordion="services"><span>' + data.branches[i].departments[0].ticket_count + '</span></td><td data-accordion="services"><span>' + data.branches[i].departments[0].served_customer_count + '</span></td><td data-accordion="services"><span>' + data.branches[i].departments[0].waiting_customer_count + '</span></td><td data-accordion="services"><span>' + data.branches[i].departments[0].fte + '</span></td><td data-accordion="services"><span>' + data.branches[i].departments[0].online_user_count + '</span></td><td data-accordion="services"><span>' + data.branches[i].departments[0].vacation_count + '</span></td><td data-accordion="services"><span>' + data.branches[i].departments[0].displacement_to_count + '</span></td><td data-accordion="services"><span>' + data.branches[i].departments[0].displacement_from_count + '</span></td><td data-first="1" data-accordion="sales"><span>' + data.branches[i].departments[1].ticket_count + '</span></td><td data-accordion="sales"><span>' + data.branches[i].departments[1].served_customer_count + '</span></td><td data-accordion="sales"><span>' + data.branches[i].departments[1].waiting_customer_count + '</span></td><td data-accordion="sales"><span>' + data.branches[i].departments[1].fte + '</span></td><td data-accordion="sales"><span>' + data.branches[i].departments[1].online_user_count + '</span></td><td data-accordion="sales"><span>' + data.branches[i].departments[1].vacation_count + '</span></td><td data-accordion="sales"><span>' + data.branches[i].departments[1].displacement_to_count + '</span></td><td data-accordion="sales"><span>' + data.branches[i].departments[1].displacement_from_count + '</span></td><td data-first="1" data-accordion="cash"><span>' + data.branches[i].departments[2].ticket_count + '</span></td><td data-accordion="cash"><span>' + data.branches[i].departments[2].served_customer_count + '</span></td><td data-accordion="cash"><span>' + data.branches[i].departments[2].waiting_customer_count + '</span></td><td data-accordion="cash"><span>' + data.branches[i].departments[2].fte + '</span></td><td data-accordion="cash"><span>' + data.branches[i].departments[2].online_user_count + '</span></td><td data-accordion="cash"><span>' + data.branches[i].departments[2].vacation_count + '</span></td><td data-accordion="cash"><span>' + data.branches[i].departments[2].displacement_to_count + '</span></td><td data-accordion="cash"><span>' + data.branches[i].departments[1].displacement_from_count + '</span></td></tr>'
-      }
-
-      // console.log('table', table)
       $('#mainTable_tbody').append(table)
     }
 
@@ -901,7 +859,6 @@ function svgPoint(element, x, y) {
         setCardData(data)
       }
     });
-
 
     $.ajax({
       url:  heatmap_url + '/get_branches_data/',
