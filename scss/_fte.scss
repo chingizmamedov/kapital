@@ -23,18 +23,19 @@
             background: #fff;
             color: #333;
             border: 1px solid #791f2e;
+            width: 180px;
         }
         & td:not(:first-child) {
             background: #fff;
             color: #333;
             border: 1px solid #791f2e;
-            width: 190px;
+            // width: 190px;
             text-align: center;
             & input {
                 border: none;
                 text-align: center;
                 padding: 0 10px;
-                width: 190px;
+                width: 100%;
             }
         }
     }
@@ -50,12 +51,17 @@
 .table-wrap-fte {
     height: calc(100vh - 205px);
     margin-bottom: 60px;
+    width: 80vw;
+    margin: auto;
     overflow-y: auto;
     position: relative;
     & .table-panel {
         position: fixed;
         left: 0;
+        right: 0;
         bottom: 0;
         width: 100%;
+        width: 80vw;
+        margin: auto;
     }
 }
