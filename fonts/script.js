@@ -735,7 +735,7 @@ $(function () {
       $.ajax({
           url: heatmap_url + '/get_branches_data/',
           type: 'POST',
-          data: {limit : 20, offset : 1},
+          data: {limit : 114, offset : 1},
           success: function (data) {
             console.log('sukaaaaaaaaaaaaaa',data)
             newDrowTable(data.branches);
@@ -744,7 +744,7 @@ $(function () {
           }
         });
     }
-  // getTableDataFirst()
+  getTableDataFirst()
 
   function getTableData() {
 
@@ -795,14 +795,7 @@ $(function () {
   $("#gotable").click(function () {
 
     $(".table-wrap").slideToggle('slow')
-    if($(this).text() == 'Go table') {
-      $('.map-wrap').css('overflow', 'hidden')
-      getTableDataFirst()
-    } else {
-      $('.map-wrap').css('overflow', 'visible')
-
-    }
-    // $(this).text() == 'Go table' ? $('.map-wrap').css('overflow', 'hidden') :$('.map-wrap').css('overflow', 'visible');
+    $(this).text() == 'Go table' ? $('.map-wrap').css('overflow', 'hidden') : $('.map-wrap').css('overflow', 'visible');
     $(this).text() == 'Go table' ? $(this).text('Go Map') : $(this).text('Go table');
     filterId = filterId == 'map' ? 'table' : 'map';
    
