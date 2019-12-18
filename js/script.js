@@ -1,6 +1,6 @@
 $(function () {
   /**
-   * Global vars
+   * Main vars
    */
   var allFilials = [
     {
@@ -454,47 +454,26 @@ $(function () {
       "id": "46"
     }
   ],
-    filterId = 'map',
-    showTimeOnMap = true,
-    drowArr = [],
-    newArr = [],
-    listShowCount = 3, // Count of list item, how many item from table must be shown
-    paginationCount, // Count of Pagination (how many pagination button must be)
-    paginationStep, // Step of pagination, number of table list
-    startToShow = 1; // First number from which table items must be shown
-
+  filterId = 'map',
+  showTimeOnMap = true,
+  drowArr = [],
+  newArr = [],
+  listAllItemCount = 0,
+  listShowCount = 15, // Count of list item, how many item from table must be shown
+  paginationCount, // Count of Pagination (how many pagination button must be)
+  paginationStep = 1, // Step of pagination, number of table list
+  startToShow = 1 // First number from which table items must be shown
   //SVG start
-  var svg = document.getElementById('sgs'),
-    NS = svg.getAttribute('xmlns');
-
-  function drowSvg() {
-    var
-      t = e.target,
-      x = e.clientX,
-      y = e.clientY,
-      target = (t == svg ? svg : t.parentNode),
-      svgP = svgPoint(target, x, y),
-      circle = document.createElementNS(NS, 'circle');
-
-    circle.setAttributeNS(null, 'cx', Math.round(svgP.x));
-    circle.setAttributeNS(null, 'cy', Math.round(svgP.y));
-    circle.setAttributeNS(null, 'r', 5);
-    target.appendChild(circle);
-  }
-
-  // translate page to SVG co-ordinate
-  function svgPoint(element, x, y) {
-    var pt = svg.createSVGPoint();
-    pt.x = x;
-    pt.y = y;
-    return pt.matrixTransform(element.getScreenCTM().inverse());
-  }
-
+  svg = document.getElementById('sgs'),
+  NS = svg.getAttribute('xmlns');
   //SVG end
 
 
   // All functions
 
+  /**
+  map functions
+  */
   function redrow() {
 
     var target = document.getElementById('sgs')
@@ -554,7 +533,7 @@ $(function () {
       if (drowArr[i].alert) {
         secondsArr = drowArr[i].alert.avg_waiting_time.value.split(':')
         seconds = parseInt(secondsArr[0]) * 360 + parseInt(secondsArr[1]) * 60 + parseInt(secondsArr[2])
-        console.log("TCL: redrow -> seconds", seconds)
+        
         circle.setAttributeNS(null, 'r', 2);
         if (seconds > 0 && seconds < 600) {
           circle.style.stroke = 'green'
@@ -619,7 +598,37 @@ $(function () {
     $('#closed_counter_count').text(data.closed_counter_count);
 
   }
+  /**
+    map functions
+  */
+  /**
+    table functions
+  */
 
+  function newDrowTable(tableList) {
+
+    var table = '';
+    for (var i = 0; i < tableList.length; i++) {
+      
+      if( tableList[i].departments.length > 1) {
+        table += '<tr><td class="table-branch table-branch-row"><a href="/departament.html?filial=' + tableList[i].id + '" target="blank">' + tableList[i].name + '</a></td><td data-first="1" data-accordion="branches"><span>' + tableList[i].ticket_count + '</span></td><td data-accordion="branches"><span>' + tableList[i].served_customer_count + '</span></td><td data-accordion="branches"><span>' + tableList[i].waiting_customer_count + '</span></td><td data-accordion="branches"><span>' + tableList[i].max_free_time + '</span></td><td data-accordion="branches"><span>' + tableList[i].free_user_count + '</span></td><td data-accordion="branches"><span>' + tableList[i].open_counter_count + '</span></td><td data-first="1" data-accordion="services"><span>' + tableList[i].ticket_count + '</span></td>';
+      // console.log('departmenst : ' + tableList[i].name, tableList[i].departments)
+      // console.log( 'tableList[i].departments[0].served_customer_count', tableList[i].departments[0].served_customer_count )
+      table += '<td data-accordion="services"><span>' + tableList[i].departments[0].served_customer_count + '</span></td>'
+      table += '<td data-accordion="services"><span>' + tableList[i].departments[0].waiting_customer_count + '</span></td>';
+      table += '<td data-accordion="services"><span>' + tableList[i].departments[0].fte + '</span></td>';
+      table += '<td data-accordion="services"><span>' + tableList[i].departments[0].online_user_count + '</span></td>';
+      table += '<td data-accordion="services"><span>' + tableList[i].departments[0].vacation_count + '</span></td>';
+      table += '<td data-accordion="services"><span>' + tableList[i].departments[0].displacement_to_count + '</span></td><td data-accordion="services"><span>' + tableList[i].departments[0].displacement_from_count + '</span></td>';
+
+      table += '<td data-first="1" data-accordion="sales"><span>' + tableList[i].departments[1].ticket_count + '</span></td><td data-accordion="sales"><span>' + tableList[i].departments[1].served_customer_count + '</span></td><td data-accordion="sales"><span>' + tableList[i].departments[1].waiting_customer_count + '</span></td><td data-accordion="sales"><span>' + tableList[i].departments[1].fte + '</span></td><td data-accordion="sales"><span>' + tableList[i].departments[1].online_user_count + '</span></td><td data-accordion="sales"><span>' + tableList[i].departments[1].vacation_count + '</span></td><td data-accordion="sales"><span>' + tableList[i].departments[1].displacement_to_count + '</span></td><td data-accordion="sales"><span>' + tableList[i].departments[1].displacement_from_count + '</span></td>'
+      table += '<td data-first="1" data-accordion="cash"><span>' + tableList[i].departments[2].ticket_count + '</span></td><td data-accordion="cash"><span>' + tableList[i].departments[2].served_customer_count + '</span></td><td data-accordion="cash"><span>' + tableList[i].departments[2].waiting_customer_count + '</span></td><td data-accordion="cash"><span>' + tableList[i].departments[2].fte + '</span></td><td data-accordion="cash"><span>' + tableList[i].departments[2].online_user_count + '</span></td><td data-accordion="cash"><span>' + tableList[i].departments[2].vacation_count + '</span></td><td data-accordion="cash"><span>' + tableList[i].departments[2].displacement_to_count + '</span></td><td data-accordion="cash"><span>' + tableList[i].departments[1].displacement_from_count + '</span></td></tr>';
+      }
+      
+
+    }
+    $('#mainTable_tbody').html(table);
+  }
 
   function drowTable(tableList) {
 
@@ -651,9 +660,11 @@ $(function () {
     startToShow = (paginationStep - 1) * listShowCount;
 
     for (var i = startToShow; i < startToShow + listShowCount; i++) {
-      console.log("TCL: reDrowtable -> i", i)
+      
       if (tableList[i]) {
+        
         table += '<tr><td class="table-branch table-branch-row"><a href="/departament.html?filial=' + tableList[i].id + '" target="blank">' + tableList[i].name + '</a></td><td data-first="1" data-accordion="branches"><span>' + tableList[i].ticket_count + '</span></td><td data-accordion="branches"><span>' + tableList[i].served_customer_count + '</span></td><td data-accordion="branches"><span>' + tableList[i].waiting_customer_count + '</span></td><td data-accordion="branches"><span>' + tableList[i].max_free_time + '</span></td><td data-accordion="branches"><span>' + tableList[i].free_user_count + '</span></td><td data-accordion="branches"><span>' + tableList[i].open_counter_count + '</span></td><td data-first="1" data-accordion="services"><span>' + tableList[i].departments[0].ticket_count + '</span></td><td data-accordion="services"><span>' + tableList[i].departments[0].served_customer_count + '</span></td><td data-accordion="services"><span>' + tableList[i].departments[0].waiting_customer_count + '</span></td><td data-accordion="services"><span>' + tableList[i].departments[0].fte + '</span></td><td data-accordion="services"><span>' + tableList[i].departments[0].online_user_count + '</span></td><td data-accordion="services"><span>' + tableList[i].departments[0].vacation_count + '</span></td><td data-accordion="services"><span>' + newArr[i].departments[0].displacement_to_count + '</span></td><td data-accordion="services"><span>' + tableList[i].departments[0].displacement_from_count + '</span></td><td data-first="1" data-accordion="sales"><span>' + tableList[i].departments[1].ticket_count + '</span></td><td data-accordion="sales"><span>' + tableList[i].departments[1].served_customer_count + '</span></td><td data-accordion="sales"><span>' + tableList[i].departments[1].waiting_customer_count + '</span></td><td data-accordion="sales"><span>' + tableList[i].departments[1].fte + '</span></td><td data-accordion="sales"><span>' + tableList[i].departments[1].online_user_count + '</span></td><td data-accordion="sales"><span>' + tableList[i].departments[1].vacation_count + '</span></td><td data-accordion="sales"><span>' + tableList[i].departments[1].displacement_to_count + '</span></td><td data-accordion="sales"><span>' + tableList[i].departments[1].displacement_from_count + '</span></td><td data-first="1" data-accordion="cash"><span>' + tableList[i].departments[2].ticket_count + '</span></td><td data-accordion="cash"><span>' + tableList[i].departments[2].served_customer_count + '</span></td><td data-accordion="cash"><span>' + tableList[i].departments[2].waiting_customer_count + '</span></td><td data-accordion="cash"><span>' + tableList[i].departments[2].fte + '</span></td><td data-accordion="cash"><span>' + tableList[i].departments[2].online_user_count + '</span></td><td data-accordion="cash"><span>' + tableList[i].departments[2].vacation_count + '</span></td><td data-accordion="cash"><span>' + tableList[i].departments[2].displacement_to_count + '</span></td><td data-accordion="cash"><span>' + tableList[i].departments[1].displacement_from_count + '</span></td></tr>'
+        
       }
 
     }
@@ -672,15 +683,13 @@ $(function () {
       $(".pagination").html(paginationTemplate)
       return null
     }
-    var paginationCountCheck = newArr.length % listShowCount;
+    var paginationCountCheck = listAllItemCount % listShowCount;
     if (paginationCountCheck !== 0) {
-      paginationCount = Math.ceil(newArr.length / listShowCount)
+      paginationCount = Math.ceil(listAllItemCount / listShowCount)
     } else {
-      paginationCount = newArr.length / listShowCount;
+      paginationCount = listAllItemCount / listShowCount;
     }
-    console.log("TCL: drowPagination -> newArr.length", newArr.length)
-
-    console.log("TCL: drowPagination -> paginationCount", paginationCount)
+    
     for (var i = 1; i < paginationCount + 1; i++) {
 
       var pagClass = i == 1 ? 'pagination-item pagination-active' : 'pagination-item';
@@ -697,6 +706,207 @@ $(function () {
 
   }
 
+  /**
+    table functions END
+  */
+
+  
+	
+  var heatmap_url = 'http://10.0.22.36:8000/heatmap';
+
+  $.ajax({
+    url: heatmap_url + '/get_map_data/',
+    type: 'GET',
+    success: function (data) {
+
+      setInputData(data.branches);
+      setCardData(data);
+    }
+  });
+    function getTableDataFirst() {
+      $('#table-preloader').show();
+      $.ajax({
+          url: heatmap_url + '/get_branches_data/',
+          type: 'POST',
+          data: {limit : 10, offset : 1},
+          success: function (data) {
+            console.log('sukaaaaaaaaaaaaaa',data)
+            newDrowTable(data.branches);
+            listAllItemCount = data.count;
+            $('#table-preloader').hide();
+          }
+        });
+    }
+  getTableDataFirst()
+
+  function getTableData() {
+
+    $('#table-preloader').show();
+    console.log('listShowCount',listShowCount)
+    if(listShowCount == 0) {
+      // debugger
+      $.ajax({
+        url: heatmap_url + '/get_branches_data/',
+        type: 'POST',
+        data: {limit : listAllItemCount, offset : 1},
+        success: function (data) {
+          // console.log(data)
+          newDrowTable(data.branches);
+          listAllItemCount = data.count;
+          console.log('listAllItemCount', listAllItemCount)
+          $('#table-preloader').hide();
+          
+        }
+      });
+
+    } else {
+      $.ajax({
+      url: heatmap_url + '/get_branches_data/',
+      type: 'POST',
+      data: {limit : listShowCount, offset : listShowCount*paginationStep + 1},
+      success: function (data) {
+        // console.log(data)
+        newDrowTable(data.branches);
+        listAllItemCount = data.count;
+        console.log('listAllItemCount', listAllItemCount)
+        $('#table-preloader').hide();
+        
+      }
+    });
+    }
+    
+  }
+// getTableData()
+  /**
+   * All events
+  */
+
+  /**
+   * @table
+   */
+
+  $("#gotable").click(function () {
+
+    $(".table-wrap").slideToggle('slow')
+    $(this).text() == 'Go table' ? $('.map-wrap').css('overflow', 'hidden') : $('.map-wrap').css('overflow', 'visible');
+    $(this).text() == 'Go table' ? $(this).text('Go Map') : $(this).text('Go table');
+    filterId = filterId == 'map' ? 'table' : 'map';
+   
+
+  })
+
+   var tabletabsCount = 4;
+
+  $(".accordion-head").click(function () {
+
+    if (tabletabsCount > 1) {
+
+      --tabletabsCount
+      var dataAcc = $(this).attr('data-accordion')
+      $(".table td[data-accordion=" + dataAcc + "]").hide()
+      var colName = $(".table td[data-accordion=" + dataAcc + "][data-first=1]").eq(0).html()
+      $(".table td[data-accordion=" + dataAcc + "][data-first=1]").eq(0).after('<td rowspan="2" class="fake" data-fake="' + dataAcc + '" style="background:#bf2127 !important; padding: 0; font-size: 12px;"></td>')
+      $(".table td[data-accordion=" + dataAcc + "][data-first=1]").eq(0).siblings('.fake[data-fake=' + dataAcc + ']').html('<div style="transform: rotate(-90deg); transform-origin: center;">' + colName + '</div>')
+      $(".table td[data-accordion=" + dataAcc + "][data-first=1]").slice(2).after('<td class="fake" data-fake="' + dataAcc + '" style=""></td>');
+
+    } else {
+
+      return false;
+
+    }
+
+  })
+
+  $('.table').on('click', '.fake', function () {
+
+    ++tabletabsCount;
+    var fakeCase = $(this).attr('data-fake');
+    $(".table td[data-accordion=" + fakeCase + "]").show();
+    $('.fake[data-fake="' + fakeCase + '"]').remove();
+
+  })
+
+  $("#listShowCount").click(function () {
+    $(".listShowCount-list").toggleClass('d-flex');
+  })
+
+  $(".listShowCount-Item").click(function () {
+
+    listShowCount = $(this).attr('data-count');
+    listShowCount == 0 ? $("#listShowCountNum").text('All') : $("#listShowCountNum").text(listShowCount)
+    startToShow = 1;
+    drowPagination();
+    getTableData();
+  })
+
+  $(".table-panel").on('click', '.pagination-item', function () {
+
+    $('.pagination-item').removeClass('pagination-active')
+    $(this).addClass('pagination-active')
+    paginationStep = $(this).attr('data-pagination');
+
+    getTableData();
+
+
+  })
+
+
+  /**
+   *  listShowCount = 3, // Count of list item, how many item from table must be shown
+      paginationCount, // Count of Pagination (how many pagination button must be)
+      paginationStep, // Step of pagination, number of table list
+      startToShow = 1; // First number from which table items must be shown
+   */
+
+  // Tooltips
+
+  tippy('.mft', {
+    content: "Max free time"
+  });
+
+  tippy('.fte', {
+    content: "Free service points"
+  });
+
+  tippy('.fsp', {
+    content: "Free service points"
+  });
+
+
+
+  $('.table-branch-row').mouseover(function () {
+
+    $(this).parent().find('td').css({
+      background: '#333'
+    })
+    $(this).parent().find('td a, td').css({
+      color: '#fff'
+    })
+  })
+  $('.table-branch-row').mouseout(function () {
+    $(".table td").css({
+      background: '#e1e1e1',
+      color: '#000'
+    })
+    $(".table td a").css({
+      color: '#000'
+    })
+
+    $(".table tbody tr:nth-child(2n) td").css({
+      background: '#e52e35',
+      color: '#fff'
+    })
+
+    $(".table tbody tr:nth-child(2n) td a").css({
+      color: '#fff'
+    })
+  })
+
+
+
+/**
+  * Map events
+*/
 
   $("#baki").click(function () {
     $(this).parent().hide('slow')
@@ -729,37 +939,7 @@ $(function () {
     });
   })
 
-  $("#search").on('input', function (e) {
-    console.log(filterId)
-    if (filterId == 'map') {
-      drowArr = [];
-      var inputVal = $(this).val()
-      var reg = new RegExp(inputVal, 'i')
 
-      for (var i = 0; i < allFilials.length; i++) {
-        if (reg.test(allFilials[i].filialName)) {
-          drowArr.push(allFilials[i]);
-        }
-      }
-
-      redrow()
-    } else {
-
-      var drowTableList = [];
-      var inputVal = $(this).val()
-      var reg = new RegExp(inputVal, 'i')
-      for (var i = 0; i < filterId.length; i++) {
-        if (reg.test(filterId[i].filialName)) {
-          drowTableList.push(filterId[i]);
-          console.log("TCL: drowTableList", drowTableList)
-        }
-      }
-      // reDrowtable(1, drowTableList)
-
-    }
-
-
-  })
 
   $('#sgs').on('mouseover', '.circle', function () {
 
@@ -819,147 +999,38 @@ $(function () {
 
   })
 
-  /***
-   * @table
-   */
+/**
+* Search
+*/
+  $("#search").on('input', function (e) {
+    
+    if (filterId == 'map') {
+      drowArr = [];
+      var inputVal = $(this).val()
+      var reg = new RegExp(inputVal, 'i')
 
-  $("#gotable").click(function () {
+      for (var i = 0; i < allFilials.length; i++) {
+        if (reg.test(allFilials[i].filialName)) {
+          drowArr.push(allFilials[i]);
+        }
+      }
 
-    $(".table-wrap").slideToggle('slow')
-    $(this).text() == 'Go table' ? $('.map-wrap').css('overflow', 'hidden') : $('.map-wrap').css('overflow', 'visible');
-    $(this).text() == 'Go table' ? $(this).text('Go Map') : $(this).text('Go table');
-    filterId = filterId == 'map' ? 'table' : 'map';
-    console.log("TCL: filterId", filterId)
-
-  })
-
-
-  $('.table-branch-row').mouseover(function () {
-
-    $(this).parent().find('td').css({
-      background: '#333'
-    })
-    $(this).parent().find('td a, td').css({
-      color: '#fff'
-    })
-  })
-  $('.table-branch-row').mouseout(function () {
-    $(".table td").css({
-      background: '#e1e1e1',
-      color: '#000'
-    })
-    $(".table td a").css({
-      color: '#000'
-    })
-
-    $(".table tbody tr:nth-child(2n) td").css({
-      background: '#e52e35',
-      color: '#fff'
-    })
-
-    $(".table tbody tr:nth-child(2n) td a").css({
-      color: '#fff'
-    })
-  })
-
-  var tabletabsCount = 4;
-
-  $(".accordion-head").click(function () {
-
-    if (tabletabsCount > 1) {
-
-      --tabletabsCount
-      var dataAcc = $(this).attr('data-accordion')
-      $(".table td[data-accordion=" + dataAcc + "]").hide()
-      var colName = $(".table td[data-accordion=" + dataAcc + "][data-first=1]").eq(0).html()
-      $(".table td[data-accordion=" + dataAcc + "][data-first=1]").eq(0).after('<td rowspan="2" class="fake" data-fake="' + dataAcc + '" style="background:#bf2127 !important; padding: 0; font-size: 12px;"></td>')
-      $(".table td[data-accordion=" + dataAcc + "][data-first=1]").eq(0).siblings('.fake[data-fake=' + dataAcc + ']').html('<div style="transform: rotate(-90deg); transform-origin: center;">' + colName + '</div>')
-      $(".table td[data-accordion=" + dataAcc + "][data-first=1]").slice(2).after('<td class="fake" data-fake="' + dataAcc + '" style=""></td>');
-
+      redrow()
     } else {
 
-      return false;
+      var drowTableList = [];
+      var inputVal = $(this).val()
+      var reg = new RegExp(inputVal, 'i')
+      for (var i = 0; i < filterId.length; i++) {
+        if (reg.test(filterId[i].filialName)) {
+          drowTableList.push(filterId[i]);
+          
+        }
+      }
+      // reDrowtable(1, drowTableList)
 
     }
 
-  })
-
-  $('.table').on('click', '.fake', function () {
-
-    ++tabletabsCount;
-    var fakeCase = $(this).attr('data-fake');
-    $(".table td[data-accordion=" + fakeCase + "]").show();
-    $('.fake[data-fake="' + fakeCase + '"]').remove();
 
   })
-
-  // Tooltips
-
-  tippy('.mft', {
-    content: "Max free time"
-  });
-
-  tippy('.fte', {
-    content: "Free service points"
-  });
-
-  tippy('.fsp', {
-    content: "Free service points"
-  });
-
-  var heatmap_url = 'http://192.168.1.194:8000/heatmap';
-
-
-
-  $.ajax({
-    url: heatmap_url + '/get_map_data/',
-    type: 'GET',
-    success: function (data) {
-
-      setInputData(data.branches);
-      setCardData(data);
-    }
-  });
-
-  $.ajax({
-    url: heatmap_url + '/get_branches_data/',
-    type: 'GET',
-    success: function (data) {
-      newArr = data.branches;
-      setTable();
-      drowPagination();
-    }
-  });
-
-
-  $("#listShowCount").click(function () {
-    $(".listShowCount-list").toggleClass('d-flex');
-  })
-
-  $(".listShowCount-Item").click(function () {
-
-    listShowCount = $(this).attr('data-count');
-    listShowCount == 0 ? $("#listShowCountNum").text('All') : $("#listShowCountNum").text(listShowCount)
-    startToShow = 1;
-    drowPagination();
-    setTable();
-  })
-
-  $(".table-panel").on('click', '.pagination-item', function () {
-
-    $('.pagination-item').removeClass('pagination-active')
-    $(this).addClass('pagination-active')
-    paginationStep = $(this).attr('data-pagination');
-    reDrowtable(paginationStep, newArr);
-
-  })
-
-
-  /**
-   *  listShowCount = 3, // Count of list item, how many item from table must be shown
-      paginationCount, // Count of Pagination (how many pagination button must be)
-      paginationStep, // Step of pagination, number of table list
-      startToShow = 1; // First number from which table items must be shown
-   */
-
 })
