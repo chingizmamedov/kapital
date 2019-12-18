@@ -719,7 +719,7 @@ $(function () {
 
   
 	
-  var heatmap_url = 'http://10.0.22.36:8000/heatmap';
+  var heatmap_url = 'http://192.168.1.194:8000/heatmap';
 
   $.ajax({
     url: heatmap_url + '/get_map_data/',
@@ -802,7 +802,6 @@ $(function () {
       $('.map-wrap').css('overflow', 'visible')
 
     }
-    // $(this).text() == 'Go table' ? $('.map-wrap').css('overflow', 'hidden') :$('.map-wrap').css('overflow', 'visible');
     $(this).text() == 'Go table' ? $(this).text('Go Map') : $(this).text('Go table');
     filterId = filterId == 'map' ? 'table' : 'map';
    

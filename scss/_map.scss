@@ -18,11 +18,12 @@
     }
     &-info {
         background: #fff;
-        padding: 30px;
+        padding: 14px 10px;
         border-radius: 12px;
         color: #791f2e;
         font-size: 22px;
         margin-top: 20px;
+        min-width: 190px;
         &:first-child {
             margin-top: 40px;
         }
@@ -55,6 +56,9 @@
             transform: scale(1);
             opacity: 1;
         }
+    }
+    &-left {
+        z-index: 2;
     }
 }
 #sgs {
