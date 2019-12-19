@@ -49,289 +49,608 @@
         </div>
         <input id="search" type="search" name="" placeholder="Search here">
     </div>
-    <div class="tables-wrap">
-        <div class="table-scroller">
-            <div class="table-scrolled">
-                <div class="table-item d-flex flex-column">
-                    <!-- <div class="table-trigger">Service Department</div> -->
-                    <table class="dep-table">
-                        <thead>
-                            <tr>
-                                <td>Departament</td>
-                                <td id="queues">Queues</td>
-                                <td>Total vizits</td>
-                                <td>Served customers</td>
-                                <td>Waiting customers</td>
-                                <td>Average waiting time </td>
-                                <td>Average serving time </td>
-                                <td>Max waiting time </td>
-                                <td>Max serving time </td>
-                                <td>First ticket time </td>
-                                <td>Last ticket time </td>
-                                <td>FTE </td>
-                                <td>Online users </td>
-                                <td>Vocation </td>
-                                <td>Trip to </td>
-                                <td>Trip from </td>
-                                <td>No show </td>
-                                <td>Remove </td>
-                                <td>Reject </td>
-                            </tr>
-                            <tr>
-                                <td>Service Department</td>
-                                <td data-departament="services" class="open">&#62;</td>
-                                <td>23</td>
-                                <td>12</td>
-                                <td>11</td>
-                                <td>0:15:16</td>
-                                <td>0:15:16</td>
-                                <td>0:15:16</td>
-                                <td>0:15:16</td>
-                                <td>0:15:16</td>
-                                <td>0:15:16</td>
-                                <td>5</td>
-                                <td>3</td>
-                                <td>2</td>
-                                <td>3</td>
-                                <td>3</td>
-                                <td>23</td>
-                                <td>40</td>
-                                <td>0</td>
-                            </tr>
-                        </thead>
-                        <tbody style="display: none;" id="services">
+    
+        <div class="tables-wrap departaments">
+            <div class="table-scroller">
+                <div class="table-scrolled">
+                    <div class="table-item d-flex flex-column">
+                        <!-- <div class="table-trigger">Service Department</div> -->
+                        <table class="dep-table">
+                            <thead>
+                                <tr>
+                                    <td>Departament</td>
+                                    <td id="queues">Queues</td>
+                                    <td>Total vizits</td>
+                                    <td>Served customers</td>
+                                    <td>Waiting customers</td>
+                                    <td>Average waiting time </td>
+                                    <td>Average serving time </td>
+                                    <td>Max waiting time </td>
+                                    <td>Max serving time </td>
+                                    <td>First ticket time </td>
+                                    <td>Last ticket time </td>
+                                    <td>FTE </td>
+                                    <td>Online users </td>
+                                    <td>Vocation </td>
+                                    <td>Trip to </td>
+                                    <td>Trip from </td>
+                                    <td>No show </td>
+                                    <td>Remove </td>
+                                    <td>Reject </td>
+                                </tr>
+                                
+                            </thead>
+                            <tbody style="display: none;" id="services">
 
-                            <tr>
-                                <td></td>
-                                <td>Sosial kartın verilməsi</td>
-                                <td>10</td>
-                                <td>9</td>
-                                <td>2</td>
-                                <td>11</td>
-                                <td>0:15:16</td>
-                                <td>0:15:16</td>
-                                <td>0:15:16</td>
-                                <td>0:15:16</td>
-                                <td>0:15:16</td>
-                                <td>0:15:16</td>
-                                <td>5</td>
-                                <td>3</td>
-                                <td>3</td>
-                                <td>3</td>
-                                <td>23</td>
-                                <td>40</td>
-                                <td>0</td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td>Sosial kartın verilməsi</td>
-                                <td>10</td>
-                                <td>9</td>
-                                <td>2</td>
-                                <td>11</td>
-                                <td>0:15:16</td>
-                                <td>0:15:16</td>
-                                <td>0:15:16</td>
-                                <td>0:15:16</td>
-                                <td>0:15:16</td>
-                                <td>0:15:16</td>
-                                <td>5</td>
-                                <td>3</td>
-                                <td>3</td>
-                                <td>3</td>
-                                <td>23</td>
-                                <td>40</td>
-                                <td>0</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <table class="dep-table">
-                        <thead>
-                            <tr>
-                                <td>Departament</td>
-                                <td id="queues">Queues</td>
-                                <td>Total vizits</td>
-                                <td>Served customers</td>
-                                <td>Waiting customers</td>
-                                <td>Average waiting time </td>
-                                <td>Average serving time </td>
-                                <td>Max waiting time </td>
-                                <td>Max serving time </td>
-                                <td>First ticket time </td>
-                                <td>Last ticket time </td>
-                                <td>FTE </td>
-                                <td>Online users </td>
-                                <td>Vocation </td>
-                                <td>Trip to </td>
-                                <td>Trip from </td>
-                                <td>No show </td>
-                                <td>Remove </td>
-                                <td>Reject </td>
-                            </tr>
-                            <tr>
-                                <td>Service Department</td>
-                                <td data-departament="sales" class="open">&#62;</td>
-                                <td>23</td>
-                                <td>12</td>
-                                <td>11</td>
-                                <td>0:15:16</td>
-                                <td>0:15:16</td>
-                                <td>0:15:16</td>
-                                <td>0:15:16</td>
-                                <td>0:15:16</td>
-                                <td>0:15:16</td>
-                                <td>5</td>
-                                <td>3</td>
-                                <td>2</td>
-                                <td>3</td>
-                                <td>3</td>
-                                <td>23</td>
-                                <td>40</td>
-                                <td>0</td>
-                            </tr>
-                        </thead>
-                        <tbody style="display: none;" id="sales">
+                                <tr>
+                                    <td></td>
+                                    <td>Sosial kartın verilməsi</td>
+                                    <td>10</td>
+                                    <td>9</td>
+                                    <td>2</td>
+                                    <td>11</td>
+                                    <td>0:15:16</td>
+                                    <td>0:15:16</td>
+                                    <td>0:15:16</td>
+                                    <td>0:15:16</td>
+                                    <td>0:15:16</td>
+                                    <td>0:15:16</td>
+                                    <td>5</td>
+                                    <td>3</td>
+                                    <td>3</td>
+                                    <td>3</td>
+                                    <td>23</td>
+                                    <td>40</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Sosial kartın verilməsi</td>
+                                    <td>10</td>
+                                    <td>9</td>
+                                    <td>2</td>
+                                    <td>11</td>
+                                    <td>0:15:16</td>
+                                    <td>0:15:16</td>
+                                    <td>0:15:16</td>
+                                    <td>0:15:16</td>
+                                    <td>0:15:16</td>
+                                    <td>0:15:16</td>
+                                    <td>5</td>
+                                    <td>3</td>
+                                    <td>3</td>
+                                    <td>3</td>
+                                    <td>23</td>
+                                    <td>40</td>
+                                    <td>0</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table class="dep-table">
+                            <thead>
+                                <tr>
+                                    <td>Departament</td>
+                                    <td id="queues">Queues</td>
+                                    <td>Total vizits</td>
+                                    <td>Served customers</td>
+                                    <td>Waiting customers</td>
+                                    <td>Average waiting time </td>
+                                    <td>Average serving time </td>
+                                    <td>Max waiting time </td>
+                                    <td>Max serving time </td>
+                                    <td>First ticket time </td>
+                                    <td>Last ticket time </td>
+                                    <td>FTE </td>
+                                    <td>Online users </td>
+                                    <td>Vocation </td>
+                                    <td>Trip to </td>
+                                    <td>Trip from </td>
+                                    <td>No show </td>
+                                    <td>Remove </td>
+                                    <td>Reject </td>
+                                </tr>
+                                <tr>
+                                    <td>Service Department</td>
+                                    <td data-departament="sales" class="open">&#62;</td>
+                                    <td>23</td>
+                                    <td>12</td>
+                                    <td>11</td>
+                                    <td>0:15:16</td>
+                                    <td>0:15:16</td>
+                                    <td>0:15:16</td>
+                                    <td>0:15:16</td>
+                                    <td>0:15:16</td>
+                                    <td>0:15:16</td>
+                                    <td>5</td>
+                                    <td>3</td>
+                                    <td>2</td>
+                                    <td>3</td>
+                                    <td>3</td>
+                                    <td>23</td>
+                                    <td>40</td>
+                                    <td>0</td>
+                                </tr>
+                            </thead>
+                            <tbody style="display: none;" id="sales">
 
-                            <tr>
-                                <td></td>
-                                <td>Sosial kartın verilməsi</td>
-                                <td>10</td>
-                                <td>9</td>
-                                <td>2</td>
-                                <td>11</td>
-                                <td>0:15:16</td>
-                                <td>0:15:16</td>
-                                <td>0:15:16</td>
-                                <td>0:15:16</td>
-                                <td>0:15:16</td>
-                                <td>0:15:16</td>
-                                <td>5</td>
-                                <td>3</td>
-                                <td>3</td>
-                                <td>3</td>
-                                <td>23</td>
-                                <td>40</td>
-                                <td>0</td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td>Sosial kartın verilməsi</td>
-                                <td>10</td>
-                                <td>9</td>
-                                <td>2</td>
-                                <td>11</td>
-                                <td>0:15:16</td>
-                                <td>0:15:16</td>
-                                <td>0:15:16</td>
-                                <td>0:15:16</td>
-                                <td>0:15:16</td>
-                                <td>0:15:16</td>
-                                <td>5</td>
-                                <td>3</td>
-                                <td>3</td>
-                                <td>3</td>
-                                <td>23</td>
-                                <td>40</td>
-                                <td>0</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <table class="dep-table">
-                        <thead>
-                            <tr>
-                                <td>Departament</td>
-                                <td id="queues">Queues</td>
-                                <td>Total vizits</td>
-                                <td>Served customers</td>
-                                <td>Waiting customers</td>
-                                <td>Average waiting time </td>
-                                <td>Average serving time </td>
-                                <td>Max waiting time </td>
-                                <td>Max serving time </td>
-                                <td>First ticket time </td>
-                                <td>Last ticket time </td>
-                                <td>FTE </td>
-                                <td>Online users </td>
-                                <td>Vocation </td>
-                                <td>Trip to </td>
-                                <td>Trip from </td>
-                                <td>No show </td>
-                                <td>Remove </td>
-                                <td>Reject </td>
-                            </tr>
-                            <tr>
-                                <td>Service Department</td>
-                                <td data-departament="cash" class="open">&#62;</td>
-                                <td>23</td>
-                                <td>12</td>
-                                <td>11</td>
-                                <td>0:15:16</td>
-                                <td>0:15:16</td>
-                                <td>0:15:16</td>
-                                <td>0:15:16</td>
-                                <td>0:15:16</td>
-                                <td>0:15:16</td>
-                                <td>5</td>
-                                <td>3</td>
-                                <td>2</td>
-                                <td>3</td>
-                                <td>3</td>
-                                <td>23</td>
-                                <td>40</td>
-                                <td>0</td>
-                            </tr>
-                        </thead>
-                        <tbody style="display: none;" id="cash">
+                                <tr>
+                                    <td></td>
+                                    <td>Sosial kartın verilməsi</td>
+                                    <td>10</td>
+                                    <td>9</td>
+                                    <td>2</td>
+                                    <td>11</td>
+                                    <td>0:15:16</td>
+                                    <td>0:15:16</td>
+                                    <td>0:15:16</td>
+                                    <td>0:15:16</td>
+                                    <td>0:15:16</td>
+                                    <td>0:15:16</td>
+                                    <td>5</td>
+                                    <td>3</td>
+                                    <td>3</td>
+                                    <td>3</td>
+                                    <td>23</td>
+                                    <td>40</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Sosial kartın verilməsi</td>
+                                    <td>10</td>
+                                    <td>9</td>
+                                    <td>2</td>
+                                    <td>11</td>
+                                    <td>0:15:16</td>
+                                    <td>0:15:16</td>
+                                    <td>0:15:16</td>
+                                    <td>0:15:16</td>
+                                    <td>0:15:16</td>
+                                    <td>0:15:16</td>
+                                    <td>5</td>
+                                    <td>3</td>
+                                    <td>3</td>
+                                    <td>3</td>
+                                    <td>23</td>
+                                    <td>40</td>
+                                    <td>0</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table class="dep-table">
+                            <thead>
+                                <tr>
+                                    <td>Departament</td>
+                                    <td id="queues">Queues</td>
+                                    <td>Total vizits</td>
+                                    <td>Served customers</td>
+                                    <td>Waiting customers</td>
+                                    <td>Average waiting time </td>
+                                    <td>Average serving time </td>
+                                    <td>Max waiting time </td>
+                                    <td>Max serving time </td>
+                                    <td>First ticket time </td>
+                                    <td>Last ticket time </td>
+                                    <td>FTE </td>
+                                    <td>Online users </td>
+                                    <td>Vocation </td>
+                                    <td>Trip to </td>
+                                    <td>Trip from </td>
+                                    <td>No show </td>
+                                    <td>Remove </td>
+                                    <td>Reject </td>
+                                </tr>
+                                <tr>
+                                    <td>Service Department</td>
+                                    <td data-departament="cash" class="open">&#62;</td>
+                                    <td>23</td>
+                                    <td>12</td>
+                                    <td>11</td>
+                                    <td>0:15:16</td>
+                                    <td>0:15:16</td>
+                                    <td>0:15:16</td>
+                                    <td>0:15:16</td>
+                                    <td>0:15:16</td>
+                                    <td>0:15:16</td>
+                                    <td>5</td>
+                                    <td>3</td>
+                                    <td>2</td>
+                                    <td>3</td>
+                                    <td>3</td>
+                                    <td>23</td>
+                                    <td>40</td>
+                                    <td>0</td>
+                                </tr>
+                            </thead>
+                            <tbody style="display: none;" id="cash">
 
-                            <tr>
-                                <td></td>
-                                <td>Sosial kartın verilməsi</td>
-                                <td>10</td>
-                                <td>9</td>
-                                <td>2</td>
-                                <td>11</td>
-                                <td>0:15:16</td>
-                                <td>0:15:16</td>
-                                <td>0:15:16</td>
-                                <td>0:15:16</td>
-                                <td>0:15:16</td>
-                                <td>0:15:16</td>
-                                <td>5</td>
-                                <td>3</td>
-                                <td>3</td>
-                                <td>3</td>
-                                <td>23</td>
-                                <td>40</td>
-                                <td>0</td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td>Sosial kartın verilməsi</td>
-                                <td>10</td>
-                                <td>9</td>
-                                <td>2</td>
-                                <td>11</td>
-                                <td>0:15:16</td>
-                                <td>0:15:16</td>
-                                <td>0:15:16</td>
-                                <td>0:15:16</td>
-                                <td>0:15:16</td>
-                                <td>0:15:16</td>
-                                <td>5</td>
-                                <td>3</td>
-                                <td>3</td>
-                                <td>3</td>
-                                <td>23</td>
-                                <td>40</td>
-                                <td>0</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                                <tr>
+                                    <td></td>
+                                    <td>Sosial kartın verilməsi</td>
+                                    <td>10</td>
+                                    <td>9</td>
+                                    <td>2</td>
+                                    <td>11</td>
+                                    <td>0:15:16</td>
+                                    <td>0:15:16</td>
+                                    <td>0:15:16</td>
+                                    <td>0:15:16</td>
+                                    <td>0:15:16</td>
+                                    <td>0:15:16</td>
+                                    <td>5</td>
+                                    <td>3</td>
+                                    <td>3</td>
+                                    <td>3</td>
+                                    <td>23</td>
+                                    <td>40</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Sosial kartın verilməsi</td>
+                                    <td>10</td>
+                                    <td>9</td>
+                                    <td>2</td>
+                                    <td>11</td>
+                                    <td>0:15:16</td>
+                                    <td>0:15:16</td>
+                                    <td>0:15:16</td>
+                                    <td>0:15:16</td>
+                                    <td>0:15:16</td>
+                                    <td>0:15:16</td>
+                                    <td>5</td>
+                                    <td>3</td>
+                                    <td>3</td>
+                                    <td>3</td>
+                                    <td>23</td>
+                                    <td>40</td>
+                                    <td>0</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
+        
+        <div class="tables-wrap counters">
+            <div class="table-scroller">
+                <div class="table-scrolled">
+                    <div class="table-item d-flex flex-column">
+                        <!-- <div class="table-trigger">Service Department</div> -->
+                        <table class="dep-table">
+                            <thead>
+                                <tr>
+                                    <td id="queues">Service point</td>
+                                    <td>User name</td>
+                                    <td>Now serving ticket</td>
+                                    <td>Now serving service</td>
+                                    <td>Now serving transactione time</td>
+                                    <td>Service name</td>
+                                    <td>Served</td>
+                                    <td>Average transaction time</td>
+                                    <td>Total transaction time</td>
+                                    <td>Total session time</td>
+                                    <td>Idle time total</td>
+                                    <td>İdle time now</td>
+                                    <td>Idle time count</td>
+                                    <td>No show</td>
+                                    <td>Reject</td>
+                                    <td>Walk direct</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Məmmədov Məmməd</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td class="counters-open">&#62;</td>
+                                    <td>56</td>
+                                    <td>0:15:16</td>
+                                    <td>0:15:16</td>
+                                    <td>0:15:16</td>
+                                    <td>0:15:16</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>$32</td>
+                                    <td>$16</td>
+                                    <td>$19</td>
+                                </tr>
+                            </thead>
+                            <tbody style="display: table-header-group;">
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>xxxxxxx</td>
+                                    <td>30</td>
+                                    <td>0:15:16</td>
+                                    <td>0:15:16</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>$10</td>
+                                    <td>$16</td>
+                                    <td>$8</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>xxxxxxx</td>
+                                    <td>30</td>
+                                    <td>0:15:16</td>
+                                    <td>0:15:16</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>$10</td>
+                                    <td>$16</td>
+                                    <td>$8</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>xxxxxxx</td>
+                                    <td>30</td>
+                                    <td>0:15:16</td>
+                                    <td>0:15:16</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>$10</td>
+                                    <td>$16</td>
+                                    <td>$8</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>xxxxxxx</td>
+                                    <td>30</td>
+                                    <td>0:15:16</td>
+                                    <td>0:15:16</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>$10</td>
+                                    <td>$16</td>
+                                    <td>$8</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>xxxxxxx</td>
+                                    <td>30</td>
+                                    <td>0:15:16</td>
+                                    <td>0:15:16</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>$10</td>
+                                    <td>$16</td>
+                                    <td>$8</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table class="dep-table">
+                            <thead>
+                                <tr>
+                                    <td id="queues">Service point</td>
+                                    <td>User name</td>
+                                    <td>Now serving ticket</td>
+                                    <td>Now serving service</td>
+                                    <td>Now serving transactione time</td>
+                                    <td>Service name</td>
+                                    <td>Served</td>
+                                    <td>Average transaction time</td>
+                                    <td>Total transaction time</td>
+                                    <td>Total session time</td>
+                                    <td>Idle time total</td>
+                                    <td>İdle time now</td>
+                                    <td>Idle time count</td>
+                                    <td>No show</td>
+                                    <td>Reject</td>
+                                    <td>Walk direct</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Məmmədov Məmməd</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td class="counters-open">&#62;</td>
+                                    <td>56</td>
+                                    <td>0:15:16</td>
+                                    <td>0:15:16</td>
+                                    <td>0:15:16</td>
+                                    <td>0:15:16</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>$32</td>
+                                    <td>$16</td>
+                                    <td>$19</td>
+                                </tr>
+                            </thead>
+                            <tbody style="display: none;" id="services">
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>xxxxxxx</td>
+                                    <td>30</td>
+                                    <td>0:15:16</td>
+                                    <td>0:15:16</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>$10</td>
+                                    <td>$16</td>
+                                    <td>$8</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table class="dep-table">
+                            <thead>
+                                <tr>
+                                    <td id="queues">Service point</td>
+                                    <td>User name</td>
+                                    <td>Now serving ticket</td>
+                                    <td>Now serving service</td>
+                                    <td>Now serving transactione time</td>
+                                    <td>Service name</td>
+                                    <td>Served</td>
+                                    <td>Average transaction time</td>
+                                    <td>Total transaction time</td>
+                                    <td>Total session time</td>
+                                    <td>Idle time total</td>
+                                    <td>İdle time now</td>
+                                    <td>Idle time count</td>
+                                    <td>No show</td>
+                                    <td>Reject</td>
+                                    <td>Walk direct</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Məmmədov Məmməd</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td class="counters-open">&#62;</td>
+                                    <td>56</td>
+                                    <td>0:15:16</td>
+                                    <td>0:15:16</td>
+                                    <td>0:15:16</td>
+                                    <td>0:15:16</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>$32</td>
+                                    <td>$16</td>
+                                    <td>$19</td>
+                                </tr>
+                            </thead>
+                            <tbody style="display: none;" id="services">
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>xxxxxxx</td>
+                                    <td>30</td>
+                                    <td>0:15:16</td>
+                                    <td>0:15:16</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>$10</td>
+                                    <td>$16</td>
+                                    <td>$8</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>xxxxxxx</td>
+                                    <td>30</td>
+                                    <td>0:15:16</td>
+                                    <td>0:15:16</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>$10</td>
+                                    <td>$16</td>
+                                    <td>$8</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>xxxxxxx</td>
+                                    <td>30</td>
+                                    <td>0:15:16</td>
+                                    <td>0:15:16</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>$10</td>
+                                    <td>$16</td>
+                                    <td>$8</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>xxxxxxx</td>
+                                    <td>30</td>
+                                    <td>0:15:16</td>
+                                    <td>0:15:16</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>$10</td>
+                                    <td>$16</td>
+                                    <td>$8</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>xxxxxxx</td>
+                                    <td>30</td>
+                                    <td>0:15:16</td>
+                                    <td>0:15:16</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>$10</td>
+                                    <td>$16</td>
+                                    <td>$8</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                        
+                    </div>
+                </div>
+            </div>
 
+        </div>
     </div>
+
 
 
 

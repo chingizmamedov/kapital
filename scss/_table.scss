@@ -13,11 +13,12 @@
         top: 0;
         width: 100vw;
         display: none;
+        z-index: 97;
     }
     &-content {
         height: calc(100% - 60px);
         overflow-x: hidden;
-        overflow-y: scroll;
+        overflow-y: auto;
         position: relative;
     }
     &-branch {
@@ -291,4 +292,54 @@ td.fake {
       to {
         transform: scaleY(1);
       }
+}
+
+
+.tables-wrap {
+    & .dep-table {
+        margin-bottom: 0;
+        border-bottom: 1px solid #333;
+        & thead {
+            & tr:last-child {
+                background: #6470c9 !important;
+            }
+            
+        }
+    }
+    & td {
+        position: relative;
+        &:before {
+            position: absolute;
+            content: '';
+            height: 50%;
+            width: 1px;
+            // background: #333333;
+            border-right: 1px solid rgb(87, 85, 85);
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+    }
+    & tr:not(:last-child) {
+        & td {
+            &:after {
+                position: absolute;
+                content: '';
+                width: 80%;
+                height: 2px;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                margin-left: auto;
+                margin-right: auto;
+                border-bottom: 1px solid rgb(87, 85, 85);
+            }
+        }
+    }
+}
+
+.counters {
+    display: none;
 }

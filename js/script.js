@@ -1,7 +1,5 @@
 $(function () {
-  /**
-   * Main vars
-   */
+  /*
   var allFilials = [
     {
       "filialX": 227,
@@ -182,6 +180,12 @@ $(function () {
       "filialY": 211,
       "filialName": "Gəncə filialı",
       "id": "15"
+    },
+    {
+      "filialX": 212,
+      "filialY": 211,
+      "filialName": "Shamaxi filialı",
+      "id": "13"
     },
     {
       "filialX": 212,
@@ -453,6 +457,75 @@ $(function () {
       "filialName": "Şəki kart mərkəzi",
       "id": "46"
     }
+  ]
+
+  */
+
+
+  /**
+   * Main vars
+   */
+  var allFilials = [
+    {
+      "filialX": 227,
+      "filialY": 31,
+      "filialName": "Balakən filialı",
+      "id": "1"
+    },
+    {
+      "filialX": 260,
+      "filialY": 58,
+      "filialName": "Zaqatala filialı",
+      "id": "2"
+    },
+    {
+      "filialX": 295,
+      "filialY": 87,
+      "filialName": "Qax filialı",
+      "id": "4"
+    },
+    {
+      "filialX": 321,
+      "filialY": 124,
+      "filialName": "Şəki filialı",
+      "id": "5"
+    },
+    {
+      "filialX": 362,
+      "filialY": 148,
+      "filialName": "Oğuz filialı",
+      "id": "6"
+    },
+    {
+      "filialX": 411,
+      "filialY": 160,
+      "filialName": "Qəbələ filialı",
+      "id": "7"
+    },
+    {
+      "filialX": 459,
+      "filialY": 191,
+      "filialName": "İsmayıllı filialı",
+      "id": "8"
+    },
+    {
+      "filialX": 478,
+      "filialY": 79,
+      "filialName": "Qusar filialı",
+      "id": "9"
+    },
+    {
+      "filialX": 542,
+      "filialY": 77,
+      "filialName": "Xaçmaz filialı",
+      "id": "12"
+    },
+    {
+      "filialX": 508,
+      "filialY": 108,
+      "filialName": "Şimal filialı",
+      "id": "13"
+    }
   ],
   filterId = 'map',
   showTimeOnMap = true,
@@ -487,7 +560,7 @@ $(function () {
       for (var i = 0; i < drowArr.length; i++) {
 
         var
-          circle = document.createElementNS(NS, 'circle');
+        circle = document.createElementNS(NS, 'circle');
         circle.setAttribute('data-filial', drowArr[i].filialName)
         drowArr[i].alert !== undefined ? circle.setAttribute('data-time', drowArr[i].alert.avg_waiting_time.value) : null;
 
@@ -725,7 +798,7 @@ $(function () {
     url: heatmap_url + '/get_map_data/',
     type: 'GET',
     success: function (data) {
-
+      console.log('Elvin data', data)
       setInputData(data.branches);
       setCardData(data);
     }
@@ -1046,4 +1119,6 @@ $(function () {
 
 
   })
+
+  
 })
