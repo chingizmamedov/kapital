@@ -70,6 +70,17 @@
             background: #b41c24;
         }
     }
+    &-map--table {
+        border: 1px solid #434343;
+        border-radius: 5px;
+        padding: 5px 10px;
+        color: #fff;
+        background: #434343;
+        cursor: pointer;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin-left: 20px;
+    }
 }
 
 #search {
