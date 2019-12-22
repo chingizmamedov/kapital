@@ -106,6 +106,48 @@ $(function() {
             $('.counters').show();
         }
     })
+    // sortable filters
+
+    $('.fil1').sortable({
+        connectWith: '.fil2',
+        helper: "clone",
+        stop: function() {
+            // Собираем все data-id в массив.
+            var sort = [];
+            $('.sortable-ul li').each(function(){
+                sort.push($(this).data('id'));
+                
+            });
+     
+            // И сохраняем его в cookie в виде строки JSON.	
+            $.cookie('sort', JSON.stringify(sort));
+            console.log("TCL: sort", sort)
+            console.log('$.cookie("sort")', $.cookie('sort'));
+        }
+    });
+    $('.fil2').sortable({
+        connectWith: '.fil1',
+        stop: function() {
+            // Собираем все data-id в массив.
+            var sort = [];
+            $('.fil2 li').each(function(){
+                sort.push($(this).data('id'));
+                console.log("TCL: $(this).data('id')", $(this).data('id'))
+                
+            });
+     
+            // И сохраняем его в cookie в виде строки JSON.	
+            $.cookie('sort', JSON.stringify(sort));
+            console.log('$.cookie("sort")', $.cookie('sort'));
+            if ($.cookie('sort')) { 	
+                $.each(JSON.parse($.cookie('sort')), function(i, row){
+                console.log("TCL: row", row)
+                console.log("TCL: i", i)
+                    // $('.sortable-ul').append($('.sortable-ul li[data-id=' + row + ']'));
+                });
+            }
+        }
+    });
 
 })
 

@@ -1,0 +1,46 @@
+.filters {
+    width: 250px;
+    padding: 10px;
+    height: 100%;
+}
+
+.filter {
+    list-style-type: none;
+    min-height: 50px;
+    background: rgb(246, 225, 34);
+    padding: 5px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    &-container {
+        height: calc(100vh - 100px);
+        background: #fff;
+    }
+    &-item {
+        position: relative;
+        font-size: 12.5px !important;
+        text-transform: none !important;
+        text-align: left !important;
+        border-radius: 3px;
+        padding-left: 20px;
+        padding-right: 10px;
+        margin-bottom: 5px;
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .26);
+        cursor: pointer;
+        color: #fff;
+        background: #333;
+        height: 27px;
+        display: flex;
+        align-items: center;
+        font-weight: 400;
+        transition: .3s all;
+        &:hover {
+            background: rgb(30, 34, 78);
+        }
+        & span {
+            position: absolute;
+            top: 5px;
+            left: 0;
+        }
+    }
+}
+
