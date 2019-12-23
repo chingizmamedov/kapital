@@ -108,46 +108,38 @@ $(function() {
     })
     // sortable filters
 
-    $('.fil1').sortable({
-        connectWith: '.fil2',
+    $('.models-table').sortable({
+        connectWith: '.setting-table',
         helper: "clone",
         stop: function() {
-            // Собираем все data-id в массив.
-            var sort = [];
-            $('.sortable-ul li').each(function(){
-                sort.push($(this).data('id'));
-                
-            });
-     
-            // И сохраняем его в cookie в виде строки JSON.	
-            $.cookie('sort', JSON.stringify(sort));
-            console.log("TCL: sort", sort)
-            console.log('$.cookie("sort")', $.cookie('sort'));
+            
+        },
+        change: function() {
+            console.log('modal table is changed');
         }
     });
-    $('.fil2').sortable({
-        connectWith: '.fil1',
+    $('.setting-table').sortable({
+        connectWith: '.models-table',
         stop: function() {
-            // Собираем все data-id в массив.
-            var sort = [];
-            $('.fil2 li').each(function(){
-                sort.push($(this).data('id'));
-                console.log("TCL: $(this).data('id')", $(this).data('id'))
-                
-            });
-     
-            // И сохраняем его в cookie в виде строки JSON.	
-            $.cookie('sort', JSON.stringify(sort));
-            console.log('$.cookie("sort")', $.cookie('sort'));
-            if ($.cookie('sort')) { 	
-                $.each(JSON.parse($.cookie('sort')), function(i, row){
-                console.log("TCL: row", row)
-                console.log("TCL: i", i)
-                    // $('.sortable-ul').append($('.sortable-ul li[data-id=' + row + ']'));
-                });
-            }
+            
+        },
+        change: function() {
+            console.log('setting table is changed');
         }
     });
+
+
+    $(".filter-item").dblclick(function() {
+        console.log('bouble click')
+        var parentTable = $(this).parent().parent().attr('id'),
+            currentItem = $(this).parent();
+        console.log("TCL: parentTable", parentTable)
+        if(parentTable == 'models-table') {
+            $('#setting-table').append(currentItem);
+        } else {
+            $('#models-table').append(currentItem);
+        }
+    })
 
 })
 
