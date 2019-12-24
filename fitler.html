@@ -12,20 +12,79 @@
 </head>
 
 <body>
-
-    <div class="modal">
-        <div class="modal-filter">
+    <div class="material">
+        <div class="material-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path fill="none" d="M0 0h24v24H0V0z"/>
+                <path fill="#fff" d="M17.59 3.59c-.38-.38-.89-.59-1.42-.59H5c-1.11 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V7.83c0-.53-.21-1.04-.59-1.41l-2.82-2.83zM12 19c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm1-10H7c-1.1 0-2-.9-2-2s.9-2 2-2h6c1.1 0 2 .9 2 2s-.9 2-2 2z"/>
+            </svg>
+        </div>
+        <div class="material-list">
+            <div class="cvs">CSV</div>
+            <div class="pdf">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path fill="none" d="M0 0h24v24H0V0z"/>
+                    <path fill="#fff" d="M20 2H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-8.5 7.5c0 .83-.67 1.5-1.5 1.5H9v1.25c0 .41-.34.75-.75.75s-.75-.34-.75-.75V8c0-.55.45-1 1-1H10c.83 0 1.5.67 1.5 1.5v1zm5 2c0 .83-.67 1.5-1.5 1.5h-2c-.28 0-.5-.22-.5-.5v-5c0-.28.22-.5.5-.5h2c.83 0 1.5.67 1.5 1.5v3zm4-3.75c0 .41-.34.75-.75.75H19v1h.75c.41 0 .75.34.75.75s-.34.75-.75.75H19v1.25c0 .41-.34.75-.75.75s-.75-.34-.75-.75V8c0-.55.45-1 1-1h1.25c.41 0 .75.34.75.75zM9 9.5h1v-1H9v1zM3 6c-.55 0-1 .45-1 1v13c0 1.1.9 2 2 2h13c.55 0 1-.45 1-1s-.45-1-1-1H5c-.55 0-1-.45-1-1V7c0-.55-.45-1-1-1zm11 5.5h1v-3h-1v3z"/>
+                </svg>
+            </div>
+        </div>
+    </div>
+    <div class="modal-filter-back"></div>
+    <div class="modal-filter-wrap">
+        <div class="modal-filter-wrap">
             <div class="modal-header">
-
+                <span>Year filter</span>
             </div>
             <div class="modal-body">
                 <div class="modal-body-select">
-                    
+                    <input type="search" class="filter-search">
+                    <ul class="modal-filter modal-filter-select">
+                        <li>
+                            <div data-month="1" class="filter-item">January</div>
+                        </li>
+                        <li>
+                            <div data-month="2" class="filter-item">February</div></li>
+                        <li>
+                            <div data-month="3" class="filter-item">March</div></li>
+                        <li>
+                            <div data-month="4" class="filter-item">April</div></li>
+                        <li>
+                            <div data-month="5" class="filter-item">May</div></li>
+                        <li>
+                            <div data-month="6" class="filter-item">June</div></li>
+                        <li>
+                            <div data-month="7"class="filter-item">July</div></li>
+                        <li>
+                            <div data-month="8" class="filter-item">August</div></li>
+                        <li>
+                            <div data-month="9" class="filter-item">September</div></li>
+                        <li>
+                            <div data-month="10" class="filter-item">October</div></li>
+                        <li>
+                            <div data-month="11" class="filter-item">November</div></li>
+                    </ul>
                 </div>
-                <div class="modal-body-selected"></div>
+                <div class="modal-body-selected">
+                    <div class="d-flex">
+                        <input type="search" class="filter-search" placeholder="Search">
+                        <div class="selector-wrap">
+                            <div class="selector-display">Include</div>
+                            <div class="selector-list">
+                                <div class="selector-item">Include</div>
+                                <div class="selector-item">Exclude</div>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="modal-filter modal-filter-selected">
+                        
+                        <li>
+                            <div data-month="12" class="filter-item">December</div></li>
+                    </ul>
+                </div>
             </div>
             <div class="modal-footer">
-
+                <button class="btn btn-map--table red">Reset</button>
+                <button class="btn btn-map--table">Save</button>
             </div>
         </div>
     </div>
@@ -61,22 +120,22 @@
                     <p class="filter-title">Selected filter</p>
                     <ul class="filter setting-table" id="setting-table">
                         <li>
-                            <div class="filter-item">
+                            <div data-pas="1" class="filter-item filter-item-f">
                                 <span class="drag-handler"><svg fill="#ffffff" height="10" viewBox="0 0 15 15"
-                                        width="15" xmlns="http://www.w3.org/2000/svg">
-                                        <defs>
-                                            <path d="M0 0h24v24H0V0z" id="a"></path>
-                                        </defs>
-                                        <path d="M20 9H4v2h16V9zM4 15h16v-2H4v2z"></path>
-                                    </svg></span>
-                                <p>Branches</p>
-                                <svg class="filter-icon" fill="#ffffff" height="21" viewBox="0 0 24 24" width="21"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z"></path>
-                                    <path d="M0 0h24v24H0z" fill="none"></path>
-                                </svg>
+                                    width="15" xmlns="http://www.w3.org/2000/svg">
+                                    <defs>
+                                        <path d="M0 0h24v24H0V0z" id="a"></path>
+                                    </defs>
+                                    <path d="M20 9H4v2h16V9zM4 15h16v-2H4v2z"></path>
+                                </svg></span>
+                            <p>Branches</p>
+                            <svg class="filter-icon" fill="#ffffff" height="21" viewBox="0 0 24 24" width="21"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z"></path>
+                                <path d="M0 0h24v24H0z" fill="none"></path>
+                            </svg>
                             </div>
-
+                            
                         </li>
                     </ul>
                 </div>
@@ -85,32 +144,31 @@
                     <p class="filter-title">All filter</p>
                     <ul class="filter models-table" id="models-table">
                         <li>
-                            <div class="filter-item">
+                            <div data-pos="2" class="filter-item filter-item-f">
                                 <span class="drag-handler"><svg fill="#ffffff" height="10" viewBox="0 0 15 15"
-                                        width="15" xmlns="http://www.w3.org/2000/svg">
-                                        <defs>
-                                            <path d="M0 0h24v24H0V0z" id="a"></path>
-                                        </defs>
-                                        <path d="M20 9H4v2h16V9zM4 15h16v-2H4v2z"></path>
-                                    </svg></span>
-                                <p>Year</p>
-                                <svg class="filter-icon" fill="#ffffff" height="21" viewBox="0 0 24 24" width="21"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z"></path>
-                                    <path d="M0 0h24v24H0z" fill="none"></path>
-                                </svg>
-                            </div>
-
+                                    width="15" xmlns="http://www.w3.org/2000/svg">
+                                    <defs>
+                                        <path d="M0 0h24v24H0V0z" id="a"></path>
+                                    </defs>
+                                    <path d="M20 9H4v2h16V9zM4 15h16v-2H4v2z"></path>
+                                </svg></span>
+                            <p>Year</p>
+                            <svg class="filter-icon" fill="#ffffff" height="21" viewBox="0 0 24 24" width="21"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z"></path>
+                                <path d="M0 0h24v24H0z" fill="none"></path>
+                            </svg>
+                            </div>                            
                         </li>
                         <li>
-                            <div class="filter-item">
+                            <div data-pos="3" class="filter-item filter-item-f">
                                 <span class="drag-handler"><svg fill="#ffffff" height="10" viewBox="0 0 15 15"
-                                        width="15" xmlns="http://www.w3.org/2000/svg">
-                                        <defs>
-                                            <path d="M0 0h24v24H0V0z" id="a"></path>
-                                        </defs>
-                                        <path d="M20 9H4v2h16V9zM4 15h16v-2H4v2z"></path>
-                                    </svg></span>
+                                    width="15" xmlns="http://www.w3.org/2000/svg">
+                                    <defs>
+                                        <path d="M0 0h24v24H0V0z" id="a"></path>
+                                    </defs>
+                                    <path d="M20 9H4v2h16V9zM4 15h16v-2H4v2z"></path>
+                                </svg></span>
                                 <p>Month</p>
                                 <svg class="filter-icon" fill="#ffffff" height="21" viewBox="0 0 24 24" width="21"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -118,96 +176,94 @@
                                     <path d="M0 0h24v24H0z" fill="none"></path>
                                 </svg>
                             </div>
-
+                            
                         </li>
                         <li>
-                            <div class="filter-item">
+                            <div data-pos="4" class="filter-item">
                                 <span class="drag-handler"><svg fill="#ffffff" height="10" viewBox="0 0 15 15"
-                                        width="15" xmlns="http://www.w3.org/2000/svg">
-                                        <defs>
-                                            <path d="M0 0h24v24H0V0z" id="a"></path>
-                                        </defs>
-                                        <path d="M20 9H4v2h16V9zM4 15h16v-2H4v2z"></path>
-                                    </svg></span>
-                                <p>Month</p>
+                                    width="15" xmlns="http://www.w3.org/2000/svg">
+                                    <defs>
+                                        <path d="M0 0h24v24H0V0z" id="a"></path>
+                                    </defs>
+                                    <path d="M20 9H4v2h16V9zM4 15h16v-2H4v2z"></path>
+                                </svg></span>
+                                <p>Day of month</p>
                                 <svg class="filter-icon" fill="#ffffff" height="21" viewBox="0 0 24 24" width="21"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z"></path>
                                     <path d="M0 0h24v24H0z" fill="none"></path>
                                 </svg>
                             </div>
-
+                            
                         </li>
                         <li>
-                            <div class="filter-item">
+                            <div data-pos="5" class="filter-item">
                                 <span class="drag-handler"><svg fill="#ffffff" height="10" viewBox="0 0 15 15"
-                                        width="15" xmlns="http://www.w3.org/2000/svg">
-                                        <defs>
-                                            <path d="M0 0h24v24H0V0z" id="a"></path>
-                                        </defs>
-                                        <path d="M20 9H4v2h16V9zM4 15h16v-2H4v2z"></path>
-                                    </svg></span>
-                                <p>User</p>
-                                <svg class="filter-icon" fill="#ffffff" height="21" viewBox="0 0 24 24" width="21"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z"></path>
-                                    <path d="M0 0h24v24H0z" fill="none"></path>
-                                </svg>
+                                    width="15" xmlns="http://www.w3.org/2000/svg">
+                                    <defs>
+                                        <path d="M0 0h24v24H0V0z" id="a"></path>
+                                    </defs>
+                                    <path d="M20 9H4v2h16V9zM4 15h16v-2H4v2z"></path>
+                                </svg></span>
+                            <p>User</p>
+                            <svg class="filter-icon" fill="#ffffff" height="21" viewBox="0 0 24 24" width="21"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z"></path>
+                                <path d="M0 0h24v24H0z" fill="none"></path>
+                            </svg>
                             </div>
-
+                            
                         </li>
                         <li>
-                            <div class="filter-item">
-                                <span class="drag-handler"><svg fill="#ffffff" height="10" viewBox="0 0 15 15"
-                                        width="15" xmlns="http://www.w3.org/2000/svg">
-                                        <defs>
-                                            <path d="M0 0h24v24H0V0z" id="a"></path>
-                                        </defs>
-                                        <path d="M20 9H4v2h16V9zM4 15h16v-2H4v2z"></path>
-                                    </svg></span>
+                            <div data-pos="6" class="filter-item">
+                                <span class="drag-handler"><svg fill="#ffffff" height="10" viewBox="0 0 15 15" width="15" xmlns="http://www.w3.org/2000/svg">
+                                    <defs>
+                                        <path d="M0 0h24v24H0V0z" id="a"></path>
+                                    </defs>
+                                    <path d="M20 9H4v2h16V9zM4 15h16v-2H4v2z"></path>
+                                </svg></span>
                                 <p>Count</p>
                             </div>
-
+                            
                         </li>
                         <li>
-                            <div class="filter-item">
+                            <div data-pos="6" class="d-none filter-item">
                                 <span class="drag-handler"><svg fill="#ffffff" height="10" viewBox="0 0 15 15"
-                                        width="15" xmlns="http://www.w3.org/2000/svg">
-                                        <defs>
-                                            <path d="M0 0h24v24H0V0z" id="a"></path>
-                                        </defs>
-                                        <path d="M20 9H4v2h16V9zM4 15h16v-2H4v2z"></path>
-                                    </svg></span>
-                                <p>Avg idle time
-                                </p>
+                                    width="15" xmlns="http://www.w3.org/2000/svg">
+                                    <defs>
+                                        <path d="M0 0h24v24H0V0z" id="a"></path>
+                                    </defs>
+                                    <path d="M20 9H4v2h16V9zM4 15h16v-2H4v2z"></path>
+                                </svg></span>
+                                <p>Avg idle time</p>
                             </div>
-
+                            
                         </li>
                         <li>
-                            <div class="filter-item">
+                            <div data-pos="7" class="filter-item">
                                 <span class="drag-handler"><svg fill="#ffffff" height="10" viewBox="0 0 15 15"
-                                        width="15" xmlns="http://www.w3.org/2000/svg">
-                                        <defs>
-                                            <path d="M0 0h24v24H0V0z" id="a"></path>
-                                        </defs>
-                                        <path d="M20 9H4v2h16V9zM4 15h16v-2H4v2z"></path>
-                                    </svg></span>
+                                    width="15" xmlns="http://www.w3.org/2000/svg">
+                                    <defs>
+                                        <path d="M0 0h24v24H0V0z" id="a"></path>
+                                    </defs>
+                                    <path d="M20 9H4v2h16V9zM4 15h16v-2H4v2z"></path>
+                                </svg></span>
                                 <p>Total idle time</p>
                             </div>
-
+                            
                         </li>
                         <li>
-                            <div class="filter-item">
+                            <div data-pos="8" class="filter-item">
                                 <span class="drag-handler"><svg fill="#ffffff" height="10" viewBox="0 0 15 15"
-                                        width="15" xmlns="http://www.w3.org/2000/svg">
-                                        <defs>
-                                            <path d="M0 0h24v24H0V0z" id="a"></path>
-                                        </defs>
-                                        <path d="M20 9H4v2h16V9zM4 15h16v-2H4v2z"></path>
-                                    </svg></span>
+                                    width="15" xmlns="http://www.w3.org/2000/svg">
+                                    <defs>
+                                        <path d="M0 0h24v24H0V0z" id="a"></path>
+                                    </defs>
+                                    <path d="M20 9H4v2h16V9zM4 15h16v-2H4v2z"></path>
+                                </svg></span>
                                 <p>Max idle time</p>
                             </div>
-
+                            
                         </li>
                     </ul>
                 </div>
@@ -219,8 +275,8 @@
     <script src="lib/jquery.js"></script>
     <script src="lib/jquery-ui.js"></script>
     <script src="lib/jquery-cookie.js"></script>
-    <script src="https://unpkg.com/popper.js@1"></script>
-    <script src="https://unpkg.com/tippy.js@5"></script>
+    <script src="lib/popper.min.js"></script>
+    <script src="lib/tippy.js"></script>
     <script src="js/departament.js"></script>
 </body>
 

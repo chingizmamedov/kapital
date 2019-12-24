@@ -1,0 +1,50 @@
+#table-preloader {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0, .4);
+	display: none;
+	animation: preloaderAnimation 1.9s infinite;
+	z-index: 99;
+
+}
+#table-preloader:before {
+	content:'';
+	display: block;
+	width: 64px;
+	height: 64px;
+	border-radius: 50%;
+	border: 6px solid #fff;
+	border-color: #fff transparent #fff transparent;
+	animation: preloaderAnimationRound 1.9s infinite;
+	margin: auto;
+	left: 0;	
+    right: 0;
+    top: 0;
+    bottom: 0;
+    position: absolute;
+}
+@keyframes preloaderAnimation {
+	0% {
+		background: rgba(0,0,0, .1);
+	}
+	50% {
+		background: rgba(0,0,0, .6);
+	}
+	100% {
+		background: rgba(0,0,0, .1);
+	}
+}
+@keyframes preloaderAnimationRound {
+	0% {
+		transform: rotate(0);
+	}
+	50% {
+		transform: rotate(180deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+

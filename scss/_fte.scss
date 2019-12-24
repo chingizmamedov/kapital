@@ -39,6 +39,9 @@
                 width: 100%;
             }
         }
+        & tr {
+            height: 38px;
+        }
     }
     & td:first-child {
         padding-right: 11px;
