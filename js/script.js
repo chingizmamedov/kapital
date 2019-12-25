@@ -1,6 +1,5 @@
 $(function () {
-  var directPath = window.location.pathname;
-  directPath = directPath.replace('/index.html', '');
+
   var allFilials = [
     {
       "filialX": 227,
@@ -636,7 +635,7 @@ $(function () {
     for (var i = 0; i < tableList.length; i++) {
       
       if( tableList[i].departments.length > 1) {
-        table += '<tr><td class="table-branch table-branch-row"><a href="'+ directPath +'/departament.html?filial=' + tableList[i].id + '" target="blank">' + tableList[i].name + '</a></td><td data-first="1" data-accordion="branches"><span>' + tableList[i].ticket_count + '</span></td><td data-accordion="branches"><span>' + tableList[i].served_customer_count + '</span></td><td data-accordion="branches"><span>' + tableList[i].waiting_customer_count + '</span></td><td data-accordion="branches"><span>' + tableList[i].max_free_time + '</span></td><td data-accordion="branches"><span>' + tableList[i].free_user_count + '</span></td><td data-accordion="branches"><span>' + tableList[i].open_counter_count + '</span></td><td data-first="1" data-accordion="services"><span>' + tableList[i].ticket_count + '</span></td>';
+        table += '<tr><td class="table-branch table-branch-row"><a href="/departament.html?filial=' + tableList[i].id + '" target="blank">' + tableList[i].name + '</a></td><td data-first="1" data-accordion="branches"><span>' + tableList[i].ticket_count + '</span></td><td data-accordion="branches"><span>' + tableList[i].served_customer_count + '</span></td><td data-accordion="branches"><span>' + tableList[i].waiting_customer_count + '</span></td><td data-accordion="branches"><span>' + tableList[i].max_free_time + '</span></td><td data-accordion="branches"><span>' + tableList[i].free_user_count + '</span></td><td data-accordion="branches"><span>' + tableList[i].open_counter_count + '</span></td><td data-first="1" data-accordion="services"><span>' + tableList[i].ticket_count + '</span></td>';
       // console.log('departmenst : ' + tableList[i].name, tableList[i].departments)
       // console.log( 'tableList[i].departments[0].served_customer_count', tableList[i].departments[0].served_customer_count )
       table += '<td data-accordion="services"><span>' + tableList[i].departments[0].served_customer_count + '</span></td>'
