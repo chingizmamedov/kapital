@@ -1,5 +1,6 @@
 $(function () {
-  /*
+  var directPath = window.location.pathname;
+  directPath = directPath.replace('/index.html', '');
   var allFilials = [
     {
       "filialX": 227,
@@ -182,8 +183,14 @@ $(function () {
       "id": "15"
     },
     {
-      "filialX": 212,
+      "filialX": 312,
       "filialY": 211,
+      "filialName": "Atabank",
+      "id": "1"
+    },
+    {
+      "filialX": 212,
+      "filialY": 291,
       "filialName": "Shamaxi filialı",
       "id": "13"
     },
@@ -459,75 +466,13 @@ $(function () {
     }
   ]
 
-  */
+
 
 
   /**
    * Main vars
    */
-  var allFilials = [
-    {
-      "filialX": 227,
-      "filialY": 31,
-      "filialName": "Balakən filialı",
-      "id": "1"
-    },
-    {
-      "filialX": 260,
-      "filialY": 58,
-      "filialName": "Zaqatala filialı",
-      "id": "2"
-    },
-    {
-      "filialX": 295,
-      "filialY": 87,
-      "filialName": "Qax filialı",
-      "id": "4"
-    },
-    {
-      "filialX": 321,
-      "filialY": 124,
-      "filialName": "Şəki filialı",
-      "id": "5"
-    },
-    {
-      "filialX": 362,
-      "filialY": 148,
-      "filialName": "Oğuz filialı",
-      "id": "6"
-    },
-    {
-      "filialX": 411,
-      "filialY": 160,
-      "filialName": "Qəbələ filialı",
-      "id": "7"
-    },
-    {
-      "filialX": 459,
-      "filialY": 191,
-      "filialName": "İsmayıllı filialı",
-      "id": "8"
-    },
-    {
-      "filialX": 478,
-      "filialY": 79,
-      "filialName": "Qusar filialı",
-      "id": "9"
-    },
-    {
-      "filialX": 542,
-      "filialY": 77,
-      "filialName": "Xaçmaz filialı",
-      "id": "12"
-    },
-    {
-      "filialX": 508,
-      "filialY": 108,
-      "filialName": "Şimal filialı",
-      "id": "13"
-    }
-  ],
-  filterId = 'map',
+  var filterId = 'map',
   showTimeOnMap = true,
   drowArr = [],
   newArr = [],
@@ -691,7 +636,7 @@ $(function () {
     for (var i = 0; i < tableList.length; i++) {
       
       if( tableList[i].departments.length > 1) {
-        table += '<tr><td class="table-branch table-branch-row"><a href="/departament.html?filial=' + tableList[i].id + '" target="blank">' + tableList[i].name + '</a></td><td data-first="1" data-accordion="branches"><span>' + tableList[i].ticket_count + '</span></td><td data-accordion="branches"><span>' + tableList[i].served_customer_count + '</span></td><td data-accordion="branches"><span>' + tableList[i].waiting_customer_count + '</span></td><td data-accordion="branches"><span>' + tableList[i].max_free_time + '</span></td><td data-accordion="branches"><span>' + tableList[i].free_user_count + '</span></td><td data-accordion="branches"><span>' + tableList[i].open_counter_count + '</span></td><td data-first="1" data-accordion="services"><span>' + tableList[i].ticket_count + '</span></td>';
+        table += '<tr><td class="table-branch table-branch-row"><a href="'+ directPath +'/departament.html?filial=' + tableList[i].id + '" target="blank">' + tableList[i].name + '</a></td><td data-first="1" data-accordion="branches"><span>' + tableList[i].ticket_count + '</span></td><td data-accordion="branches"><span>' + tableList[i].served_customer_count + '</span></td><td data-accordion="branches"><span>' + tableList[i].waiting_customer_count + '</span></td><td data-accordion="branches"><span>' + tableList[i].max_free_time + '</span></td><td data-accordion="branches"><span>' + tableList[i].free_user_count + '</span></td><td data-accordion="branches"><span>' + tableList[i].open_counter_count + '</span></td><td data-first="1" data-accordion="services"><span>' + tableList[i].ticket_count + '</span></td>';
       // console.log('departmenst : ' + tableList[i].name, tableList[i].departments)
       // console.log( 'tableList[i].departments[0].served_customer_count', tableList[i].departments[0].served_customer_count )
       table += '<td data-accordion="services"><span>' + tableList[i].departments[0].served_customer_count + '</span></td>'
@@ -808,7 +753,7 @@ $(function () {
       $.ajax({
           url: heatmap_url + '/get_branches_data/',
           type: 'POST',
-          data: {limit : 20, offset : 1, search: ''},
+          data: {limit : 20, offset : 0, search: ''},
           success: function (data) {
             console.log('sukaaaaaaaaaaaaaa',data)
             newDrowTable(data.branches);
@@ -830,7 +775,7 @@ $(function () {
         type: 'POST',
         data: {limit : listAllItemCount, offset : 1, search: ''},
         success: function (data) {
-          // console.log(data)
+          console.log('pox data', data)
           newDrowTable(data.branches);
           listAllItemCount = data.count;
           console.log('listAllItemCount', listAllItemCount)
