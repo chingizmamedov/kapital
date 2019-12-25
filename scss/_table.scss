@@ -37,7 +37,6 @@
         background: #e1e1e1;
         cursor: pointer;
         transition: .1s;
-        animation: lisItemAnimation .5s;
     }
     & tr:nth-child(2n) td {
         background-color: #bf2127;
@@ -284,15 +283,6 @@ td.fake {
       }
 }
 
-@keyframes lisItemAnimation {
-    from {
-        transform: scaleY(.7);
-      }
-    
-      to {
-        transform: scaleY(1);
-      }
-}
 
 
 .tables-wrap {

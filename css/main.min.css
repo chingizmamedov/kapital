@@ -564,8 +564,6 @@ a {
   -webkit-transition: .1s;
   -o-transition: .1s;
   transition: .1s;
-  -webkit-animation: lisItemAnimation .5s;
-          animation: lisItemAnimation .5s;
 }
 
 .table tr:nth-child(2n) td {
@@ -854,28 +852,6 @@ td.fake {
   to {
     -webkit-transform: scale(1);
             transform: scale(1);
-  }
-}
-
-@-webkit-keyframes lisItemAnimation {
-  from {
-    -webkit-transform: scaleY(0.7);
-            transform: scaleY(0.7);
-  }
-  to {
-    -webkit-transform: scaleY(1);
-            transform: scaleY(1);
-  }
-}
-
-@keyframes lisItemAnimation {
-  from {
-    -webkit-transform: scaleY(0.7);
-            transform: scaleY(0.7);
-  }
-  to {
-    -webkit-transform: scaleY(1);
-            transform: scaleY(1);
   }
 }
 
