@@ -4,7 +4,7 @@ $(function() {
       allFilials = [],
       jsonArray = [],
       listAllItemCount = 0,
-      listShowCount = 20, // Count of list item, how many item from table must be shown
+      listShowCount = 5, // Count of list item, how many item from table must be shown
       paginationCount, // Count of Pagination (how many pagination button must be)
       paginationStep = 1, // Step of pagination, number of table list
       startToShow = 0; // First number from which table items must be shown;
@@ -33,7 +33,7 @@ $(function() {
           }
   
           tableRow += tableName + tableInputXidmet + tableInputSatish + tableInputKassa + tableInputHuquq + tableInputKassaHuquq;
-          $(".fte-body").append(tableRow);
+          $(".fte-body").html(tableRow);
           if(allFilials[i + 1] == undefined) {
             return null;
           }

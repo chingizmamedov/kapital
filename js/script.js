@@ -1,6 +1,8 @@
 $(function () {
   var directPath = window.location.pathname;
+  console.log("TCL: directPath", directPath);
   directPath = directPath.replace('/index.html', '');
+  
   var allFilials = [
     {
       "filialX": 227,
