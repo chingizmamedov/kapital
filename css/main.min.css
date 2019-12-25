@@ -916,7 +916,6 @@ td.fake {
 
 .fte {
   width: 100%;
-  height: 100%;
   border-collapse: collapse;
 }
 
@@ -1011,6 +1010,12 @@ td.fake {
   margin-bottom: 10px;
 }
 
+.filter-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 .filter-search {
   width: 100%;
   height: 30px;
@@ -1092,6 +1097,35 @@ td.fake {
 
 .filter-wrap {
   margin-bottom: 15px;
+}
+
+.filter-content {
+  background: #e1e1e1;
+  width: 100%;
+}
+
+.filter-selected-items {
+  width: 100%;
+  min-height: 18px;
+  background: #db2b34;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 4px 6px;
+  display: none;
+}
+
+.filter-select-item {
+  background: #333;
+  color: #fff;
+  padding: 3px 5px;
+  font-size: 10px;
+  text-transform: lowercase;
+  border-radius: 6px;
+  margin-right: 10px;
 }
 
 #setting-table .filter-icon {

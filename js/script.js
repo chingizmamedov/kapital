@@ -465,9 +465,6 @@ $(function () {
     }
   ]
 
-
-
-
   /**
    * Main vars
    */
@@ -517,23 +514,23 @@ $(function () {
         if (drowArr[i].alert !== undefined) {
           if (drowArr[i].alert.percent.value.slice(0, -1) >= 0 && drowArr[i].alert.percent.value.slice(0, -1) < 40) {
             circle.setAttributeNS(null, 'r', 1);
-            circle.style.stroke = 'green'
-            circle.style.fill = 'green'
+            circle.style.stroke = 'green';
+            circle.style.fill = 'green';
           }
           if (drowArr[i].alert.percent.value.slice(0, -1) > 41 && drowArr[i].alert.percent.value.slice(0, -1) < 60) {
             circle.setAttributeNS(null, 'r', 2);
-            circle.style.stroke = 'yellow'
-            circle.style.fill = 'yellow'
+            circle.style.stroke = 'yellow';
+            circle.style.fill = 'yellow';
           }
           if (drowArr[i].alert.percent.value.slice(0, -1) > 61 && drowArr[i].alert.percent.value.slice(0, -1) < 80) {
             circle.setAttributeNS(null, 'r', 3);
-            circle.style.stroke = 'orange'
-            circle.style.fill = 'orange'
+            circle.style.stroke = 'orange';
+            circle.style.fill = 'orange';
           }
           if (drowArr[i].alert.percent.value.slice(0, -1) > 81 && drowArr[i].alert.percent.value.slice(0, -1) <= 100) {
             circle.setAttributeNS(null, 'r', 4);
-            circle.style.stroke = 'red'
-            circle.style.fill = 'red'
+            circle.style.stroke = 'red';
+            circle.style.fill = 'red';
           }
         }
         circle.setAttribute('data-id',drowArr[i].id )
@@ -556,23 +553,23 @@ $(function () {
         
         circle.setAttributeNS(null, 'r', 2);
         if (seconds >= 0 && seconds < 600) {
-          circle.style.stroke = 'green'
-          circle.style.fill = 'green'
+          circle.style.stroke = 'green';
+          circle.style.fill = 'green';
           circle.setAttributeNS(null, 'r', 1);
         }
         if (seconds > 600 && seconds < 900) {
-          circle.style.stroke = 'yellow'
-          circle.style.fill = 'yellow'
+          circle.style.stroke = 'yellow';
+          circle.style.fill = 'yellow';
           circle.setAttributeNS(null, 'r', 2);
         }
         if (seconds > 900 && seconds < 1200) {
-          circle.style.stroke = 'orange'
-          circle.style.fill = 'orange'
+          circle.style.stroke = 'orange';
+          circle.style.fill = 'orange';
           circle.setAttributeNS(null, 'r', 3);
         }
         if (seconds > 1200) {
-          circle.style.stroke = 'red'
-          circle.style.fill = 'red'
+          circle.style.stroke = 'red';
+          circle.style.fill = 'red';
           circle.setAttributeNS(null, 'r', 4);
         }
       }
@@ -644,12 +641,10 @@ $(function () {
       table += '<td data-accordion="services"><span>' + tableList[i].departments[0].online_user_count + '</span></td>';
       table += '<td data-accordion="services"><span>' + tableList[i].departments[0].vacation_count + '</span></td>';
       table += '<td data-accordion="services"><span>' + tableList[i].departments[0].displacement_to_count + '</span></td><td data-accordion="services"><span>' + tableList[i].departments[0].displacement_from_count + '</span></td>';
-
       table += '<td data-first="1" data-accordion="sales"><span>' + tableList[i].departments[1].ticket_count + '</span></td><td data-accordion="sales"><span>' + tableList[i].departments[1].served_customer_count + '</span></td><td data-accordion="sales"><span>' + tableList[i].departments[1].waiting_customer_count + '</span></td><td data-accordion="sales"><span>' + tableList[i].departments[1].fte + '</span></td><td data-accordion="sales"><span>' + tableList[i].departments[1].online_user_count + '</span></td><td data-accordion="sales"><span>' + tableList[i].departments[1].vacation_count + '</span></td><td data-accordion="sales"><span>' + tableList[i].departments[1].displacement_to_count + '</span></td><td data-accordion="sales"><span>' + tableList[i].departments[1].displacement_from_count + '</span></td>'
       table += '<td data-first="1" data-accordion="cash"><span>' + tableList[i].departments[2].ticket_count + '</span></td><td data-accordion="cash"><span>' + tableList[i].departments[2].served_customer_count + '</span></td><td data-accordion="cash"><span>' + tableList[i].departments[2].waiting_customer_count + '</span></td><td data-accordion="cash"><span>' + tableList[i].departments[2].fte + '</span></td><td data-accordion="cash"><span>' + tableList[i].departments[2].online_user_count + '</span></td><td data-accordion="cash"><span>' + tableList[i].departments[2].vacation_count + '</span></td><td data-accordion="cash"><span>' + tableList[i].departments[2].displacement_to_count + '</span></td><td data-accordion="cash"><span>' + tableList[i].departments[1].displacement_from_count + '</span></td></tr>';
       }
       
-
     }
     $('#mainTable_tbody').html(table);
   }

@@ -8,6 +8,9 @@
     min-height: 50px;
     border-radius: 5px;
     margin-bottom: 10px;
+    &-wrapper {
+        display: flex;
+    }
     &-search {
         width: 100%;
         height: 30px;
@@ -71,6 +74,28 @@
     }
     &-wrap {
         margin-bottom: 15px;
+    }
+    &-content {
+        background: #e1e1e1;
+        width: 100%;
+    }
+    &-selected-items {
+        width: 100%;
+        min-height: 18px;
+        background: #db2b34;
+        display: flex;
+        align-items: center;
+        padding: 4px 6px;
+        display: none;
+    }
+    &-select-item {
+        background: #333;
+        color: #fff;
+        padding: 3px 5px;
+        font-size: 10px;
+        text-transform: lowercase;
+        border-radius: 6px;
+        margin-right: 10px;
     }
 }
 
