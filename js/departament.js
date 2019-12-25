@@ -85,9 +85,9 @@ $(function() {
         type: 'POST',
         data: {branch : searchParamsId},
         success: function(data) {
-        console.log("TCL: data", data)
+        console.log("TCL: data users", data)
 
-            drowUsersTable(data);
+            drowUsersTable(data.users);
             
         }
     });
