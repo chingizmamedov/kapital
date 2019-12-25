@@ -856,7 +856,8 @@ $(function () {
     }
     
   }
-// getTableData()
+  
+  // getTableData()
   /**
    * All events
   */
