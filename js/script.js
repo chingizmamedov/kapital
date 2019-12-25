@@ -808,7 +808,7 @@ $(function () {
       $.ajax({
           url: heatmap_url + '/get_branches_data/',
           type: 'POST',
-          data: {limit : 20, offset : 1},
+          data: {limit : 20, offset : 1, search: ''},
           success: function (data) {
             console.log('sukaaaaaaaaaaaaaa',data)
             newDrowTable(data.branches);
@@ -828,7 +828,7 @@ $(function () {
       $.ajax({
         url: heatmap_url + '/get_branches_data/',
         type: 'POST',
-        data: {limit : listAllItemCount, offset : 1},
+        data: {limit : listAllItemCount, offset : 1, search: ''},
         success: function (data) {
           // console.log(data)
           newDrowTable(data.branches);
@@ -843,7 +843,7 @@ $(function () {
       $.ajax({
       url: heatmap_url + '/get_branches_data/',
       type: 'POST',
-      data: {limit : listShowCount, offset : listShowCount*paginationStep + 1},
+      data: {limit : listShowCount, offset : listShowCount*paginationStep + 1, search: ''},
       success: function (data) {
         // console.log(data)
         newDrowTable(data.branches);
