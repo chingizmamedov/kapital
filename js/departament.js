@@ -11,7 +11,7 @@ $(function() {
             var btnInner = data[i].queues.length > 0 ? '<span>&#62;</span>' : 'No queues available',
             firstTicketTime = data[i].first_ticket_time ? data[i].first_ticket_time : 'no data',
             lastTicketTime = data[i].last_ticket_time ? data[i].last_ticket_time : 'no data';
-            var tableHeader = '<table class="dep-table"><thead><tr><td>Departament</td><td id="queues">Queues</td><td>Total vizits</td><td>Served customers</td><td>Waiting customers</td><td>Average waiting time </td><td>Average serving time </td><td>Max waiting time </td><td>Max serving time </td><td>First ticket time </td><td>Last ticket time </td><td>FTE </td><td>Online users </td><td>Vocation </td><td>Trip to </td><td>Trip from </td><td>No show </td><td>Remove </td><td>Reject </td></tr>'
+            var tableHeader = '<table class="dep-table"><thead><tr><td>Departament</td><td id="queues">Queues</td><td>Total vizits</td><td id="served-customers">SC</td><td id="waiting-customers">WC</td><td id="average-waiting-time">AWT</td><td id="average-serving-time">AST</td><td id="max-waiting-time">MWT</td><td id="max-serving-time">MST</td><td id="first-ticket-time">FTT</td><td id="last-ticket-time">LTT</td><td id="fte">FTE</td><td id="online-users">OU</td><td>Vocation</td><td>Trip to </td><td>Trip from </td><td>No show </td><td>Remove </td><td>Reject </td></tr>'
             tableHeader += '<tr data-departmentid='+ data[i].id +'><td>' + data[i].name + '</td><td data-id="' + data[i].id + '" class="open">'+ btnInner +'</td><td>'+ data[i].ticket_count +'</td><td>'+ data[i].served_customer_count +'</td><td>'+ data[i].waiting_customer_count +'</td><td>'+ data[i].avg_waiting_time +'</td><td>'+ data[i].avg_serving_time +'</td><td>'+ data[i].max_waiting_time +'</td><td>0'+ data[i].max_serving_time +'</td><td>'+ firstTicketTime +'</td><td>'+ lastTicketTime +'</td><td>'+ data[i].fte +'</td><td>'+ data[i].online_user_count +'</td><td>No API</td><td>No API</td><td>No API</td><td>'+ data[i].noshow_count +'</td><td>'+ data[i].removed_customer_count +'</td><td>' + data[i].reject_count + '</td></tr></thead>';
             var tableBody = '<tbody id="'+ data[i].id  +'">';
 
@@ -76,6 +76,8 @@ $(function() {
         type: 'POST',
         data: {branch : searchParamsId},
         success: function(data) {
+            console.log('mata', data)
+            $("#branch-name").text(data.branch.name)
             drowTable(data.departments)
         }
     });
@@ -88,6 +90,9 @@ $(function() {
         console.log("TCL: data users", data)
 
             drowUsersTable(data.users);
+            setTimeout(() => {
+                addTippy();
+            }, 1000)
             
         }
     });
@@ -110,6 +115,40 @@ $(function() {
     })
    
 
+    function addTippy() {
+
+        tippy('#served-customers', {
+            content: "Served customers"
+        });
+        tippy('#waiting-customers', {
+            content: "Waiting customers"
+        });
+        tippy('#average-waiting-time', {
+            content: "Average waiting time"
+        });
+        tippy('#average-serving-time', {
+            content: "Average serving time"
+        });
+        tippy('#max-waiting-time', {
+            content: "Max waiting time"
+        });
+        tippy('#max-serving-time', {
+            content: "Max serving time"
+        });
+        tippy('#first-ticket-time', {
+            content: "First ticket time"
+        });
+        tippy('#last-ticket-time', {
+            content: "First ticket time"
+        });
+        tippy('#online-users', {
+            content: "Online user"
+        });
+        tippy('#fte', {
+            content: "fte?"
+        });
+
+    }
     
 })
 

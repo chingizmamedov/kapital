@@ -319,6 +319,7 @@ a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  height: 48px;
 }
 
 .tab {
@@ -564,6 +565,37 @@ a {
   -webkit-transition: .1s;
   -o-transition: .1s;
   transition: .1s;
+  position: relative;
+}
+
+.table td:before {
+  position: absolute;
+  content: '';
+  height: 50%;
+  width: 2px;
+  border-right: 1px solid  #575555;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.table td:after {
+  position: absolute;
+  content: '';
+  width: 80%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  border-bottom: 1px solid  #575555;
+}
+
+.table td:first-child {
+  position: absolute;
 }
 
 .table tr:nth-child(2n) td {
@@ -579,6 +611,7 @@ a {
   padding-left: 140px;
   background-color: #bf2127;
   min-height: 100%;
+  display: none;
 }
 
 .table-scrolled {
@@ -590,8 +623,6 @@ a {
   color: #fff !important;
   font-weight: bold;
   text-align: center;
-  -webkit-box-shadow: inset 0px 0px 2px #b01d2d;
-          box-shadow: inset 0px 0px 2px #b01d2d;
 }
 
 .table-panel {
@@ -605,6 +636,10 @@ a {
 
 .table tbody td:hover {
   background-color: #333 !important;
+  color: #fff !important;
+}
+
+.table tbody td:hover a {
   color: #fff !important;
 }
 
@@ -625,13 +660,16 @@ a {
   text-align: center;
 }
 
-.table tbody tr:last-child {
-  -webkit-box-shadow: -2px -2px 12px 0px #333;
-          box-shadow: -2px -2px 12px 0px #333;
-}
-
 td.fake {
   max-width: 68px;
+}
+
+td.fake:before {
+  content: none;
+}
+
+td.fake:after {
+  content: none;
 }
 
 .table-scrolled::-webkit-scrollbar-track {
@@ -858,6 +896,7 @@ td.fake {
 .tables-wrap .dep-table {
   margin-bottom: 0;
   border-bottom: 1px solid #333;
+  width: 100%;
 }
 
 .tables-wrap .dep-table thead tr:last-child {
@@ -914,8 +953,17 @@ td.fake {
           transform: rotate(90deg);
 }
 
+#branch-name-wrap {
+  position: absolute;
+  right: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 6px 8px;
+  border-radius: 6px;
+}
+
 .fte {
-  width: 100%;
   border-collapse: collapse;
 }
 
@@ -1288,10 +1336,7 @@ td.fake {
   min-height: 20px;
   border-radius: 10px;
   overflow: hidden;
-  -webkit-box-shadow: 0px 0px 12px 5px #545454;
-          box-shadow: 0px 0px 12px 5px #545454;
   z-index: 999;
-  display: none;
 }
 
 .modal-filter-back {
@@ -1393,5 +1438,9 @@ td.fake {
 
 .selector-display {
   padding: 5px;
+}
+
+#branches, #date, #user {
+  display: none;
 }
 /*# sourceMappingURL=main.min.css.map */

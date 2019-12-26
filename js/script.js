@@ -486,6 +486,8 @@ $(function () {
 
   /**
   map functions
+
+  @redrow() function for redrow svg map!
   */
   function redrow() {
 
@@ -586,6 +588,10 @@ $(function () {
     }
   }
 
+  /**
+   * 
+   * @param {*setInputData} data for add given data for main array
+   */
   function setInputData(data) {
 
     for (var i = 0; i < data.length; i++) {
@@ -606,6 +612,10 @@ $(function () {
     redrow();
   }
 
+  /**
+   * 
+   * setCardData for add info in 9 card!
+   */
   function setCardData(data) {
 
     $('#avg_serving_time').text(data.avg_serving_time);
@@ -630,69 +640,156 @@ $(function () {
 
     var table = '';
     for (var i = 0; i < tableList.length; i++) {
-      
-      if( tableList[i].departments.length > 1) {
-        table += '<tr><td class="table-branch table-branch-row"><a href="/departament.html?filial=' + tableList[i].id + '" target="blank">' + tableList[i].name + '</a></td><td data-first="1" data-accordion="branches"><span>' + tableList[i].ticket_count + '</span></td><td data-accordion="branches"><span>' + tableList[i].served_customer_count + '</span></td><td data-accordion="branches"><span>' + tableList[i].waiting_customer_count + '</span></td><td data-accordion="branches"><span>' + tableList[i].max_free_time + '</span></td><td data-accordion="branches"><span>' + tableList[i].free_user_count + '</span></td><td data-accordion="branches"><span>' + tableList[i].open_counter_count + '</span></td><td data-first="1" data-accordion="services"><span>' + tableList[i].ticket_count + '</span></td>';
-      // console.log('departmenst : ' + tableList[i].name, tableList[i].departments)
-      // console.log( 'tableList[i].departments[0].served_customer_count', tableList[i].departments[0].served_customer_count )
-      table += '<td data-accordion="services"><span>' + tableList[i].departments[0].served_customer_count + '</span></td>'
-      table += '<td data-accordion="services"><span>' + tableList[i].departments[0].waiting_customer_count + '</span></td>';
-      table += '<td data-accordion="services"><span>' + tableList[i].departments[0].fte + '</span></td>';
-      table += '<td data-accordion="services"><span>' + tableList[i].departments[0].online_user_count + '</span></td>';
-      table += '<td data-accordion="services"><span>' + tableList[i].departments[0].vacation_count + '</span></td>';
-      table += '<td data-accordion="services"><span>' + tableList[i].departments[0].displacement_to_count + '</span></td><td data-accordion="services"><span>' + tableList[i].departments[0].displacement_from_count + '</span></td>';
-      table += '<td data-first="1" data-accordion="sales"><span>' + tableList[i].departments[1].ticket_count + '</span></td><td data-accordion="sales"><span>' + tableList[i].departments[1].served_customer_count + '</span></td><td data-accordion="sales"><span>' + tableList[i].departments[1].waiting_customer_count + '</span></td><td data-accordion="sales"><span>' + tableList[i].departments[1].fte + '</span></td><td data-accordion="sales"><span>' + tableList[i].departments[1].online_user_count + '</span></td><td data-accordion="sales"><span>' + tableList[i].departments[1].vacation_count + '</span></td><td data-accordion="sales"><span>' + tableList[i].departments[1].displacement_to_count + '</span></td><td data-accordion="sales"><span>' + tableList[i].departments[1].displacement_from_count + '</span></td>'
-      table += '<td data-first="1" data-accordion="cash"><span>' + tableList[i].departments[2].ticket_count + '</span></td><td data-accordion="cash"><span>' + tableList[i].departments[2].served_customer_count + '</span></td><td data-accordion="cash"><span>' + tableList[i].departments[2].waiting_customer_count + '</span></td><td data-accordion="cash"><span>' + tableList[i].departments[2].fte + '</span></td><td data-accordion="cash"><span>' + tableList[i].departments[2].online_user_count + '</span></td><td data-accordion="cash"><span>' + tableList[i].departments[2].vacation_count + '</span></td><td data-accordion="cash"><span>' + tableList[i].departments[2].displacement_to_count + '</span></td><td data-accordion="cash"><span>' + tableList[i].departments[1].displacement_from_count + '</span></td></tr>';
+      if(i%2 !== 0) {
+        if( tableList[i].departments.length > 1) {
+          table += '<tr><td class="table-branch table-branch-row"><a href="/departament.html?filial=' + tableList[i].id + '" target="blank">' + tableList[i].name + '</a></td>';
+          table += '<td style="background-color: #6c7ae0 !important;" data-first="1" data-accordion="branches"><span>' + tableList[i].ticket_count + '</span></td>';
+          table += '<td style="background-color: #6c7ae0 !important;" data-accordion="branches"><span>' + tableList[i].served_customer_count + '</span></td>';
+          table += '<td style="background-color: #6c7ae0 !important;" data-accordion="branches"><span>' + tableList[i].waiting_customer_count + '</span></td>';
+          table += '<td style="background-color: #6c7ae0 !important;" data-accordion="branches"><span>' + tableList[i].max_free_time + '</span></td>';
+          table += '<td style="background-color: #6c7ae0 !important;" data-accordion="branches"><span>' + tableList[i].free_user_count + '</span></td>';
+          table += '<td style="background-color: #6c7ae0 !important;" data-accordion="branches"><span>' + tableList[i].open_counter_count + '</span></td>';
+          table += '<td style="background-color: #6470c9 !important;" data-first="1" data-accordion="services"><span>' + tableList[i].departments[0].ticket_count + '</span></td>';
+          table += '<td style="background-color: #6470c9 !important;" data-accordion="services"><span>' + tableList[i].departments[0].served_customer_count + '</span></td>';
+          table += '<td style="background-color: #6470c9 !important;" data-accordion="services"><span>' + tableList[i].departments[0].waiting_customer_count + '</span></td>';
+          table += '<td style="background-color: #6470c9 !important;" data-accordion="services"><span>' + tableList[i].departments[0].fte + '</span></td>';
+          table += '<td style="background-color: #6470c9 !important;" data-accordion="services"><span>' + tableList[i].departments[0].online_user_count + '</span></td>';
+          table += '<td style="background-color: #6470c9 !important;" data-accordion="services"><span>' + tableList[i].departments[0].vacation_count + '</span></td>';
+          table += '<td style="background-color: #6470c9 !important;" data-accordion="services"><span>' + tableList[i].departments[0].displacement_to_count + '</span></td>';
+          table += '<td style="background-color: #6470c9 !important;" data-accordion="services"><span>' + tableList[i].departments[0].displacement_from_count + '</span></td>';
+          table += '<td style="background-color: #6c7ae0 !important;" data-first="1" data-accordion="sales"><span>' + tableList[i].departments[1].ticket_count + '</span></td>';
+          table += '<td style="background-color: #6c7ae0 !important;" data-accordion="sales"><span>' + tableList[i].departments[1].served_customer_count + '</span></td>';
+          table += '<td style="background-color: #6c7ae0 !important;" data-accordion="sales"><span>' + tableList[i].departments[1].waiting_customer_count + '</span></td>';
+          table += '<td style="background-color: #6c7ae0 !important;" data-accordion="sales"><span>' + tableList[i].departments[1].fte + '</span></td>';
+          table += '<td style="background-color: #6c7ae0 !important;" data-accordion="sales"><span>' + tableList[i].departments[1].online_user_count + '</span></td>';
+          table += '<td style="background-color: #6c7ae0 !important;" data-accordion="sales"><span>' + tableList[i].departments[1].vacation_count + '</span></td>';
+          table += '<td style="background-color: #6c7ae0 !important;" data-accordion="sales"><span>' + tableList[i].departments[1].displacement_to_count + '</span></td>';
+          table += '<td style="background-color: #6c7ae0 !important;" data-accordion="sales"><span>' + tableList[i].departments[1].displacement_from_count + '</span></td>';
+          table += '<td style="background-color: #6470c9 !important;" data-first="1" data-accordion="cash"><span>' + tableList[i].departments[2].ticket_count + '</span></td>';
+          table += '<td style="background-color: #6470c9 !important;" data-accordion="cash"><span>' + tableList[i].departments[2].served_customer_count + '</span></td>';
+          table += '<td style="background-color: #6470c9 !important;" data-accordion="cash"><span>' + tableList[i].departments[2].waiting_customer_count + '</span></td>';
+          table += '<td style="background-color: #6470c9 !important;" data-accordion="cash"><span>' + tableList[i].departments[2].fte + '</span></td>';
+          table += '<td style="background-color: #6470c9 !important;" data-accordion="cash"><span>' + tableList[i].departments[2].online_user_count + '</span></td>';
+          table += '<td style="background-color: #6470c9 !important;" data-accordion="cash"><span>' + tableList[i].departments[2].vacation_count + '</span></td>';
+          table += '<td style="background-color: #6470c9 !important;" data-accordion="cash"><span>' + tableList[i].departments[2].displacement_to_count + '</span></td>';
+          table += '<td style="background-color: #6470c9 !important;" data-accordion="cash"><span>' + tableList[i].departments[2].displacement_from_count + '</span></td>';
+          if(tableList[i].departments[3] != undefined ) {
+            table += '<td style="background-color: #6c7ae0 !important;" data-first="1" data-accordion="legal"><span>' + tableList[i].departments[3].ticket_count + '</span></td>';
+            table += '<td style="background-color: #6c7ae0 !important;" data-accordion="legal"><span>' + tableList[i].departments[3].served_customer_count + '</span></td>';
+            table += '<td style="background-color: #6c7ae0 !important;" data-accordion="legal"><span>' + tableList[i].departments[3].waiting_customer_count + '</span></td>';
+            table += '<td style="background-color: #6c7ae0 !important;" data-accordion="legal"><span>' + tableList[i].departments[3].fte + '</span></td>';
+            table += '<td style="background-color: #6c7ae0 !important;" data-accordion="legal"><span>' + tableList[i].departments[3].online_user_count + '</span></td>';
+            table += '<td style="background-color: #6c7ae0 !important;" data-accordion="legal"><span>' + tableList[i].departments[3].vacation_count + '</span></td>';
+            table += '<td style="background-color: #6c7ae0 !important;" data-accordion="legal"><span>' + tableList[i].departments[3].displacement_to_count + '</span></td>';
+            table += '<td style="background-color: #6c7ae0 !important;" data-accordion="legal"><span>' + tableList[i].departments[3].displacement_from_count + '</span></td>';
+            } else {
+              table += '<td style="background-color: #6c7ae0 !important;" data-first="1" data-accordion="legal"><span> ---- </span></td>';
+              table += '<td style="background-color: #6c7ae0 !important;" data-accordion="legal"><span> ---- </span></td>';
+              table += '<td style="background-color: #6c7ae0 !important;" data-accordion="legal"><span> ---- </span></td>';
+              table += '<td style="background-color: #6c7ae0 !important;" data-accordion="legal"><span> ---- </span></td>';
+              table += '<td style="background-color: #6c7ae0 !important;" data-accordion="legal"><span> ---- </span></td>';
+              table += '<td style="background-color: #6c7ae0 !important;" data-accordion="legal"><span> ---- </span></td>';
+              table += '<td style="background-color: #6c7ae0 !important;" data-accordion="legal"><span> ---- </span></td>';
+              table += '<td style="background-color: #6c7ae0 !important;" data-accordion="legal"><span> ---- </span></td>';
+            }
+            if(tableList[i].departments[4]) {
+              table += '<td style="background-color: #6470c9 !important;" data-first="1" data-accordion="cash-legal"><span>' + tableList[i].departments[4].ticket_count + '</span></td>';
+              table += '<td style="background-color: #6470c9 !important;" data-accordion="cash-legal"><span>' + tableList[i].departments[4].served_customer_count + '</span></td>';
+              table += '<td style="background-color: #6470c9 !important;" data-accordion="cash-legal"><span>' + tableList[i].departments[4].waiting_customer_count + '</span></td>';
+              table += '<td style="background-color: #6470c9 !important;" data-accordion="cash-legal"><span>' + tableList[i].departments[4].fte + '</span></td>';
+              table += '<td style="background-color: #6470c9 !important;" data-accordion="cash-legal"><span>' + tableList[i].departments[4].online_user_count + '</span></td>';
+              table += '<td style="background-color: #6470c9 !important;" data-accordion="cash-legal"><span>' + tableList[i].departments[4].vacation_count + '</span></td>';
+              table += '<td style="background-color: #6470c9 !important;" data-accordion="cash-legal"><span>' + tableList[i].departments[4].displacement_to_count + '</span></td>';
+              table += '<td style="background-color: #6470c9 !important;" data-accordion="cash-legal"><span>' + tableList[i].departments[4].displacement_from_count + '</span></td></tr>';
+            } else {
+              table += '<td style="background-color: #6470c9 !important;" data-first="1" data-accordion="cash-legal"><span> ---- </span></td>';
+              table += '<td style="background-color: #6470c9 !important;" data-accordion="cash-legal"><span> ---- </span></td>';
+              table += '<td style="background-color: #6470c9 !important;" data-accordion="cash-legal"><span> ---- </span></td>';
+              table += '<td style="background-color: #6470c9 !important;" data-accordion="cash-legal"><span> ---- </span></td>';
+              table += '<td style="background-color: #6470c9 !important;" data-accordion="cash-legal"><span> ---- </span></td>';
+              table += '<td style="background-color: #6470c9 !important;" data-accordion="cash-legal"><span> ---- </span></td>';
+              table += '<td style="background-color: #6470c9 !important;" data-accordion="cash-legal"><span> ---- </span></td>';
+              table += '<td style="background-color: #6470c9 !important;" data-accordion="cash-legal"><span> ---- </span></td></tr>';
+            }
+          
+        }
+      } else {
+        if( tableList[i].departments.length > 1) {
+          table += '<tr><td class="table-branch table-branch-row"><a href="/departament.html?filial=' + tableList[i].id + '" target="blank">' + tableList[i].name + '</a></td>';
+          table += '<td data-first="1" data-accordion="branches"><span>' + tableList[i].ticket_count + '</span></td>';
+          table += '<td data-accordion="branches"><span>' + tableList[i].served_customer_count + '</span></td>';
+          table += '<td data-accordion="branches"><span>' + tableList[i].waiting_customer_count + '</span></td>';
+          table += '<td data-accordion="branches"><span>' + tableList[i].max_free_time + '</span></td>';
+          table += '<td data-accordion="branches"><span>' + tableList[i].free_user_count + '</span></td>';
+          table += '<td data-accordion="branches"><span>' + tableList[i].open_counter_count + '</span></td>';
+          table += '<td data-first="1" data-accordion="services"><span>' + tableList[i].departments[0].ticket_count + '</span></td>';
+          table += '<td data-accordion="services"><span>' + tableList[i].departments[0].served_customer_count + '</span></td>';
+          table += '<td data-accordion="services"><span>' + tableList[i].departments[0].waiting_customer_count + '</span></td>';
+          table += '<td data-accordion="services"><span>' + tableList[i].departments[0].fte + '</span></td>';
+          table += '<td data-accordion="services"><span>' + tableList[i].departments[0].online_user_count + '</span></td>';
+          table += '<td data-accordion="services"><span>' + tableList[i].departments[0].vacation_count + '</span></td>';
+          table += '<td data-accordion="services"><span>' + tableList[i].departments[0].displacement_to_count + '</span></td>';
+          table += '<td data-accordion="services"><span>' + tableList[i].departments[0].displacement_from_count + '</span></td>';
+          table += '<td data-first="1" data-accordion="sales"><span>' + tableList[i].departments[1].ticket_count + '</span></td>';
+          table += '<td data-accordion="sales"><span>' + tableList[i].departments[1].served_customer_count + '</span></td>';
+          table += '<td data-accordion="sales"><span>' + tableList[i].departments[1].waiting_customer_count + '</span></td>';
+          table += '<td data-accordion="sales"><span>' + tableList[i].departments[1].fte + '</span></td>';
+          table += '<td data-accordion="sales"><span>' + tableList[i].departments[1].online_user_count + '</span></td>';
+          table += '<td data-accordion="sales"><span>' + tableList[i].departments[1].vacation_count + '</span></td>';
+          table += '<td data-accordion="sales"><span>' + tableList[i].departments[1].displacement_to_count + '</span></td>';
+          table += '<td data-accordion="sales"><span>' + tableList[i].departments[1].displacement_from_count + '</span></td>';
+          table += '<td data-first="1" data-accordion="cash"><span>' + tableList[i].departments[2].ticket_count + '</span></td>';
+          table += '<td data-accordion="cash"><span>' + tableList[i].departments[2].served_customer_count + '</span></td>';
+          table += '<td data-accordion="cash"><span>' + tableList[i].departments[2].waiting_customer_count + '</span></td>';
+          table += '<td data-accordion="cash"><span>' + tableList[i].departments[2].fte + '</span></td>';
+          table += '<td data-accordion="cash"><span>' + tableList[i].departments[2].online_user_count + '</span></td>';
+          table += '<td data-accordion="cash"><span>' + tableList[i].departments[2].vacation_count + '</span></td>';
+          table += '<td data-accordion="cash"><span>' + tableList[i].departments[2].displacement_to_count + '</span></td>';
+          table += '<td data-accordion="cash"><span>' + tableList[i].departments[2].displacement_from_count + '</span></td>';
+          if(tableList[i].departments[3] != undefined ) {
+            table += '<td data-first="1" data-accordion="legal"><span>' + tableList[i].departments[3].ticket_count + '</span></td>';
+            table += '<td data-accordion="legal"><span>' + tableList[i].departments[3].served_customer_count + '</span></td>';
+            table += '<td data-accordion="legal"><span>' + tableList[i].departments[3].waiting_customer_count + '</span></td>';
+            table += '<td data-accordion="legal"><span>' + tableList[i].departments[3].fte + '</span></td>';
+            table += '<td data-accordion="legal"><span>' + tableList[i].departments[3].online_user_count + '</span></td>';
+            table += '<td data-accordion="legal"><span>' + tableList[i].departments[3].vacation_count + '</span></td>';
+            table += '<td data-accordion="legal"><span>' + tableList[i].departments[3].displacement_to_count + '</span></td>';
+            table += '<td data-accordion="legal"><span>' + tableList[i].departments[3].displacement_from_count + '</span></td>';
+            } else {
+              table += '<td data-first="1" data-accordion="legal"><span> ---- </span></td>';
+              table += '<td data-accordion="legal"><span> ---- </span></td>';
+              table += '<td data-accordion="legal"><span> ---- </span></td>';
+              table += '<td data-accordion="legal"><span> ---- </span></td>';
+              table += '<td data-accordion="legal"><span> ---- </span></td>';
+              table += '<td data-accordion="legal"><span> ---- </span></td>';
+              table += '<td data-accordion="legal"><span> ---- </span></td>';
+              table += '<td data-accordion="legal"><span> ---- </span></td>';
+            }
+            if(tableList[i].departments[4]) {
+              table += '<td data-first="1" data-accordion="cash-legal"><span>' + tableList[i].departments[4].ticket_count + '</span></td>';
+              table += '<td data-accordion="cash-legal"><span>' + tableList[i].departments[4].served_customer_count + '</span></td>';
+              table += '<td data-accordion="cash-legal"><span>' + tableList[i].departments[4].waiting_customer_count + '</span></td>';
+              table += '<td data-accordion="cash-legal"><span>' + tableList[i].departments[4].fte + '</span></td>';
+              table += '<td data-accordion="cash-legal"><span>' + tableList[i].departments[4].online_user_count + '</span></td>';
+              table += '<td data-accordion="cash-legal"><span>' + tableList[i].departments[4].vacation_count + '</span></td>';
+              table += '<td data-accordion="cash-legal"><span>' + tableList[i].departments[4].displacement_to_count + '</span></td>';
+              table += '<td data-accordion="cash-legal"><span>' + tableList[i].departments[4].displacement_from_count + '</span></td></tr>';
+            } else {
+              table += '<td data-first="1" data-accordion="cash-legal"><span> ---- </span></td>';
+              table += '<td data-accordion="cash-legal"><span> ---- </span></td>';
+              table += '<td data-accordion="cash-legal"><span> ---- </span></td>';
+              table += '<td data-accordion="cash-legal"><span> ---- </span></td>';
+              table += '<td data-accordion="cash-legal"><span> ---- </span></td>';
+              table += '<td data-accordion="cash-legal"><span> ---- </span></td>';
+              table += '<td data-accordion="cash-legal"><span> ---- </span></td>';
+              table += '<td data-accordion="cash-legal"><span> ---- </span></td></tr>';
+            }
+          
+        }
       }
-      
     }
     $('#mainTable_tbody').html(table);
   }
-
-  function drowTable(tableList) {
-
-    var table = '';
-    if (listShowCount == 0) {
-      for (var i = 0; i < tableList.length; i++) {
-
-        table += '<tr><td class="table-branch table-branch-row"><a href="/departament.html?filial=' + tableList[i].id + '" target="blank">' + tableList[i].name + '</a></td><td data-first="1" data-accordion="branches"><span>' + tableList[i].ticket_count + '</span></td><td data-accordion="branches"><span>' + tableList[i].served_customer_count + '</span></td><td data-accordion="branches"><span>' + tableList[i].waiting_customer_count + '</span></td><td data-accordion="branches"><span>' + tableList[i].max_free_time + '</span></td><td data-accordion="branches"><span>' + tableList[i].free_user_count + '</span></td><td data-accordion="branches"><span>' + tableList[i].open_counter_count + '</span></td><td data-first="1" data-accordion="services"><span>' + tableList[i].departments[0].ticket_count + '</span></td><td data-accordion="services"><span>' + tableList[i].departments[0].served_customer_count + '</span></td><td data-accordion="services"><span>' + tableList[i].departments[0].waiting_customer_count + '</span></td><td data-accordion="services"><span>' + tableList[i].departments[0].fte + '</span></td><td data-accordion="services"><span>' + tableList[i].departments[0].online_user_count + '</span></td><td data-accordion="services"><span>' + tableList[i].departments[0].vacation_count + '</span></td><td data-accordion="services"><span>' + newArr[i].departments[0].displacement_to_count + '</span></td><td data-accordion="services"><span>' + tableList[i].departments[0].displacement_from_count + '</span></td><td data-first="1" data-accordion="sales"><span>' + tableList[i].departments[1].ticket_count + '</span></td><td data-accordion="sales"><span>' + tableList[i].departments[1].served_customer_count + '</span></td><td data-accordion="sales"><span>' + tableList[i].departments[1].waiting_customer_count + '</span></td><td data-accordion="sales"><span>' + tableList[i].departments[1].fte + '</span></td><td data-accordion="sales"><span>' + tableList[i].departments[1].online_user_count + '</span></td><td data-accordion="sales"><span>' + tableList[i].departments[1].vacation_count + '</span></td><td data-accordion="sales"><span>' + tableList[i].departments[1].displacement_to_count + '</span></td><td data-accordion="sales"><span>' + tableList[i].departments[1].displacement_from_count + '</span></td><td data-first="1" data-accordion="cash"><span>' + tableList[i].departments[2].ticket_count + '</span></td><td data-accordion="cash"><span>' + tableList[i].departments[2].served_customer_count + '</span></td><td data-accordion="cash"><span>' + tableList[i].departments[2].waiting_customer_count + '</span></td><td data-accordion="cash"><span>' + tableList[i].departments[2].fte + '</span></td><td data-accordion="cash"><span>' + tableList[i].departments[2].online_user_count + '</span></td><td data-accordion="cash"><span>' + tableList[i].departments[2].vacation_count + '</span></td><td data-accordion="cash"><span>' + tableList[i].departments[2].displacement_to_count + '</span></td><td data-accordion="cash"><span>' + tableList[i].departments[1].displacement_from_count + '</span></td></tr>';
-
-      }
-      $('#mainTable_tbody').html(table);
-      return null
-    }
-    paginationStep = 1;
-    listShowCount = paginationStep * listShowCount;
-    for (var i = 0; i < listShowCount; i++) {
-
-      table += '<tr><td class="table-branch table-branch-row"><a href="/departament.html?filial=' + tableList[i].id + '" target="blank">' + tableList[i].name + '</a></td><td data-first="1" data-accordion="branches"><span>' + tableList[i].ticket_count + '</span></td><td data-accordion="branches"><span>' + tableList[i].served_customer_count + '</span></td><td data-accordion="branches"><span>' + tableList[i].waiting_customer_count + '</span></td><td data-accordion="branches"><span>' + tableList[i].max_free_time + '</span></td><td data-accordion="branches"><span>' + tableList[i].free_user_count + '</span></td><td data-accordion="branches"><span>' + tableList[i].open_counter_count + '</span></td><td data-first="1" data-accordion="services"><span>' + tableList[i].departments[0].ticket_count + '</span></td><td data-accordion="services"><span>' + tableList[i].departments[0].served_customer_count + '</span></td><td data-accordion="services"><span>' + tableList[i].departments[0].waiting_customer_count + '</span></td><td data-accordion="services"><span>' + tableList[i].departments[0].fte + '</span></td><td data-accordion="services"><span>' + tableList[i].departments[0].online_user_count + '</span></td><td data-accordion="services"><span>' + tableList[i].departments[0].vacation_count + '</span></td><td data-accordion="services"><span>' + newArr[i].departments[0].displacement_to_count + '</span></td><td data-accordion="services"><span>' + tableList[i].departments[0].displacement_from_count + '</span></td><td data-first="1" data-accordion="sales"><span>' + tableList[i].departments[1].ticket_count + '</span></td><td data-accordion="sales"><span>' + tableList[i].departments[1].served_customer_count + '</span></td><td data-accordion="sales"><span>' + tableList[i].departments[1].waiting_customer_count + '</span></td><td data-accordion="sales"><span>' + tableList[i].departments[1].fte + '</span></td><td data-accordion="sales"><span>' + tableList[i].departments[1].online_user_count + '</span></td><td data-accordion="sales"><span>' + tableList[i].departments[1].vacation_count + '</span></td><td data-accordion="sales"><span>' + tableList[i].departments[1].displacement_to_count + '</span></td><td data-accordion="sales"><span>' + tableList[i].departments[1].displacement_from_count + '</span></td><td data-first="1" data-accordion="cash"><span>' + tableList[i].departments[2].ticket_count + '</span></td><td data-accordion="cash"><span>' + tableList[i].departments[2].served_customer_count + '</span></td><td data-accordion="cash"><span>' + tableList[i].departments[2].waiting_customer_count + '</span></td><td data-accordion="cash"><span>' + tableList[i].departments[2].fte + '</span></td><td data-accordion="cash"><span>' + tableList[i].departments[2].online_user_count + '</span></td><td data-accordion="cash"><span>' + tableList[i].departments[2].vacation_count + '</span></td><td data-accordion="cash"><span>' + tableList[i].departments[2].displacement_to_count + '</span></td><td data-accordion="cash"><span>' + tableList[i].departments[1].displacement_from_count + '</span></td></tr>';
-
-    }
-
-    $('#mainTable_tbody').html(table);
-  }
-
-  function reDrowtable(paginationStep, tableList) {
-
-    var table = '';
-
-    startToShow = (paginationStep - 1) * listShowCount;
-
-    for (var i = startToShow; i < startToShow + listShowCount; i++) {
-      
-      if (tableList[i]) {
-        
-        table += '<tr><td class="table-branch table-branch-row"><a href="/departament.html?filial=' + tableList[i].id + '" target="blank">' + tableList[i].name + '</a></td><td data-first="1" data-accordion="branches"><span>' + tableList[i].ticket_count + '</span></td><td data-accordion="branches"><span>' + tableList[i].served_customer_count + '</span></td><td data-accordion="branches"><span>' + tableList[i].waiting_customer_count + '</span></td><td data-accordion="branches"><span>' + tableList[i].max_free_time + '</span></td><td data-accordion="branches"><span>' + tableList[i].free_user_count + '</span></td><td data-accordion="branches"><span>' + tableList[i].open_counter_count + '</span></td><td data-first="1" data-accordion="services"><span>' + tableList[i].departments[0].ticket_count + '</span></td><td data-accordion="services"><span>' + tableList[i].departments[0].served_customer_count + '</span></td><td data-accordion="services"><span>' + tableList[i].departments[0].waiting_customer_count + '</span></td><td data-accordion="services"><span>' + tableList[i].departments[0].fte + '</span></td><td data-accordion="services"><span>' + tableList[i].departments[0].online_user_count + '</span></td><td data-accordion="services"><span>' + tableList[i].departments[0].vacation_count + '</span></td><td data-accordion="services"><span>' + newArr[i].departments[0].displacement_to_count + '</span></td><td data-accordion="services"><span>' + tableList[i].departments[0].displacement_from_count + '</span></td><td data-first="1" data-accordion="sales"><span>' + tableList[i].departments[1].ticket_count + '</span></td><td data-accordion="sales"><span>' + tableList[i].departments[1].served_customer_count + '</span></td><td data-accordion="sales"><span>' + tableList[i].departments[1].waiting_customer_count + '</span></td><td data-accordion="sales"><span>' + tableList[i].departments[1].fte + '</span></td><td data-accordion="sales"><span>' + tableList[i].departments[1].online_user_count + '</span></td><td data-accordion="sales"><span>' + tableList[i].departments[1].vacation_count + '</span></td><td data-accordion="sales"><span>' + tableList[i].departments[1].displacement_to_count + '</span></td><td data-accordion="sales"><span>' + tableList[i].departments[1].displacement_from_count + '</span></td><td data-first="1" data-accordion="cash"><span>' + tableList[i].departments[2].ticket_count + '</span></td><td data-accordion="cash"><span>' + tableList[i].departments[2].served_customer_count + '</span></td><td data-accordion="cash"><span>' + tableList[i].departments[2].waiting_customer_count + '</span></td><td data-accordion="cash"><span>' + tableList[i].departments[2].fte + '</span></td><td data-accordion="cash"><span>' + tableList[i].departments[2].online_user_count + '</span></td><td data-accordion="cash"><span>' + tableList[i].departments[2].vacation_count + '</span></td><td data-accordion="cash"><span>' + tableList[i].departments[2].displacement_to_count + '</span></td><td data-accordion="cash"><span>' + tableList[i].departments[1].displacement_from_count + '</span></td></tr>'
-        
-      }
-
-    }
-
-    $('#mainTable_tbody').html(table);
-
-  }
-
-
 
   function drowPagination() {
 
@@ -719,11 +816,6 @@ $(function () {
 
   }
 
-  function setTable() {
-
-    drowTable(newArr)
-
-  }
 
   /**
     table functions END
@@ -740,22 +832,25 @@ $(function () {
       console.log('Elvin data', data)
       setInputData(data.branches);
       setCardData(data);
+      
     }
   });
-    function getTableDataFirst() {
-      $('#table-preloader').show();
-      $.ajax({
-          url: heatmap_url + '/get_branches_data/',
-          type: 'POST',
-          data: {limit : 20, offset : 0, search: ''},
-          success: function (data) {
-            console.log('sukaaaaaaaaaaaaaa',data)
-            newDrowTable(data.branches);
-            listAllItemCount = data.count;
-            $('#table-preloader').hide();
-          }
-        });
-    }
+
+  function getTableDataFirst() {
+    $('#table-preloader').show();
+    $.ajax({
+        url: heatmap_url + '/get_branches_data/',
+        type: 'POST',
+        data: {limit : 20, offset : 0, search: ''},
+        success: function (data) {
+          console.log('sukaaaaaaaaaaaaaa',data)
+          newDrowTable(data.branches);
+          listAllItemCount = data.count;
+          $(".table-scroller").show()
+          $('#table-preloader').hide();
+        }
+      });
+  }
   // getTableDataFirst()
 
   function getTableData() {
@@ -804,35 +899,36 @@ $(function () {
   /**
    * @table
    */
-
+ 
   $("#gotable").click(function () {
-
     $(".table-wrap").slideToggle('slow')
     if($(this).text() == 'Go table') {
       $('.map-wrap').css('overflow', 'hidden')
+      $(".tab-btn").hide()
       getTableDataFirst()
     } else {
       $('.map-wrap').css('overflow', 'visible')
+      $(".tab-btn").show()
+      $(".table-scroller").hide()
 
     }
     $(this).text() == 'Go table' ? $(this).text('Go Map') : $(this).text('Go table');
     filterId = filterId == 'map' ? 'table' : 'map';
-   
 
   })
 
-   var tabletabsCount = 4;
+   var tabletabsCount = 6;
 
   $(".accordion-head").click(function () {
 
     if (tabletabsCount > 1) {
 
-      --tabletabsCount
-      var dataAcc = $(this).attr('data-accordion')
-      $(".table td[data-accordion=" + dataAcc + "]").hide()
+      --tabletabsCount;
+      var dataAcc = $(this).attr('data-accordion');
+      $(".table td[data-accordion=" + dataAcc + "]").hide();
       var colName = $(".table td[data-accordion=" + dataAcc + "][data-first=1]").eq(0).html()
-      $(".table td[data-accordion=" + dataAcc + "][data-first=1]").eq(0).after('<td rowspan="2" class="fake" data-fake="' + dataAcc + '" style="background:#bf2127 !important; padding: 0; font-size: 12px;"></td>')
-      $(".table td[data-accordion=" + dataAcc + "][data-first=1]").eq(0).siblings('.fake[data-fake=' + dataAcc + ']').html('<div style="transform: rotate(-90deg); transform-origin: center;">' + colName + '</div>')
+      $(".table td[data-accordion=" + dataAcc + "][data-first=1]").eq(0).after('<td rowspan="2" class="fake" data-fake="' + dataAcc + '" style="background:#bf2127 !important; padding: 0; font-size: 12px;"></td>');
+      $(".table td[data-accordion=" + dataAcc + "][data-first=1]").eq(0).siblings('.fake[data-fake=' + dataAcc + ']').html('<div style="transform: rotate(-90deg); transform-origin: center;">' + colName + '</div>');
       $(".table td[data-accordion=" + dataAcc + "][data-first=1]").slice(2).after('<td class="fake" data-fake="' + dataAcc + '" style=""></td>');
 
     } else {
@@ -891,11 +987,15 @@ $(function () {
   });
 
   tippy('.fte', {
-    content: "Free service points"
+    content: "FTE?"
   });
 
-  tippy('.fsp', {
-    content: "Free service points"
+  tippy('.csp', {
+    content: "Close service points"
+  });
+
+  tippy('.osp', {
+    content: "Open servis points"
   });
 
 
@@ -903,7 +1003,8 @@ $(function () {
   $('.table-branch-row').mouseover(function () {
 
     $(this).parent().find('td').css({
-      background: '#333'
+      background: '#333',
+      color: '#fff'
     })
     $(this).parent().find('td a, td').css({
       color: '#fff'

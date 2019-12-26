@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="assets/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="assets/images/favicon-16x16.png" sizes="16x16">
     <link rel="stylesheet" href="lib/normalize.css">
     <link rel="stylesheet" href="lib/bootstrap-grid.css">
     <link rel="stylesheet" href="css/preloader.css">
@@ -372,49 +375,69 @@
                             <thead>
                                 <tr>
                                     <td class="table-branch branch">Branches</td>
-                                    <td data-first="1" class="accordion-head" data-accordion="branches"
+                                    <td style="background-color: #6c7ae0 !important;" data-first="1" class="accordion-head" data-accordion="branches"
                                         data-branch="branches" colspan="6">Branches Total</td>
-                                    <td data-first="1" class="accordion-head" data-accordion="services"
+                                    <td style="background-color: #6470c9 !important;" data-first="1" class="accordion-head" data-accordion="services"
                                         data-branch="services" colspan="8">Service Department</td>
-                                    <td data-first="1" class="accordion-head" data-accordion="sales" data-branch="sales"
+                                    <td style="background-color: #6c7ae0 !important;" data-first="1" class="accordion-head" data-accordion="sales" data-branch="sales"
                                         colspan="8">Sales Department</td>
-                                    <td data-first="1" class="accordion-head" data-accordion="cash" data-branch="cash"
+                                    <td style="background-color: #6470c9 !important;" data-first="1" class="accordion-head" data-accordion="cash" data-branch="cash"
                                         colspan="8">Cash department</td>
+                                    <td style="background-color: #6c7ae0 !important;" data-first="1" class="accordion-head" data-accordion="legal" data-branch="legal"
+                                    colspan="8">legal entities</td>
+                                    <td style="background-color: #6470c9 !important;" data-first="1" class="accordion-head" data-accordion="cash-legal" data-branch="cash-legal"
+                                    colspan="8">Cash - legal entities</td>
                                 </tr>
                                 <tr>
                                     <td style="position: absolute; visibility: hidden;"></td>
-                                    <td data-first="1" data-accordion="branches" data-branch="branches">Total Visits
+                                    <td style="background-color: #6c7ae0 !important;" data-first="1" data-accordion="branches" data-branch="branches">Total Visits
                                     </td>
-                                    <td data-accordion="branches" data-branch="branches">Served</td>
-                                    <td data-accordion="branches" data-branch="branches">waiting</td>
-                                    <td data-accordion="branches" data-branch="branches" class="mft">MFT</td>
-                                    <td data-accordion="branches" data-branch="branches" class="fsp">FSP</td>
-                                    <td data-accordion="branches" data-branch="branches" class="osc">OSC</td>
-                                    <td data-first="1" data-accordion="services" data-branch="services">Total Visits
+                                    <td style="background-color: #6c7ae0 !important;" data-accordion="branches" data-branch="branches">Served</td>
+                                    <td style="background-color: #6c7ae0 !important;" data-accordion="branches" data-branch="branches">waiting</td>
+                                    <td style="background-color: #6c7ae0 !important;" data-accordion="branches" data-branch="branches" class="mft">MFT</td>
+                                    <td style="background-color: #6c7ae0 !important;" data-accordion="branches" data-branch="branches" class="csp">CSP</td>
+                                    <td style="background-color: #6c7ae0 !important;" data-accordion="branches" data-branch="branches" class="osp">OSP</td>
+                                    <td style="background-color: #6470c9 !important;" data-first="1" data-accordion="services" data-branch="services">Total Visits
                                     </td>
-                                    <td data-accordion="services" data-branch="services">Served</td>
-                                    <td data-accordion="services" data-branch="services">waiting</td>
-                                    <td data-accordion="services" data-branch="services" class="fte">FTE</td>
-                                    <td data-accordion="services" data-branch="services">Current Employee</td>
-                                    <td data-accordion="services" data-branch="services">Vocation</td>
-                                    <td data-accordion="services" data-branch="services">Trip to</td>
-                                    <td data-accordion="services" data-branch="services">Trip from</td>
-                                    <td data-first="1" data-accordion="sales" data-branch="sales">Total Visits</td>
-                                    <td data-accordion="sales" data-branch="sales">Served</td>
-                                    <td data-accordion="sales" data-branch="sales">waiting</td>
-                                    <td data-accordion="sales" data-branch="sales" class="fte">FTE</td>
-                                    <td data-accordion="sales" data-branch="sales">Current Employee</td>
-                                    <td data-accordion="sales" data-branch="sales">Vocation</td>
-                                    <td data-accordion="sales" data-branch="sales">Trip to</td>
-                                    <td data-accordion="sales" data-branch="sales">Trip from</td>
-                                    <td data-first="1" data-accordion="cash" data-branch="cash">Total Visits</td>
-                                    <td data-accordion="cash" data-branch="cash">Served</td>
-                                    <td data-accordion="cash" data-branch="cash">waiting</td>
-                                    <td data-accordion="cash" data-branch="cash" class="fte">FTE</td>
-                                    <td data-accordion="cash" data-branch="cash">Current Employee</td>
-                                    <td data-accordion="cash" data-branch="cash">Vocation</td>
-                                    <td data-accordion="cash" data-branch="cash">Trip to</td>
-                                    <td data-accordion="cash" data-branch="cash">Trip from</td>
+                                    <td style="background-color: #6470c9 !important;" data-accordion="services" data-branch="services">Served</td>
+                                    <td style="background-color: #6470c9 !important;" data-accordion="services" data-branch="services">waiting</td>
+                                    <td style="background-color: #6470c9 !important;" data-accordion="services" data-branch="services" class="fte">FTE</td>
+                                    <td style="background-color: #6470c9 !important;" data-accordion="services" data-branch="services">Current Employee</td>
+                                    <td style="background-color: #6470c9 !important;" data-accordion="services" data-branch="services">Vocation</td>
+                                    <td style="background-color: #6470c9 !important;" data-accordion="services" data-branch="services">Trip to</td>
+                                    <td style="background-color: #6470c9 !important;" data-accordion="services" data-branch="services">Trip from</td>
+                                    <td style="background-color: #6c7ae0 !important;" data-first="1" data-accordion="sales" data-branch="sales">Total Visits</td>
+                                    <td style="background-color: #6c7ae0 !important;" data-accordion="sales" data-branch="sales">Served</td>
+                                    <td style="background-color: #6c7ae0 !important;" data-accordion="sales" data-branch="sales">waiting</td>
+                                    <td style="background-color: #6c7ae0 !important;" data-accordion="sales" data-branch="sales" class="fte">FTE</td>
+                                    <td style="background-color: #6c7ae0 !important;" data-accordion="sales" data-branch="sales">Current Employee</td>
+                                    <td style="background-color: #6c7ae0 !important;" data-accordion="sales" data-branch="sales">Vocation</td>
+                                    <td style="background-color: #6c7ae0 !important;" data-accordion="sales" data-branch="sales">Trip to</td>
+                                    <td style="background-color: #6c7ae0 !important;" data-accordion="sales" data-branch="sales">Trip from</td>
+                                    <td style="background-color: #6470c9 !important;" data-first="1" data-accordion="cash" data-branch="cash">Total Visits</td>
+                                    <td style="background-color: #6470c9 !important;" data-accordion="cash" data-branch="cash">Served</td>
+                                    <td style="background-color: #6470c9 !important;" data-accordion="cash" data-branch="cash">waiting</td>
+                                    <td style="background-color: #6470c9 !important;" data-accordion="cash" data-branch="cash" class="fte">FTE</td>
+                                    <td style="background-color: #6470c9 !important;" data-accordion="cash" data-branch="cash">Current Employee</td>
+                                    <td style="background-color: #6470c9 !important;" data-accordion="cash" data-branch="cash">Vocation</td>
+                                    <td style="background-color: #6470c9 !important;" data-accordion="cash" data-branch="cash">Trip to</td>
+                                    <td style="background-color: #6470c9 !important;" data-accordion="cash" data-branch="cash">Trip from</td>
+                                    <td style="background-color: #6c7ae0 !important;" data-first="1" data-accordion="legal" data-branch="legal">Total Visits</td>
+                                    <td style="background-color: #6c7ae0 !important;" data-accordion="legal" data-branch="legal">Served</td>
+                                    <td style="background-color: #6c7ae0 !important;" data-accordion="legal" data-branch="legal">waiting</td>
+                                    <td style="background-color: #6c7ae0 !important;" data-accordion="legal" data-branch="legal" class="fte">FTE</td>
+                                    <td style="background-color: #6c7ae0 !important;" data-accordion="legal" data-branch="legal">Current Employee</td>
+                                    <td style="background-color: #6c7ae0 !important;" data-accordion="legal" data-branch="legal">Vocation</td>
+                                    <td style="background-color: #6c7ae0 !important;" data-accordion="legal" data-branch="legal">Trip to</td>
+                                    <td style="background-color: #6c7ae0 !important;" data-accordion="legal" data-branch="legal">Trip from</td>
+                                    <td style="background-color: #6470c9 !important;" data-first="1" data-accordion="cash-legal" data-branch="cash-legal">Total Visits</td>
+                                    <td style="background-color: #6470c9 !important;" data-accordion="cash-legal" data-branch="cash-legal">Served</td>
+                                    <td style="background-color: #6470c9 !important;" data-accordion="cash-legal" data-branch="cash-legal">waiting</td>
+                                    <td style="background-color: #6470c9 !important;" data-accordion="cash-legal" data-branch="cash-legal" class="fte">FTE</td>
+                                    <td style="background-color: #6470c9 !important;" data-accordion="cash-legal" data-branch="cash-legal">Current Employee</td>
+                                    <td style="background-color: #6470c9 !important;" data-accordion="cash-legal" data-branch="cash-legal">Vocation</td>
+                                    <td style="background-color: #6470c9 !important;" data-accordion="cash-legal" data-branch="cash-legal">Trip to</td>
+                                    <td style="background-color: #6470c9 !important;" data-accordion="cash-legal" data-branch="cash-legal">Trip from</td>
                                 </tr>
                             </thead>
                             <tbody id="mainTable_tbody">
