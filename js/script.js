@@ -649,14 +649,14 @@ $(function () {
           table += '<td style="background-color: #6c7ae0 !important;" data-accordion="branches"><span>' + tableList[i].max_free_time + '</span></td>';
           table += '<td style="background-color: #6c7ae0 !important;" data-accordion="branches"><span>' + tableList[i].free_user_count + '</span></td>';
           table += '<td style="background-color: #6c7ae0 !important;" data-accordion="branches"><span>' + tableList[i].open_counter_count + '</span></td>';
-          table += '<td style="background-color: #6470c9 !important;" data-first="1" data-accordion="services"><span>' + tableList[i].departments[0].ticket_count + '</span></td>';
-          table += '<td style="background-color: #6470c9 !important;" data-accordion="services"><span>' + tableList[i].departments[0].served_customer_count + '</span></td>';
-          table += '<td style="background-color: #6470c9 !important;" data-accordion="services"><span>' + tableList[i].departments[0].waiting_customer_count + '</span></td>';
-          table += '<td style="background-color: #6470c9 !important;" data-accordion="services"><span>' + tableList[i].departments[0].fte + '</span></td>';
-          table += '<td style="background-color: #6470c9 !important;" data-accordion="services"><span>' + tableList[i].departments[0].online_user_count + '</span></td>';
-          table += '<td style="background-color: #6470c9 !important;" data-accordion="services"><span>' + tableList[i].departments[0].vacation_count + '</span></td>';
-          table += '<td style="background-color: #6470c9 !important;" data-accordion="services"><span>' + tableList[i].departments[0].displacement_to_count + '</span></td>';
-          table += '<td style="background-color: #6470c9 !important;" data-accordion="services"><span>' + tableList[i].departments[0].displacement_from_count + '</span></td>';
+          table += '<td style="background-color: #4450aa !important;" data-first="1" data-accordion="services"><span>' + tableList[i].departments[0].ticket_count + '</span></td>';
+          table += '<td style="background-color: #4450aa !important;" data-accordion="services"><span>' + tableList[i].departments[0].served_customer_count + '</span></td>';
+          table += '<td style="background-color: #4450aa !important;" data-accordion="services"><span>' + tableList[i].departments[0].waiting_customer_count + '</span></td>';
+          table += '<td style="background-color: #4450aa !important;" data-accordion="services"><span>' + tableList[i].departments[0].fte + '</span></td>';
+          table += '<td style="background-color: #4450aa !important;" data-accordion="services"><span>' + tableList[i].departments[0].online_user_count + '</span></td>';
+          table += '<td style="background-color: #4450aa !important;" data-accordion="services"><span>' + tableList[i].departments[0].vacation_count + '</span></td>';
+          table += '<td style="background-color: #4450aa !important;" data-accordion="services"><span>' + tableList[i].departments[0].displacement_to_count + '</span></td>';
+          table += '<td style="background-color: #4450aa !important;" data-accordion="services"><span>' + tableList[i].departments[0].displacement_from_count + '</span></td>';
           table += '<td style="background-color: #6c7ae0 !important;" data-first="1" data-accordion="sales"><span>' + tableList[i].departments[1].ticket_count + '</span></td>';
           table += '<td style="background-color: #6c7ae0 !important;" data-accordion="sales"><span>' + tableList[i].departments[1].served_customer_count + '</span></td>';
           table += '<td style="background-color: #6c7ae0 !important;" data-accordion="sales"><span>' + tableList[i].departments[1].waiting_customer_count + '</span></td>';
@@ -665,14 +665,14 @@ $(function () {
           table += '<td style="background-color: #6c7ae0 !important;" data-accordion="sales"><span>' + tableList[i].departments[1].vacation_count + '</span></td>';
           table += '<td style="background-color: #6c7ae0 !important;" data-accordion="sales"><span>' + tableList[i].departments[1].displacement_to_count + '</span></td>';
           table += '<td style="background-color: #6c7ae0 !important;" data-accordion="sales"><span>' + tableList[i].departments[1].displacement_from_count + '</span></td>';
-          table += '<td style="background-color: #6470c9 !important;" data-first="1" data-accordion="cash"><span>' + tableList[i].departments[2].ticket_count + '</span></td>';
-          table += '<td style="background-color: #6470c9 !important;" data-accordion="cash"><span>' + tableList[i].departments[2].served_customer_count + '</span></td>';
-          table += '<td style="background-color: #6470c9 !important;" data-accordion="cash"><span>' + tableList[i].departments[2].waiting_customer_count + '</span></td>';
-          table += '<td style="background-color: #6470c9 !important;" data-accordion="cash"><span>' + tableList[i].departments[2].fte + '</span></td>';
-          table += '<td style="background-color: #6470c9 !important;" data-accordion="cash"><span>' + tableList[i].departments[2].online_user_count + '</span></td>';
-          table += '<td style="background-color: #6470c9 !important;" data-accordion="cash"><span>' + tableList[i].departments[2].vacation_count + '</span></td>';
-          table += '<td style="background-color: #6470c9 !important;" data-accordion="cash"><span>' + tableList[i].departments[2].displacement_to_count + '</span></td>';
-          table += '<td style="background-color: #6470c9 !important;" data-accordion="cash"><span>' + tableList[i].departments[2].displacement_from_count + '</span></td>';
+          table += '<td style="background-color: #4450aa !important;" data-first="1" data-accordion="cash"><span>' + tableList[i].departments[2].ticket_count + '</span></td>';
+          table += '<td style="background-color: #4450aa !important;" data-accordion="cash"><span>' + tableList[i].departments[2].served_customer_count + '</span></td>';
+          table += '<td style="background-color: #4450aa !important;" data-accordion="cash"><span>' + tableList[i].departments[2].waiting_customer_count + '</span></td>';
+          table += '<td style="background-color: #4450aa !important;" data-accordion="cash"><span>' + tableList[i].departments[2].fte + '</span></td>';
+          table += '<td style="background-color: #4450aa !important;" data-accordion="cash"><span>' + tableList[i].departments[2].online_user_count + '</span></td>';
+          table += '<td style="background-color: #4450aa !important;" data-accordion="cash"><span>' + tableList[i].departments[2].vacation_count + '</span></td>';
+          table += '<td style="background-color: #4450aa !important;" data-accordion="cash"><span>' + tableList[i].departments[2].displacement_to_count + '</span></td>';
+          table += '<td style="background-color: #4450aa !important;" data-accordion="cash"><span>' + tableList[i].departments[2].displacement_from_count + '</span></td>';
           if(tableList[i].departments[3] != undefined ) {
             table += '<td style="background-color: #6c7ae0 !important;" data-first="1" data-accordion="legal"><span>' + tableList[i].departments[3].ticket_count + '</span></td>';
             table += '<td style="background-color: #6c7ae0 !important;" data-accordion="legal"><span>' + tableList[i].departments[3].served_customer_count + '</span></td>';
@@ -693,23 +693,23 @@ $(function () {
               table += '<td style="background-color: #6c7ae0 !important;" data-accordion="legal"><span> ---- </span></td>';
             }
             if(tableList[i].departments[4]) {
-              table += '<td style="background-color: #6470c9 !important;" data-first="1" data-accordion="cash-legal"><span>' + tableList[i].departments[4].ticket_count + '</span></td>';
-              table += '<td style="background-color: #6470c9 !important;" data-accordion="cash-legal"><span>' + tableList[i].departments[4].served_customer_count + '</span></td>';
-              table += '<td style="background-color: #6470c9 !important;" data-accordion="cash-legal"><span>' + tableList[i].departments[4].waiting_customer_count + '</span></td>';
-              table += '<td style="background-color: #6470c9 !important;" data-accordion="cash-legal"><span>' + tableList[i].departments[4].fte + '</span></td>';
-              table += '<td style="background-color: #6470c9 !important;" data-accordion="cash-legal"><span>' + tableList[i].departments[4].online_user_count + '</span></td>';
-              table += '<td style="background-color: #6470c9 !important;" data-accordion="cash-legal"><span>' + tableList[i].departments[4].vacation_count + '</span></td>';
-              table += '<td style="background-color: #6470c9 !important;" data-accordion="cash-legal"><span>' + tableList[i].departments[4].displacement_to_count + '</span></td>';
-              table += '<td style="background-color: #6470c9 !important;" data-accordion="cash-legal"><span>' + tableList[i].departments[4].displacement_from_count + '</span></td></tr>';
+              table += '<td style="background-color: #4450aa !important;" data-first="1" data-accordion="cash-legal"><span>' + tableList[i].departments[4].ticket_count + '</span></td>';
+              table += '<td style="background-color: #4450aa !important;" data-accordion="cash-legal"><span>' + tableList[i].departments[4].served_customer_count + '</span></td>';
+              table += '<td style="background-color: #4450aa !important;" data-accordion="cash-legal"><span>' + tableList[i].departments[4].waiting_customer_count + '</span></td>';
+              table += '<td style="background-color: #4450aa !important;" data-accordion="cash-legal"><span>' + tableList[i].departments[4].fte + '</span></td>';
+              table += '<td style="background-color: #4450aa !important;" data-accordion="cash-legal"><span>' + tableList[i].departments[4].online_user_count + '</span></td>';
+              table += '<td style="background-color: #4450aa !important;" data-accordion="cash-legal"><span>' + tableList[i].departments[4].vacation_count + '</span></td>';
+              table += '<td style="background-color: #4450aa !important;" data-accordion="cash-legal"><span>' + tableList[i].departments[4].displacement_to_count + '</span></td>';
+              table += '<td style="background-color: #4450aa !important;" data-accordion="cash-legal"><span>' + tableList[i].departments[4].displacement_from_count + '</span></td></tr>';
             } else {
-              table += '<td style="background-color: #6470c9 !important;" data-first="1" data-accordion="cash-legal"><span> ---- </span></td>';
-              table += '<td style="background-color: #6470c9 !important;" data-accordion="cash-legal"><span> ---- </span></td>';
-              table += '<td style="background-color: #6470c9 !important;" data-accordion="cash-legal"><span> ---- </span></td>';
-              table += '<td style="background-color: #6470c9 !important;" data-accordion="cash-legal"><span> ---- </span></td>';
-              table += '<td style="background-color: #6470c9 !important;" data-accordion="cash-legal"><span> ---- </span></td>';
-              table += '<td style="background-color: #6470c9 !important;" data-accordion="cash-legal"><span> ---- </span></td>';
-              table += '<td style="background-color: #6470c9 !important;" data-accordion="cash-legal"><span> ---- </span></td>';
-              table += '<td style="background-color: #6470c9 !important;" data-accordion="cash-legal"><span> ---- </span></td></tr>';
+              table += '<td style="background-color: #4450aa !important;" data-first="1" data-accordion="cash-legal"><span> ---- </span></td>';
+              table += '<td style="background-color: #4450aa !important;" data-accordion="cash-legal"><span> ---- </span></td>';
+              table += '<td style="background-color: #4450aa !important;" data-accordion="cash-legal"><span> ---- </span></td>';
+              table += '<td style="background-color: #4450aa !important;" data-accordion="cash-legal"><span> ---- </span></td>';
+              table += '<td style="background-color: #4450aa !important;" data-accordion="cash-legal"><span> ---- </span></td>';
+              table += '<td style="background-color: #4450aa !important;" data-accordion="cash-legal"><span> ---- </span></td>';
+              table += '<td style="background-color: #4450aa !important;" data-accordion="cash-legal"><span> ---- </span></td>';
+              table += '<td style="background-color: #4450aa !important;" data-accordion="cash-legal"><span> ---- </span></td></tr>';
             }
           
         }
@@ -996,6 +996,14 @@ $(function () {
 
   tippy('.osp', {
     content: "Open servis points"
+  });
+
+  tippy('.ou', {
+    content: "Online user"
+  });
+
+  tippy('.tv', {
+    content: "Total visits"
   });
 
 
