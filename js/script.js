@@ -1,5 +1,16 @@
 $(function () {
 
+  Array.prototype.remove = function() {
+    var what, a = arguments, L = a.length, ax;
+    while (L && this.length) {
+        what = a[--L];
+        while ((ax = this.indexOf(what)) !== -1) {
+            this.splice(ax, 1);
+        }
+    }
+    return this;
+  };
+
   var allFilials = [
     {
       "filialX": 227,
@@ -469,6 +480,7 @@ $(function () {
    * Main vars
    */
   var filterId = 'map',
+  closeTabs = [],
   showTimeOnMap = true,
   drowArr = [],
   newArr = [],
@@ -889,7 +901,7 @@ $(function () {
       $.ajax({
         url: heatmap_url + '/get_branches_data/',
         type: 'POST',
-        data: {limit : listAllItemCount, offset : 1, search: ''},
+        data: {limit : listAllItemCount, offset : 0, search: ''},
         
         success: function (data) {
           newDrowTable(data.branches);
@@ -908,7 +920,7 @@ $(function () {
       $.ajax({
         url: heatmap_url + '/get_branches_data/',
         type: 'POST',
-        data: {limit : listShowCount, offset : listShowCount*paginationStep + 1, search: ''},
+        data: {limit : listShowCount, offset : listShowCount*paginationStep , search: ''},
         
         success: function (data) {
           newDrowTable(data.branches);
@@ -917,6 +929,12 @@ $(function () {
           $(".table-scroller").show()
           $('.map-preloader').hide();
           drowPagination();
+          for(var i = 0; i < closeTabs.length; i++ ) {
+
+            $(".table td[data-accordion=" + closeTabs[i] + "]").hide();
+            $(".table td[data-accordion=" + closeTabs[i] + "][data-first=1]").slice(2).after('<td class="fake" data-fake="' + closeTabs[i] + '" style=""></td>');
+
+          }
           tableTimer = setTimeout(function() {
             getTableData();
           }, 10000);
@@ -961,9 +979,10 @@ $(function () {
   $(".accordion-head").click(function () {
 
     if (tabletabsCount > 1) {
-
+      
       --tabletabsCount;
       var dataAcc = $(this).attr('data-accordion');
+      closeTabs.push(dataAcc);
       $(".table td[data-accordion=" + dataAcc + "]").hide();
       var colName = $(".table td[data-accordion=" + dataAcc + "][data-first=1]").eq(0).html()
       $(".table td[data-accordion=" + dataAcc + "][data-first=1]").eq(0).after('<td rowspan="2" class="fake" data-fake="' + dataAcc + '" style="background:#bf2127 !important; padding: 0; font-size: 12px;"></td>');
@@ -984,6 +1003,8 @@ $(function () {
     var fakeCase = $(this).attr('data-fake');
     $(".table td[data-accordion=" + fakeCase + "]").show();
     $('.fake[data-fake="' + fakeCase + '"]').remove();
+    var index = closeTabs.indexOf(fakeCase);
+    if (index !== -1) closeTabs.splice(index, 1);
 
   })
 
