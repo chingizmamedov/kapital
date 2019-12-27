@@ -484,7 +484,7 @@ $(function () {
   showTimeOnMap = true,
   drowArr = [],
   newArr = [],
-  searchActive = false,
+  searchEneble = true,
   mapTimer,
   tableTimer,
   listAllItemCount = 2123,
@@ -662,8 +662,9 @@ $(function () {
           table += '<td style="background-color: #6c7ae0 !important;" data-accordion="branches"><span>' + tableList[i].served_customer_count + '</span></td>';
           table += '<td style="background-color: #6c7ae0 !important;" data-accordion="branches"><span>' + tableList[i].waiting_customer_count + '</span></td>';
           table += '<td style="background-color: #6c7ae0 !important;" data-accordion="branches"><span>' + tableList[i].max_free_time + '</span></td>';
-          table += '<td style="background-color: #6c7ae0 !important;" data-accordion="branches"><span>' + tableList[i].free_user_count + '</span></td>';
+          table += '<td style="background-color: #6c7ae0 !important;" data-accordion="branches"><span>' + tableList[i].closed_counter_count + '</span></td>';
           table += '<td style="background-color: #6c7ae0 !important;" data-accordion="branches"><span>' + tableList[i].open_counter_count + '</span></td>';
+          table += '<td style="background-color: #6c7ae0 !important;" data-accordion="branches"><span>' + tableList[i].free_user_count + '</span></td>';
           table += '<td style="background-color: #4450aa !important;" data-first="1" data-accordion="services"><span>' + tableList[i].departments[0].ticket_count + '</span></td>';
           table += '<td style="background-color: #4450aa !important;" data-accordion="services"><span>' + tableList[i].departments[0].served_customer_count + '</span></td>';
           table += '<td style="background-color: #4450aa !important;" data-accordion="services"><span>' + tableList[i].departments[0].waiting_customer_count + '</span></td>';
@@ -735,8 +736,9 @@ $(function () {
           table += '<td data-accordion="branches"><span>' + tableList[i].served_customer_count + '</span></td>';
           table += '<td data-accordion="branches"><span>' + tableList[i].waiting_customer_count + '</span></td>';
           table += '<td data-accordion="branches"><span>' + tableList[i].max_free_time + '</span></td>';
-          table += '<td data-accordion="branches"><span>' + tableList[i].free_user_count + '</span></td>';
+          table += '<td data-accordion="branches"><span>' + tableList[i].closed_counter_count + '</span></td>';
           table += '<td data-accordion="branches"><span>' + tableList[i].open_counter_count + '</span></td>';
+          table += '<td data-accordion="branches"><span>' + tableList[i].free_user_count + '</span></td>';
           table += '<td data-first="1" data-accordion="services"><span>' + tableList[i].departments[0].ticket_count + '</span></td>';
           table += '<td data-accordion="services"><span>' + tableList[i].departments[0].served_customer_count + '</span></td>';
           table += '<td data-accordion="services"><span>' + tableList[i].departments[0].waiting_customer_count + '</span></td>';
@@ -878,7 +880,7 @@ $(function () {
 
 
   function First() {
-    $('#table-preloader').show();
+    // $('#table-preloader').show();
     $.ajax({
         url: heatmap_url + '/get_branches_data/',
         type: 'POST',
@@ -888,12 +890,11 @@ $(function () {
         }
       });
   };
-
+  First();
   function getTableData() {
     
     clearTimeout(tableTimer);
-    if(filterId == 'map') {
-      
+    if(!searchEneble) {
       return null;
     }
     $('.map-preloader').show();
@@ -956,7 +957,7 @@ $(function () {
  
   $("#gotable").click(function () {
     $(".table-wrap").slideToggle('slow')
-    if($(this).text() == 'Go table') {
+    if($(this).text() == 'Branches') {
       $('.map-wrap').css('overflow', 'hidden')
       $(".tab-btn").hide()
       
@@ -968,7 +969,7 @@ $(function () {
       $(".table-scroller").hide()
 
     }
-    $(this).text() == 'Go table' ? $(this).text('Go Map') : $(this).text('Go table');
+    $(this).text() == 'Branches' ? $(this).text('Map') : $(this).text('Branches');
     filterId = filterId == 'map' ? 'table' : 'map';
     getTableData();
 
@@ -1051,7 +1052,7 @@ $(function () {
   });
 
   tippy('.csp', {
-    content: "Close service points"
+    content: "Closed service points"
   });
 
   tippy('.osp', {
@@ -1062,8 +1063,12 @@ $(function () {
     content: "Online user"
   });
 
-  tippy('.tv', {
+  tippy('.TV', {
     content: "Total visits"
+  });
+
+  tippy('.uic', {
+    content: " Idle users count"
   });
 
 
@@ -1215,13 +1220,46 @@ $(function () {
 
       var drowTableList = [];
       var inputVal = $(this).val()
-      var reg = new RegExp(inputVal, 'i')
-      for (var i = 0; i < filterId.length; i++) {
-        if (reg.test(filterId[i].filialName)) {
-          drowTableList.push(filterId[i]);
-          
-        }
+      if(inputVal.length > 0) {
+        searchEneble = false;
+
+        $.ajax({
+          url: heatmap_url + '/get_branches_data/',
+          type: 'POST',
+          data: {limit : 200, offset : 0, search: inputVal},
+          success: function (data) {
+  
+            console.log('search data', data);
+            if(data.branches.length <1) {
+
+              $("#table").hide();
+
+            } else {
+
+              $("#table").show();
+
+            }
+            newDrowTable(data.branches);
+  
+          }
+        });
       }
+      if(inputVal.length < 1) {
+
+
+        searchEneble = true;
+        getTableData();
+
+      }
+      // var reg = new RegExp(inputVal, 'i')
+      // for (var i = 0; i < filterId.length; i++) {
+      //   if (reg.test(filterId[i].filialName)) {
+      //     drowTableList.push(filterId[i]);
+          
+      //   }
+      // }
+      console.log('search sozu', inputVal);
+      
       // reDrowtable(1, drowTableList)
 
     }
