@@ -963,6 +963,18 @@ td.fake:after {
   border-radius: 6px;
 }
 
+.departaments .table-scroller {
+  display: block;
+}
+
+.departaments-item {
+  width: 100%;
+}
+
+.counters .table-scroller {
+  display: block;
+}
+
 .fte {
   border-collapse: collapse;
 }

@@ -396,3 +396,18 @@ td.fake {
     padding: 6px 8px;
     border-radius: 6px;
 }
+
+.departaments {
+    & .table-scroller {
+        display: block;
+    }
+    &-item {
+        width: 100%;
+    }
+}
+
+.counters {
+    & .table-scroller {
+        display: block;
+    }
+}

@@ -5,6 +5,7 @@ $(function() {
         mustBranch = {};
 
     function drowTable(data) {
+
         var tables = [];
         
         for(var i = 0; i < data.length; i++ ) {
@@ -36,7 +37,6 @@ $(function() {
     }
 
     function drowUsersTable(data) {
-    console.log("TCL: drowUsersTable -> data", data)
 
         var tables = [];
             
@@ -51,8 +51,7 @@ $(function() {
             services += '</tbody>';
             table += services;
             table += '</table>';
-            tables.push(table); 
-            console.log('counter table', tables)
+            tables.push(table);
         }
         
         for( var i = 0; i < tables.length; i++ ) {
@@ -60,7 +59,7 @@ $(function() {
             $('.counters-item').append(tables[i])
             
         }
-        console.log('das')
+        
     }
 
     $(document).on('click', '.open', function() {
@@ -76,7 +75,6 @@ $(function() {
         type: 'POST',
         data: {branch : searchParamsId},
         success: function(data) {
-            console.log('mata', data)
             $("#branch-name").text(data.branch.name)
             drowTable(data.departments)
         }
@@ -87,7 +85,6 @@ $(function() {
         type: 'POST',
         data: {branch : searchParamsId},
         success: function(data) {
-        console.log("TCL: data users", data)
 
             drowUsersTable(data.users);
             setTimeout(() => {

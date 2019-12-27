@@ -472,11 +472,14 @@ $(function () {
   showTimeOnMap = true,
   drowArr = [],
   newArr = [],
-  listAllItemCount = 0,
+  searchActive = false,
+  mapTimer,
+  tableTimer,
+  listAllItemCount = 2123,
   listShowCount = 20, // Count of list item, how many item from table must be shown
   paginationCount, // Count of Pagination (how many pagination button must be)
-  paginationStep = 1, // Step of pagination, number of table list
-  startToShow = 1 // First number from which table items must be shown
+  paginationStep = 0, // Step of pagination, number of table list
+  startToShow = 1; // First number from which table items must be shown
   //SVG start
   svg = document.getElementById('sgs'),
   NS = svg.getAttribute('xmlns');
@@ -801,7 +804,7 @@ $(function () {
     }
     var paginationCountCheck = listAllItemCount % listShowCount;
     if (paginationCountCheck !== 0) {
-      paginationCount = Math.ceil(listAllItemCount / listShowCount)
+      paginationCount = Math.ceil(listAllItemCount / listShowCount);
     } else {
       paginationCount = listAllItemCount / listShowCount;
     }
@@ -829,68 +832,101 @@ $(function () {
     url: heatmap_url + '/get_map_data/',
     type: 'GET',
     success: function (data) {
-      console.log('Elvin data', data)
+      
       setInputData(data.branches);
       setCardData(data);
       
     }
   });
 
-  function getTableDataFirst() {
+  function autoGetMap() {
+
+    $('.map-preloader').show();
+    $.ajax({
+      url: heatmap_url + '/get_map_data/',
+      type: 'GET',
+      success: function (data) {
+        setInputData(data.branches);
+        setCardData(data);
+        clearTimeout(mapTimer);
+        $('.map-preloader').hide();
+        if(filterId == 'map') {
+          mapTimer = setTimeout(function(){
+            autoGetMap();
+          }, 10000);
+        }
+      }
+    });
+
+  }
+
+  mapTimer = setTimeout(function(){
+    autoGetMap();
+  }, 10000)
+
+
+  function First() {
     $('#table-preloader').show();
     $.ajax({
         url: heatmap_url + '/get_branches_data/',
         type: 'POST',
-        data: {limit : 20, offset : 0, search: ''},
+        data: {limit : 200, offset : 0, search: ''},
         success: function (data) {
-          console.log('sukaaaaaaaaaaaaaa',data)
-          newDrowTable(data.branches);
-          listAllItemCount = data.count;
-          $(".table-scroller").show()
-          $('#table-preloader').hide();
+          listAllItemCount = data.count;         
         }
       });
-  }
-  // getTableDataFirst()
+  };
 
   function getTableData() {
-
-    $('#table-preloader').show();
-    console.log('listShowCount',listShowCount)
+    
+    clearTimeout(tableTimer);
+    if(filterId == 'map') {
+      
+      return null;
+    }
+    $('.map-preloader').show();
     if(listShowCount == 0) {
-      // debugger
       $.ajax({
         url: heatmap_url + '/get_branches_data/',
         type: 'POST',
         data: {limit : listAllItemCount, offset : 1, search: ''},
+        
         success: function (data) {
-          console.log('pox data', data)
           newDrowTable(data.branches);
           listAllItemCount = data.count;
-          console.log('listAllItemCount', listAllItemCount)
-          $('#table-preloader').hide();
-          
+          $('.map-preloader').hide();
+          clearTimeout(tableTimer);
+          drowPagination();
+          tableTimer = setTimeout(function() {
+            getTableData();
+          }, 15000);
         }
       });
 
     } else {
+
       $.ajax({
-      url: heatmap_url + '/get_branches_data/',
-      type: 'POST',
-      data: {limit : listShowCount, offset : listShowCount*paginationStep + 1, search: ''},
-      success: function (data) {
-        // console.log(data)
-        newDrowTable(data.branches);
-        listAllItemCount = data.count;
-        console.log('listAllItemCount', listAllItemCount)
-        $('#table-preloader').hide();
+        url: heatmap_url + '/get_branches_data/',
+        type: 'POST',
+        data: {limit : listShowCount, offset : listShowCount*paginationStep + 1, search: ''},
         
-      }
-    });
+        success: function (data) {
+          newDrowTable(data.branches);
+          listAllItemCount = data.count;
+          clearTimeout(tableTimer);
+          $(".table-scroller").show()
+          $('.map-preloader').hide();
+          drowPagination();
+          tableTimer = setTimeout(function() {
+            getTableData();
+          }, 10000);
+        }
+      });
+
     }
     
   }
-  
+
   // getTableData()
   /**
    * All events
@@ -905,8 +941,10 @@ $(function () {
     if($(this).text() == 'Go table') {
       $('.map-wrap').css('overflow', 'hidden')
       $(".tab-btn").hide()
-      getTableDataFirst()
+      
+
     } else {
+      
       $('.map-wrap').css('overflow', 'visible')
       $(".tab-btn").show()
       $(".table-scroller").hide()
@@ -914,6 +952,7 @@ $(function () {
     }
     $(this).text() == 'Go table' ? $(this).text('Go Map') : $(this).text('Go table');
     filterId = filterId == 'map' ? 'table' : 'map';
+    getTableData();
 
   })
 
