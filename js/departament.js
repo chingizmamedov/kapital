@@ -42,11 +42,11 @@ $(function() {
             
         for(var i = 0; i < data.length; i++) {
             var currentFreeTime = data[i].current_free_time ? data[i].current_free_time : 'no data'
-            var table = '<table class="dep-table"><thead><tr><td id="queues">Service point</td><td>User name</td><td>Now serving ticket</td><td>Now serving service</td><td>Now serving transactione time</td><td>Service name</td><td>Served</td><td>Average transaction time</td><td>Total transaction time</td><td>Total session time</td><td>Idle time total</td><td>İdle time now</td><td>Idle time count</td><td>No show</td><td>Reject</td><td>Walk direct</td></tr>';
-            table += '<tr><td></td><td>'+ data[i].full_name +'</td><td>'+ data[i].current_serving_ticket +'</td><td>'+ data[i].current_serving_service +'</td><td>'+ data[i].current_serving_time +'</td><td class="counters-open">&#62;</td><td>'+ data[i].served_customer_count +'</td><td>'+ data[i].avg_serving_time +'</td><td>'+ data[i].total_serving_time +'</td><td>'+ data[i].total_session_time +'</td><td>'+ data[i].total_free_time +'</td><td>'+ currentFreeTime +'</td><td>'+ data[i].free_time_count +'</td><td>$32</td><td>$16</td><td>$19</td></tr></thead>';
+            var table = '<table class="dep-table"><thead><tr><td id="queues">Service point</td><td>User name</td><td>Ticket</td><td>Service</td><td>TT</td><td>TST</td><td>TIT</td><td>IT</td><td>ITC</td><td>Services</td><td>Served</td><td>ATT</td><td>TTT</td><td>NS</td><td>R</td><td>WD</td></tr>';
+            table += '<tr><td></td><td>'+ data[i].full_name +'</td><td>'+ data[i].current_serving_ticket +'</td><td>'+ data[i].current_serving_service +'</td><td>'+ data[i].current_serving_time +'</td><td>'+ data[i].total_serving_time +'</td><td>'+ data[i].total_session_time +'</td><td>'+ data[i].total_free_time +'</td><td>'+ currentFreeTime +'</td><td class="counters-open">&#62;</td><td>'+ data[i].served_customer_count +'</td><td>'+ data[i].avg_serving_time +'</td><td>'+ data[i].free_time_count +'</td><td>$32</td><td>$16</td><td>$19</td></tr></thead>';
             var services = '<tbody style="display: table-header-group;"><tr>';
             for(var j = 0; j < data[i].services.length; j++) {
-                services += '<td colspan="5"></td> <td>'+ data[i].services[j].name +'</td> <td>'+ data[i].services[j].served_customer_count +'</td> <td>'+ data[i].services[j].avg_serving_time +'</td> <td>'+ data[i].services[j].total_serving_time +'</td> <td colspan="4"></td> <td>$10</td> <td>$16</td> <td>$8</td> </tr>';
+                services += '<td colspan="5"></td></td> <td colspan="4"></td> <td>$10</td>  <td>'+ data[i].services[j].name +'</td> <td>'+ data[i].services[j].served_customer_count +'</td> <td>'+ data[i].services[j].avg_serving_time +'</td> <td>'+ data[i].services[j].total_serving_time +'<td>$16</td> <td>$8</td> </tr>';
             }
             services += '</tbody>';
             table += services;
@@ -69,7 +69,7 @@ $(function() {
     })
 
     var heatmap_url = 'http://192.168.1.194:8000/heatmap';
-
+    $(".map-preloader").hide();
     $.ajax({
         url:  heatmap_url + '/get_departments_data/',
         type: 'POST',
@@ -77,6 +77,8 @@ $(function() {
         success: function(data) {
             $("#branch-name").text(data.branch.name)
             drowTable(data.departments)
+            $(".kapital-preloader").hide();
+            // $(".map-preloader").hide();
         }
     });
 

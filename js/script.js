@@ -1,15 +1,6 @@
 $(function () {
 
-  Array.prototype.remove = function() {
-    var what, a = arguments, L = a.length, ax;
-    while (L && this.length) {
-        what = a[--L];
-        while ((ax = this.indexOf(what)) !== -1) {
-            this.splice(ax, 1);
-        }
-    }
-    return this;
-  };
+  var heatmap_url = 'http://192.168.1.194:8000/heatmap';
 
   var allFilials = [
     {
@@ -474,24 +465,14 @@ $(function () {
       "filialName": "Şəki kart mərkəzi",
       "id": "46"
     }
-  ]
-
+  ];
   /**
    * Main vars
    */
   var filterId = 'map',
-  closeTabs = [],
   showTimeOnMap = true,
   drowArr = [],
-  newArr = [],
-  searchEneble = true,
   mapTimer,
-  tableTimer,
-  listAllItemCount = 2123,
-  listShowCount = 20, // Count of list item, how many item from table must be shown
-  paginationCount, // Count of Pagination (how many pagination button must be)
-  paginationStep = 0, // Step of pagination, number of table list
-  startToShow = 1; // First number from which table items must be shown
   //SVG start
   svg = document.getElementById('sgs'),
   NS = svg.getAttribute('xmlns');
@@ -647,200 +628,8 @@ $(function () {
   /**
     map functions
   */
-  /**
-    table functions
-  */
-
-  function newDrowTable(tableList) {
-
-    var table = '';
-    for (var i = 0; i < tableList.length; i++) {
-      if(i%2 !== 0) {
-        if( tableList[i].departments.length > 1) {
-          table += '<tr><td class="table-branch table-branch-row"><a href="/departament.html?filial=' + tableList[i].id + '" target="blank">' + tableList[i].name + '</a></td>';
-          table += '<td style="background-color: #6c7ae0 !important;" data-first="1" data-accordion="branches"><span>' + tableList[i].ticket_count + '</span></td>';
-          table += '<td style="background-color: #6c7ae0 !important;" data-accordion="branches"><span>' + tableList[i].served_customer_count + '</span></td>';
-          table += '<td style="background-color: #6c7ae0 !important;" data-accordion="branches"><span>' + tableList[i].waiting_customer_count + '</span></td>';
-          table += '<td style="background-color: #6c7ae0 !important;" data-accordion="branches"><span>' + tableList[i].max_free_time + '</span></td>';
-          table += '<td style="background-color: #6c7ae0 !important;" data-accordion="branches"><span>' + tableList[i].closed_counter_count + '</span></td>';
-          table += '<td style="background-color: #6c7ae0 !important;" data-accordion="branches"><span>' + tableList[i].open_counter_count + '</span></td>';
-          table += '<td style="background-color: #6c7ae0 !important;" data-accordion="branches"><span>' + tableList[i].free_user_count + '</span></td>';
-          table += '<td style="background-color: #4450aa !important;" data-first="1" data-accordion="services"><span>' + tableList[i].departments[0].ticket_count + '</span></td>';
-          table += '<td style="background-color: #4450aa !important;" data-accordion="services"><span>' + tableList[i].departments[0].served_customer_count + '</span></td>';
-          table += '<td style="background-color: #4450aa !important;" data-accordion="services"><span>' + tableList[i].departments[0].waiting_customer_count + '</span></td>';
-          table += '<td style="background-color: #4450aa !important;" data-accordion="services"><span>' + tableList[i].departments[0].fte + '</span></td>';
-          table += '<td style="background-color: #4450aa !important;" data-accordion="services"><span>' + tableList[i].departments[0].online_user_count + '</span></td>';
-          table += '<td style="background-color: #4450aa !important;" data-accordion="services"><span>' + tableList[i].departments[0].vacation_count + '</span></td>';
-          table += '<td style="background-color: #4450aa !important;" data-accordion="services"><span>' + tableList[i].departments[0].displacement_to_count + '</span></td>';
-          table += '<td style="background-color: #4450aa !important;" data-accordion="services"><span>' + tableList[i].departments[0].displacement_from_count + '</span></td>';
-          table += '<td style="background-color: #6c7ae0 !important;" data-first="1" data-accordion="sales"><span>' + tableList[i].departments[1].ticket_count + '</span></td>';
-          table += '<td style="background-color: #6c7ae0 !important;" data-accordion="sales"><span>' + tableList[i].departments[1].served_customer_count + '</span></td>';
-          table += '<td style="background-color: #6c7ae0 !important;" data-accordion="sales"><span>' + tableList[i].departments[1].waiting_customer_count + '</span></td>';
-          table += '<td style="background-color: #6c7ae0 !important;" data-accordion="sales"><span>' + tableList[i].departments[1].fte + '</span></td>';
-          table += '<td style="background-color: #6c7ae0 !important;" data-accordion="sales"><span>' + tableList[i].departments[1].online_user_count + '</span></td>';
-          table += '<td style="background-color: #6c7ae0 !important;" data-accordion="sales"><span>' + tableList[i].departments[1].vacation_count + '</span></td>';
-          table += '<td style="background-color: #6c7ae0 !important;" data-accordion="sales"><span>' + tableList[i].departments[1].displacement_to_count + '</span></td>';
-          table += '<td style="background-color: #6c7ae0 !important;" data-accordion="sales"><span>' + tableList[i].departments[1].displacement_from_count + '</span></td>';
-          table += '<td style="background-color: #4450aa !important;" data-first="1" data-accordion="cash"><span>' + tableList[i].departments[2].ticket_count + '</span></td>';
-          table += '<td style="background-color: #4450aa !important;" data-accordion="cash"><span>' + tableList[i].departments[2].served_customer_count + '</span></td>';
-          table += '<td style="background-color: #4450aa !important;" data-accordion="cash"><span>' + tableList[i].departments[2].waiting_customer_count + '</span></td>';
-          table += '<td style="background-color: #4450aa !important;" data-accordion="cash"><span>' + tableList[i].departments[2].fte + '</span></td>';
-          table += '<td style="background-color: #4450aa !important;" data-accordion="cash"><span>' + tableList[i].departments[2].online_user_count + '</span></td>';
-          table += '<td style="background-color: #4450aa !important;" data-accordion="cash"><span>' + tableList[i].departments[2].vacation_count + '</span></td>';
-          table += '<td style="background-color: #4450aa !important;" data-accordion="cash"><span>' + tableList[i].departments[2].displacement_to_count + '</span></td>';
-          table += '<td style="background-color: #4450aa !important;" data-accordion="cash"><span>' + tableList[i].departments[2].displacement_from_count + '</span></td>';
-          if(tableList[i].departments[3] != undefined ) {
-            table += '<td style="background-color: #6c7ae0 !important;" data-first="1" data-accordion="legal"><span>' + tableList[i].departments[3].ticket_count + '</span></td>';
-            table += '<td style="background-color: #6c7ae0 !important;" data-accordion="legal"><span>' + tableList[i].departments[3].served_customer_count + '</span></td>';
-            table += '<td style="background-color: #6c7ae0 !important;" data-accordion="legal"><span>' + tableList[i].departments[3].waiting_customer_count + '</span></td>';
-            table += '<td style="background-color: #6c7ae0 !important;" data-accordion="legal"><span>' + tableList[i].departments[3].fte + '</span></td>';
-            table += '<td style="background-color: #6c7ae0 !important;" data-accordion="legal"><span>' + tableList[i].departments[3].online_user_count + '</span></td>';
-            table += '<td style="background-color: #6c7ae0 !important;" data-accordion="legal"><span>' + tableList[i].departments[3].vacation_count + '</span></td>';
-            table += '<td style="background-color: #6c7ae0 !important;" data-accordion="legal"><span>' + tableList[i].departments[3].displacement_to_count + '</span></td>';
-            table += '<td style="background-color: #6c7ae0 !important;" data-accordion="legal"><span>' + tableList[i].departments[3].displacement_from_count + '</span></td>';
-            } else {
-              table += '<td style="background-color: #6c7ae0 !important;" data-first="1" data-accordion="legal"><span> ---- </span></td>';
-              table += '<td style="background-color: #6c7ae0 !important;" data-accordion="legal"><span> ---- </span></td>';
-              table += '<td style="background-color: #6c7ae0 !important;" data-accordion="legal"><span> ---- </span></td>';
-              table += '<td style="background-color: #6c7ae0 !important;" data-accordion="legal"><span> ---- </span></td>';
-              table += '<td style="background-color: #6c7ae0 !important;" data-accordion="legal"><span> ---- </span></td>';
-              table += '<td style="background-color: #6c7ae0 !important;" data-accordion="legal"><span> ---- </span></td>';
-              table += '<td style="background-color: #6c7ae0 !important;" data-accordion="legal"><span> ---- </span></td>';
-              table += '<td style="background-color: #6c7ae0 !important;" data-accordion="legal"><span> ---- </span></td>';
-            }
-            if(tableList[i].departments[4]) {
-              table += '<td style="background-color: #4450aa !important;" data-first="1" data-accordion="cash-legal"><span>' + tableList[i].departments[4].ticket_count + '</span></td>';
-              table += '<td style="background-color: #4450aa !important;" data-accordion="cash-legal"><span>' + tableList[i].departments[4].served_customer_count + '</span></td>';
-              table += '<td style="background-color: #4450aa !important;" data-accordion="cash-legal"><span>' + tableList[i].departments[4].waiting_customer_count + '</span></td>';
-              table += '<td style="background-color: #4450aa !important;" data-accordion="cash-legal"><span>' + tableList[i].departments[4].fte + '</span></td>';
-              table += '<td style="background-color: #4450aa !important;" data-accordion="cash-legal"><span>' + tableList[i].departments[4].online_user_count + '</span></td>';
-              table += '<td style="background-color: #4450aa !important;" data-accordion="cash-legal"><span>' + tableList[i].departments[4].vacation_count + '</span></td>';
-              table += '<td style="background-color: #4450aa !important;" data-accordion="cash-legal"><span>' + tableList[i].departments[4].displacement_to_count + '</span></td>';
-              table += '<td style="background-color: #4450aa !important;" data-accordion="cash-legal"><span>' + tableList[i].departments[4].displacement_from_count + '</span></td></tr>';
-            } else {
-              table += '<td style="background-color: #4450aa !important;" data-first="1" data-accordion="cash-legal"><span> ---- </span></td>';
-              table += '<td style="background-color: #4450aa !important;" data-accordion="cash-legal"><span> ---- </span></td>';
-              table += '<td style="background-color: #4450aa !important;" data-accordion="cash-legal"><span> ---- </span></td>';
-              table += '<td style="background-color: #4450aa !important;" data-accordion="cash-legal"><span> ---- </span></td>';
-              table += '<td style="background-color: #4450aa !important;" data-accordion="cash-legal"><span> ---- </span></td>';
-              table += '<td style="background-color: #4450aa !important;" data-accordion="cash-legal"><span> ---- </span></td>';
-              table += '<td style="background-color: #4450aa !important;" data-accordion="cash-legal"><span> ---- </span></td>';
-              table += '<td style="background-color: #4450aa !important;" data-accordion="cash-legal"><span> ---- </span></td></tr>';
-            }
-          
-        }
-      } else {
-        if( tableList[i].departments.length > 1) {
-          table += '<tr><td class="table-branch table-branch-row"><a href="/departament.html?filial=' + tableList[i].id + '" target="blank">' + tableList[i].name + '</a></td>';
-          table += '<td data-first="1" data-accordion="branches"><span>' + tableList[i].ticket_count + '</span></td>';
-          table += '<td data-accordion="branches"><span>' + tableList[i].served_customer_count + '</span></td>';
-          table += '<td data-accordion="branches"><span>' + tableList[i].waiting_customer_count + '</span></td>';
-          table += '<td data-accordion="branches"><span>' + tableList[i].max_free_time + '</span></td>';
-          table += '<td data-accordion="branches"><span>' + tableList[i].closed_counter_count + '</span></td>';
-          table += '<td data-accordion="branches"><span>' + tableList[i].open_counter_count + '</span></td>';
-          table += '<td data-accordion="branches"><span>' + tableList[i].free_user_count + '</span></td>';
-          table += '<td data-first="1" data-accordion="services"><span>' + tableList[i].departments[0].ticket_count + '</span></td>';
-          table += '<td data-accordion="services"><span>' + tableList[i].departments[0].served_customer_count + '</span></td>';
-          table += '<td data-accordion="services"><span>' + tableList[i].departments[0].waiting_customer_count + '</span></td>';
-          table += '<td data-accordion="services"><span>' + tableList[i].departments[0].fte + '</span></td>';
-          table += '<td data-accordion="services"><span>' + tableList[i].departments[0].online_user_count + '</span></td>';
-          table += '<td data-accordion="services"><span>' + tableList[i].departments[0].vacation_count + '</span></td>';
-          table += '<td data-accordion="services"><span>' + tableList[i].departments[0].displacement_to_count + '</span></td>';
-          table += '<td data-accordion="services"><span>' + tableList[i].departments[0].displacement_from_count + '</span></td>';
-          table += '<td data-first="1" data-accordion="sales"><span>' + tableList[i].departments[1].ticket_count + '</span></td>';
-          table += '<td data-accordion="sales"><span>' + tableList[i].departments[1].served_customer_count + '</span></td>';
-          table += '<td data-accordion="sales"><span>' + tableList[i].departments[1].waiting_customer_count + '</span></td>';
-          table += '<td data-accordion="sales"><span>' + tableList[i].departments[1].fte + '</span></td>';
-          table += '<td data-accordion="sales"><span>' + tableList[i].departments[1].online_user_count + '</span></td>';
-          table += '<td data-accordion="sales"><span>' + tableList[i].departments[1].vacation_count + '</span></td>';
-          table += '<td data-accordion="sales"><span>' + tableList[i].departments[1].displacement_to_count + '</span></td>';
-          table += '<td data-accordion="sales"><span>' + tableList[i].departments[1].displacement_from_count + '</span></td>';
-          table += '<td data-first="1" data-accordion="cash"><span>' + tableList[i].departments[2].ticket_count + '</span></td>';
-          table += '<td data-accordion="cash"><span>' + tableList[i].departments[2].served_customer_count + '</span></td>';
-          table += '<td data-accordion="cash"><span>' + tableList[i].departments[2].waiting_customer_count + '</span></td>';
-          table += '<td data-accordion="cash"><span>' + tableList[i].departments[2].fte + '</span></td>';
-          table += '<td data-accordion="cash"><span>' + tableList[i].departments[2].online_user_count + '</span></td>';
-          table += '<td data-accordion="cash"><span>' + tableList[i].departments[2].vacation_count + '</span></td>';
-          table += '<td data-accordion="cash"><span>' + tableList[i].departments[2].displacement_to_count + '</span></td>';
-          table += '<td data-accordion="cash"><span>' + tableList[i].departments[2].displacement_from_count + '</span></td>';
-          if(tableList[i].departments[3] != undefined ) {
-            table += '<td data-first="1" data-accordion="legal"><span>' + tableList[i].departments[3].ticket_count + '</span></td>';
-            table += '<td data-accordion="legal"><span>' + tableList[i].departments[3].served_customer_count + '</span></td>';
-            table += '<td data-accordion="legal"><span>' + tableList[i].departments[3].waiting_customer_count + '</span></td>';
-            table += '<td data-accordion="legal"><span>' + tableList[i].departments[3].fte + '</span></td>';
-            table += '<td data-accordion="legal"><span>' + tableList[i].departments[3].online_user_count + '</span></td>';
-            table += '<td data-accordion="legal"><span>' + tableList[i].departments[3].vacation_count + '</span></td>';
-            table += '<td data-accordion="legal"><span>' + tableList[i].departments[3].displacement_to_count + '</span></td>';
-            table += '<td data-accordion="legal"><span>' + tableList[i].departments[3].displacement_from_count + '</span></td>';
-            } else {
-              table += '<td data-first="1" data-accordion="legal"><span> ---- </span></td>';
-              table += '<td data-accordion="legal"><span> ---- </span></td>';
-              table += '<td data-accordion="legal"><span> ---- </span></td>';
-              table += '<td data-accordion="legal"><span> ---- </span></td>';
-              table += '<td data-accordion="legal"><span> ---- </span></td>';
-              table += '<td data-accordion="legal"><span> ---- </span></td>';
-              table += '<td data-accordion="legal"><span> ---- </span></td>';
-              table += '<td data-accordion="legal"><span> ---- </span></td>';
-            }
-            if(tableList[i].departments[4]) {
-              table += '<td data-first="1" data-accordion="cash-legal"><span>' + tableList[i].departments[4].ticket_count + '</span></td>';
-              table += '<td data-accordion="cash-legal"><span>' + tableList[i].departments[4].served_customer_count + '</span></td>';
-              table += '<td data-accordion="cash-legal"><span>' + tableList[i].departments[4].waiting_customer_count + '</span></td>';
-              table += '<td data-accordion="cash-legal"><span>' + tableList[i].departments[4].fte + '</span></td>';
-              table += '<td data-accordion="cash-legal"><span>' + tableList[i].departments[4].online_user_count + '</span></td>';
-              table += '<td data-accordion="cash-legal"><span>' + tableList[i].departments[4].vacation_count + '</span></td>';
-              table += '<td data-accordion="cash-legal"><span>' + tableList[i].departments[4].displacement_to_count + '</span></td>';
-              table += '<td data-accordion="cash-legal"><span>' + tableList[i].departments[4].displacement_from_count + '</span></td></tr>';
-            } else {
-              table += '<td data-first="1" data-accordion="cash-legal"><span> ---- </span></td>';
-              table += '<td data-accordion="cash-legal"><span> ---- </span></td>';
-              table += '<td data-accordion="cash-legal"><span> ---- </span></td>';
-              table += '<td data-accordion="cash-legal"><span> ---- </span></td>';
-              table += '<td data-accordion="cash-legal"><span> ---- </span></td>';
-              table += '<td data-accordion="cash-legal"><span> ---- </span></td>';
-              table += '<td data-accordion="cash-legal"><span> ---- </span></td>';
-              table += '<td data-accordion="cash-legal"><span> ---- </span></td></tr>';
-            }
-          
-        }
-      }
-    }
-    $('#mainTable_tbody').html(table);
-  }
-
-  function drowPagination() {
-
-    var paginationTemplate = '';
-    if (listShowCount == 0) {
-      paginationTemplate += '<div data-pagination="' + 1 + '" class="pagination-item pagination-active">' + 1 + '</div>'
-      $(".pagination").html(paginationTemplate)
-      return null
-    }
-    var paginationCountCheck = listAllItemCount % listShowCount;
-    if (paginationCountCheck !== 0) {
-      paginationCount = Math.ceil(listAllItemCount / listShowCount);
-    } else {
-      paginationCount = listAllItemCount / listShowCount;
-    }
-    
-    for (var i = 1; i < paginationCount + 1; i++) {
-
-      var pagClass = i == 1 ? 'pagination-item pagination-active' : 'pagination-item';
-      paginationTemplate += '<div data-pagination="' + i + '" class="' + pagClass + '">' + i + '</div>'
-    }
-
-    $(".pagination").html(paginationTemplate)
-
-  }
 
 
-  /**
-    table functions END
-  */
-
-  
-	
-  var heatmap_url = 'http://192.168.1.194:8000/heatmap';
 
   $.ajax({
     url: heatmap_url + '/get_map_data/',
@@ -849,7 +638,7 @@ $(function () {
       
       setInputData(data.branches);
       setCardData(data);
-      
+      $(".kapital-preloader").hide();
     }
   });
 
@@ -876,246 +665,11 @@ $(function () {
 
   mapTimer = setTimeout(function(){
     autoGetMap();
-  }, 10000)
+  }, 10000);
 
-
-  function First() {
-    // $('#table-preloader').show();
-    $.ajax({
-        url: heatmap_url + '/get_branches_data/',
-        type: 'POST',
-        data: {limit : 200, offset : 0, search: ''},
-        success: function (data) {
-          listAllItemCount = data.count;         
-        }
-      });
-  };
-  First();
-  function getTableData() {
-    
-    clearTimeout(tableTimer);
-    if(!searchEneble) {
-      return null;
-    }
-    $('.map-preloader').show();
-    if(listShowCount == 0) {
-      $.ajax({
-        url: heatmap_url + '/get_branches_data/',
-        type: 'POST',
-        data: {limit : listAllItemCount, offset : 0, search: ''},
-        
-        success: function (data, textStatus, xhr) {
-        console.log("TCL: getTableData -> xhr", xhr)
-        console.log("TCL: getTableData -> textStatus", textStatus)
-          
-          newDrowTable(data.branches);
-          listAllItemCount = data.count;
-          $('.map-preloader').hide();
-          clearTimeout(tableTimer);
-          drowPagination();
-          tableTimer = setTimeout(function() {
-            getTableData();
-          }, 15000);
-        }
-      });
-
-    } else {
-
-      $.ajax({
-        url: heatmap_url + '/get_branches_data/',
-        type: 'POST',
-        data: {limit : listShowCount, offset : listShowCount*paginationStep , search: ''},
-        
-        success: function (data, textStatus, xhr) {
-          debugger
-          console.log("TCL: getTableData -> xhr", xhr)
-        console.log("TCL: getTableData -> textStatus", textStatus)
-          newDrowTable(data.branches);
-          listAllItemCount = data.count;
-          clearTimeout(tableTimer);
-          $(".table-scroller").show()
-          $('.map-preloader').hide();
-          drowPagination();
-          for(var i = 0; i < closeTabs.length; i++ ) {
-
-            $(".table td[data-accordion=" + closeTabs[i] + "]").hide();
-            $(".table td[data-accordion=" + closeTabs[i] + "][data-first=1]").slice(2).after('<td class="fake" data-fake="' + closeTabs[i] + '" style=""></td>');
-
-          }
-          tableTimer = setTimeout(function() {
-            getTableData();
-          }, 10000);
-        },
-        complete: function(textStatus, xhr) {
-          
-          if(textStatus.status !== 200) {
-            alert('API is problem!')
-          }
-            
-        } 
-      });
-
-    }
-    
-  }
-
-  // getTableData()
   /**
    * All events
   */
-
-  /**
-   * @table
-   */
- 
-  $("#gotable").click(function () {
-    $(".table-wrap").slideToggle('slow')
-    if($(this).text() == 'Branches') {
-      $('.map-wrap').css('overflow', 'hidden')
-      $(".tab-btn").hide()
-      
-
-    } else {
-      
-      $('.map-wrap').css('overflow', 'visible')
-      $(".tab-btn").show()
-      $(".table-scroller").hide()
-
-    }
-    $(this).text() == 'Branches' ? $(this).text('Map') : $(this).text('Branches');
-    filterId = filterId == 'map' ? 'table' : 'map';
-    getTableData();
-
-  })
-
-   var tabletabsCount = 6;
-
-  $(".accordion-head").click(function () {
-
-    if (tabletabsCount > 1) {
-      
-      --tabletabsCount;
-      var dataAcc = $(this).attr('data-accordion');
-      closeTabs.push(dataAcc);
-      $(".table td[data-accordion=" + dataAcc + "]").hide();
-      var colName = $(".table td[data-accordion=" + dataAcc + "][data-first=1]").eq(0).html()
-      $(".table td[data-accordion=" + dataAcc + "][data-first=1]").eq(0).after('<td rowspan="2" class="fake" data-fake="' + dataAcc + '" style="background:#bf2127 !important; padding: 0; font-size: 12px;"></td>');
-      $(".table td[data-accordion=" + dataAcc + "][data-first=1]").eq(0).siblings('.fake[data-fake=' + dataAcc + ']').html('<div style="transform: rotate(-90deg); transform-origin: center;">' + colName + '</div>');
-      $(".table td[data-accordion=" + dataAcc + "][data-first=1]").slice(2).after('<td class="fake" data-fake="' + dataAcc + '" style=""></td>');
-
-    } else {
-
-      return false;
-
-    }
-
-  })
-
-  $('.table').on('click', '.fake', function () {
-
-    ++tabletabsCount;
-    var fakeCase = $(this).attr('data-fake');
-    $(".table td[data-accordion=" + fakeCase + "]").show();
-    $('.fake[data-fake="' + fakeCase + '"]').remove();
-    var index = closeTabs.indexOf(fakeCase);
-    if (index !== -1) closeTabs.splice(index, 1);
-
-  })
-
-  $("#listShowCount").click(function () {
-    $(".listShowCount-list").toggleClass('d-flex');
-  })
-
-  $(".listShowCount-Item").click(function () {
-
-    listShowCount = $(this).attr('data-count');
-    listShowCount == 0 ? $("#listShowCountNum").text('All') : $("#listShowCountNum").text(listShowCount)
-    startToShow = 1;
-    drowPagination();
-    getTableData();
-  })
-
-  $(".table-panel").on('click', '.pagination-item', function () {
-
-    $('.pagination-item').removeClass('pagination-active')
-    $(this).addClass('pagination-active')
-    paginationStep = $(this).attr('data-pagination');
-
-    getTableData();
-
-
-  })
-
-
-  /**
-   *  listShowCount = 3, // Count of list item, how many item from table must be shown
-      paginationCount, // Count of Pagination (how many pagination button must be)
-      paginationStep, // Step of pagination, number of table list
-      startToShow = 1; // First number from which table items must be shown
-   */
-
-  // Tooltips
-
-  tippy('.mft', {
-    content: "Max free time"
-  });
-
-  tippy('.fte', {
-    content: "FTE?"
-  });
-
-  tippy('.csp', {
-    content: "Closed service points"
-  });
-
-  tippy('.osp', {
-    content: "Open servis points"
-  });
-
-  tippy('.ou', {
-    content: "Online user"
-  });
-
-  tippy('.TV', {
-    content: "Total visits"
-  });
-
-  tippy('.uic', {
-    content: " Idle users count"
-  });
-
-
-
-  $('.table-branch-row').mouseover(function () {
-
-    $(this).parent().find('td').css({
-      background: '#333',
-      color: '#fff'
-    })
-    $(this).parent().find('td a, td').css({
-      color: '#fff'
-    })
-  })
-  $('.table-branch-row').mouseout(function () {
-    $(".table td").css({
-      background: '#e1e1e1',
-      color: '#000'
-    })
-    $(".table td a").css({
-      color: '#000'
-    })
-
-    $(".table tbody tr:nth-child(2n) td").css({
-      background: '#e52e35',
-      color: '#fff'
-    })
-
-    $(".table tbody tr:nth-child(2n) td a").css({
-      color: '#fff'
-    })
-  })
-
-
 
 /**
   * Map events
@@ -1194,6 +748,7 @@ $(function () {
     }
 
     if (inText == 'Time') {
+
       $(".map-btn").removeClass('tab-btn__active')
       $(this).addClass('tab-btn__active')
       showTimeOnMap = true;
@@ -1217,66 +772,16 @@ $(function () {
 */
   $("#search").on('input', function (e) {
     
-    if (filterId == 'map') {
-      drowArr = [];
-      var inputVal = $(this).val()
-      var reg = new RegExp(inputVal, 'i')
+    drowArr = [];
+    var inputVal = $(this).val()
+    var reg = new RegExp(inputVal, 'i')
 
-      for (var i = 0; i < allFilials.length; i++) {
-        if (reg.test(allFilials[i].filialName)) {
-          drowArr.push(allFilials[i]);
-        }
+    for (var i = 0; i < allFilials.length; i++) {
+      if (reg.test(allFilials[i].filialName)) {
+        drowArr.push(allFilials[i]);
       }
-
-      redrow()
-    } else {
-
-      var drowTableList = [];
-      var inputVal = $(this).val()
-      if(inputVal.length > 0) {
-        searchEneble = false;
-
-        $.ajax({
-          url: heatmap_url + '/get_branches_data/',
-          type: 'POST',
-          data: {limit : 200, offset : 0, search: inputVal},
-          success: function (data) {
-  
-            console.log('search data', data);
-            if(data.branches.length <1) {
-
-              $("#table").hide();
-
-            } else {
-
-              $("#table").show();
-
-            }
-            newDrowTable(data.branches);
-  
-          }
-        });
-      }
-      if(inputVal.length < 1) {
-
-
-        searchEneble = true;
-        getTableData();
-
-      }
-      // var reg = new RegExp(inputVal, 'i')
-      // for (var i = 0; i < filterId.length; i++) {
-      //   if (reg.test(filterId[i].filialName)) {
-      //     drowTableList.push(filterId[i]);
-          
-      //   }
-      // }
-      console.log('search sozu', inputVal);
-      
-      // reDrowtable(1, drowTableList)
-
     }
-
+    redrow();
 
   })
 

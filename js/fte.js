@@ -39,9 +39,8 @@ $(function() {
           }
     }
     
-                                         
-
   }
+
   $.ajax({
     url:  heatmap_url + '/get_fte_data/',
     type: 'GET',
@@ -53,18 +52,9 @@ $(function() {
         jsonArray = data.branches;
         DrowFte();
         drowPagination();
+        $(".kapital-preloader").hide();
     }
   });
-
-  // $.ajax({
-  //   url: heatmap_url + '/edit_fte/',
-  //   type: 'POST',
-  //   data:{ fte : JSON.stringify([{id : 1, fte : 3} , {id : 2, fte : 2} , {id : 3, fte : 1}]) },//id departmentindi
-  //   success: function(data) {
-      
-  //   }
-  // });
-
 
   $(".table-wrap-fte").on("change", ".fte-input", function () {
 

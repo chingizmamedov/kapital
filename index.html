@@ -15,7 +15,11 @@
     <title>KapitalBank</title>
 </head>
 
+
 <body>
+    <div class="kapital-preloader">
+        <img class="kapital-preloader-img" src="assets/images/KapitalBank.svg" alt="">
+    </div>
     <div class="map-preloader">
         <div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
     </div>
@@ -49,6 +53,7 @@
         </div>
     </header>
     <div class="tabs d-flex justify-content-center">
+        <a style="position: absolute; left: 10px;" href="/branches.html" class="btn btn-map--table">Branches</a>
         <div class="tab">
             <div data-map="1" class="map-btn tab-btn tab-btn__active">Time</div>
         </div>
@@ -59,7 +64,6 @@
             <img src="assets/icon/navigation/arrow_back_24px_outlined.png" alt="">
             <span>Geriye</span>
         </div>
-        <button id="gotable" class="btn btn-gotable">Branches</button>
         <input id="search" type="search" name="" placeholder="Search here">
     </div>
     <div class="content-wrap">
@@ -365,103 +369,6 @@
                 <div class="map-info">
                     <p class="map-info-title">Closed counters</p>
                     <span id="closed_counter_count">05:06:55</span>
-                </div>
-            </div>
-        </div>
-        <div class="table-wrap">
-            <div class="table-content">
-                <div id="table-preloader"></div>
-                <div class="table-scroller">
-                    <div class="table-scrolled">
-                        <table class="table" id="table">
-                            <thead>
-                                <tr>
-                                    <td class="table-branch branch">Branches</td>
-                                    <td style="background-color: #6c7ae0 !important;" data-first="1" class="accordion-head" data-accordion="branches"
-                                        data-branch="branches" colspan="7">Branches Total</td>
-                                    <td style="background-color: #4450aa !important;" data-first="1" class="accordion-head" data-accordion="services"
-                                        data-branch="services" colspan="8">Service Department</td>
-                                    <td style="background-color: #6c7ae0 !important;" data-first="1" class="accordion-head" data-accordion="sales" data-branch="sales"
-                                        colspan="8">Sales Department</td>
-                                    <td style="background-color: #4450aa !important;" data-first="1" class="accordion-head" data-accordion="cash" data-branch="cash"
-                                        colspan="8">Cash department</td>
-                                    <td style="background-color: #6c7ae0 !important;" data-first="1" class="accordion-head" data-accordion="legal" data-branch="legal"
-                                    colspan="8">legal entities</td>
-                                    <td style="background-color: #4450aa !important;" data-first="1" class="accordion-head" data-accordion="cash-legal" data-branch="cash-legal"
-                                    colspan="8">Cash - legal entities</td>
-                                </tr>
-                                <tr>
-                                    <td style="position: absolute; visibility: hidden;"></td>
-                                    <td style="background-color: #6c7ae0 !important;" data-first="1" data-accordion="branches" data-branch="branches" class="TV">TV
-                                    </td>
-                                    <td style="background-color: #6c7ae0 !important;" data-accordion="branches" data-branch="branches">Served</td>
-                                    <td style="background-color: #6c7ae0 !important;" data-accordion="branches" data-branch="branches">waiting</td>
-                                    <td style="background-color: #6c7ae0 !important;" data-accordion="branches" data-branch="branches" class="mft">MFT</td>
-                                    <td style="background-color: #6c7ae0 !important;" data-accordion="branches" data-branch="branches" class="csp">CSP</td>
-                                    <td style="background-color: #6c7ae0 !important;" data-accordion="branches" data-branch="branches" class="osp">OSP</td>
-                                    <td style="background-color: #6c7ae0 !important;" data-accordion="branches" data-branch="branches" class="uic">IUC</td>
-                                    <td style="background-color: #4450aa !important;" data-first="1" data-accordion="services" data-branch="services" class="TV">TV
-                                    </td>
-                                    <td style="background-color: #4450aa !important;" data-accordion="services" data-branch="services">Served</td>
-                                    <td style="background-color: #4450aa !important;" data-accordion="services" data-branch="services">waiting</td>
-                                    <td style="background-color: #4450aa !important;" data-accordion="services" data-branch="services" class="fte">FTE</td>
-                                    <td style="background-color: #4450aa !important;" data-accordion="services" data-branch="services" class="ou">OU</td>
-                                    <td style="background-color: #4450aa !important;" data-accordion="services" data-branch="services">Vocation</td>
-                                    <td style="background-color: #4450aa !important;" data-accordion="services" data-branch="services">Trip to</td>
-                                    <td style="background-color: #4450aa !important;" data-accordion="services" data-branch="services">Trip from</td>
-                                    <td style="background-color: #6c7ae0 !important;" data-first="1" data-accordion="sales" data-branch="sales" class="TV">TV</td>
-                                    <td style="background-color: #6c7ae0 !important;" data-accordion="sales" data-branch="sales">Served</td>
-                                    <td style="background-color: #6c7ae0 !important;" data-accordion="sales" data-branch="sales">waiting</td>
-                                    <td style="background-color: #6c7ae0 !important;" data-accordion="sales" data-branch="sales" class="fte">FTE</td>
-                                    <td style="background-color: #6c7ae0 !important;" data-accordion="sales" data-branch="sales" class="ou">OU</td>
-                                    <td style="background-color: #6c7ae0 !important;" data-accordion="sales" data-branch="sales">Vocation</td>
-                                    <td style="background-color: #6c7ae0 !important;" data-accordion="sales" data-branch="sales">Trip to</td>
-                                    <td style="background-color: #6c7ae0 !important;" data-accordion="sales" data-branch="sales">Trip from</td>
-                                    <td style="background-color: #4450aa !important;" data-first="1" data-accordion="cash" data-branch="cash" class="TV">TV</td>
-                                    <td style="background-color: #4450aa !important;" data-accordion="cash" data-branch="cash">Served</td>
-                                    <td style="background-color: #4450aa !important;" data-accordion="cash" data-branch="cash">waiting</td>
-                                    <td style="background-color: #4450aa !important;" data-accordion="cash" data-branch="cash" class="fte">FTE</td>
-                                    <td style="background-color: #4450aa !important;" data-accordion="cash" data-branch="cash" class="ou">OU</td>
-                                    <td style="background-color: #4450aa !important;" data-accordion="cash" data-branch="cash">Vocation</td>
-                                    <td style="background-color: #4450aa !important;" data-accordion="cash" data-branch="cash">Trip to</td>
-                                    <td style="background-color: #4450aa !important;" data-accordion="cash" data-branch="cash">Trip from</td>
-                                    <td style="background-color: #6c7ae0 !important;" data-first="1" data-accordion="legal" data-branch="legal" class="TV">TV</td>
-                                    <td style="background-color: #6c7ae0 !important;" data-accordion="legal" data-branch="legal">Served</td>
-                                    <td style="background-color: #6c7ae0 !important;" data-accordion="legal" data-branch="legal">waiting</td>
-                                    <td style="background-color: #6c7ae0 !important;" data-accordion="legal" data-branch="legal" class="fte">FTE</td>
-                                    <td style="background-color: #6c7ae0 !important;" data-accordion="legal" data-branch="legal" class="ou">OU</td>
-                                    <td style="background-color: #6c7ae0 !important;" data-accordion="legal" data-branch="legal">Vocation</td>
-                                    <td style="background-color: #6c7ae0 !important;" data-accordion="legal" data-branch="legal">Trip to</td>
-                                    <td style="background-color: #6c7ae0 !important;" data-accordion="legal" data-branch="legal">Trip from</td>
-                                    <td style="background-color: #4450aa !important;" data-first="1" data-accordion="cash-legal" data-branch="cash-legal" class="TV">TV</td>
-                                    <td style="background-color: #4450aa !important;" data-accordion="cash-legal" data-branch="cash-legal">Served</td>
-                                    <td style="background-color: #4450aa !important;" data-accordion="cash-legal" data-branch="cash-legal">waiting</td>
-                                    <td style="background-color: #4450aa !important;" data-accordion="cash-legal" data-branch="cash-legal" class="fte">FTE</td>
-                                    <td style="background-color: #4450aa !important;" data-accordion="cash-legal" data-branch="cash-legal" class="ou">OU</td>
-                                    <td style="background-color: #4450aa !important;" data-accordion="cash-legal" data-branch="cash-legal">Vocation</td>
-                                    <td style="background-color: #4450aa !important;" data-accordion="cash-legal" data-branch="cash-legal">Trip to</td>
-                                    <td style="background-color: #4450aa !important;" data-accordion="cash-legal" data-branch="cash-legal">Trip from</td>
-                                </tr>
-                            </thead>
-                            <tbody id="mainTable_tbody">
-
-
-                            </tbody>
-
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <div class="table-panel d-flex justify-content-between">
-                <!--  <div id="listShowCount">
-                    <div id="listShowCountNum">15</div>
-                   <div class="listShowCount-list">
-                        <div data-count="20" class="listShowCount-Item">20</div>
-                        <div data-count="40" class="listShowCount-Item">40</div>
-                        <div data-count="0" class="listShowCount-Item">All</div data-count="3">
-                    </div>
-                </div> -->
-                <div class="pagination d-flex">
                 </div>
             </div>
         </div>
