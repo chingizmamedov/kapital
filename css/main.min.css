@@ -977,6 +977,7 @@ td.fake:after {
 }
 
 .fte {
+  width: 100%;
   border-collapse: collapse;
 }
 

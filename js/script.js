@@ -904,7 +904,10 @@ $(function () {
         type: 'POST',
         data: {limit : listAllItemCount, offset : 0, search: ''},
         
-        success: function (data) {
+        success: function (data, textStatus, xhr) {
+        console.log("TCL: getTableData -> xhr", xhr)
+        console.log("TCL: getTableData -> textStatus", textStatus)
+          
           newDrowTable(data.branches);
           listAllItemCount = data.count;
           $('.map-preloader').hide();
@@ -923,7 +926,10 @@ $(function () {
         type: 'POST',
         data: {limit : listShowCount, offset : listShowCount*paginationStep , search: ''},
         
-        success: function (data) {
+        success: function (data, textStatus, xhr) {
+          debugger
+          console.log("TCL: getTableData -> xhr", xhr)
+        console.log("TCL: getTableData -> textStatus", textStatus)
           newDrowTable(data.branches);
           listAllItemCount = data.count;
           clearTimeout(tableTimer);
@@ -939,7 +945,14 @@ $(function () {
           tableTimer = setTimeout(function() {
             getTableData();
           }, 10000);
-        }
+        },
+        complete: function(textStatus, xhr) {
+          
+          if(textStatus.status !== 200) {
+            alert('API is problem!')
+          }
+            
+        } 
       });
 
     }
