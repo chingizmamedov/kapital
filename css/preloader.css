@@ -167,3 +167,14 @@
 		opacity: 1;
 	}
 }
+
+.preloader-red  div:after {
+	background: red;
+}
+.preloader-white div:after {
+	background: white;
+}
+
+.map-preloder-kapital {
+	position: relative;
+}
