@@ -41,3 +41,55 @@
 .logo {
     margin-right: 50px;
 }
+
+.widget {
+    position: absolute;
+    right: 18%;
+    top: 4.1%;
+    width: 400px;
+    margin: -2px;
+    color: #333;
+    font-weight: bold;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  
+  .widget-item {
+    width: 100px;
+    text-align: center;
+  }
+  
+  .widget-time {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  
+  .widget-percent {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  
+  .widget-item {
+    padding: 5px;
+  }
+  
+  .widget-item-green {
+    background: #00ff00;
+  }
+  
+  .widget-item-yellow {
+    background: yellow;
+  }
+  
+  .widget-item-orange {
+    background: orange;
+    color: #fff;
+  }
+  
+  .widget-item-red {
+    background: red;
+    color: #fff;
+  }
+  
