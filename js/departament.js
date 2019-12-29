@@ -38,11 +38,12 @@ $(function () {
     }
 
     function drowUsersTable(data) {
+        console.log("TCL: drowUsersTable -> data", data)
         var Tables = [];
         var table = '<table class="dep-table"><thead><tr><td id="queues">Service point</td><td>User name</td><td>Ticket</td><td>Service</td><td class="ctt">CTT</td><td class="tst">TST</td><td class="tit">TIT</td><td class="cit">CIT</td><td class="itc">ITC</td><td>Services</td><td>Served</td><td class="att">ATT</td><td class="ttt">TTT</td><td class="ns">NS</td><td>Reject</td><td class="wd">WD</td></tr>';
         for (var i = 0; i < data.length; i++) {
             var currentFreeTime = data[i].current_free_time ? data[i].current_free_time : 'no data'
-            var HeadRow = '<tr><td></td><td>' + data[i].full_name + '</td><td>' + data[i].current_serving_ticket + '</td><td>' + data[i].current_serving_service + '</td><td>' + data[i].current_serving_time + '</td><td>' + data[i].total_serving_time + '</td><td>' + data[i].total_session_time + '</td><td>' + data[i].total_free_time + '</td><td>' + currentFreeTime + '</td><td class="counters-open">&#62;</td><td>' + data[i].served_customer_count + '</td><td>' + data[i].avg_serving_time + '</td><td>' + data[i].free_time_count + '</td><td>$32</td><td>$16</td><td>$19</td></tr></thead>';
+            var HeadRow = '<tr><td></td><td>' + data[i].full_name + '</td><td>' + (data[i].current_serving_ticket != null ? data[i].current_serving_ticket : '----' ) + '</td><td>' + (data[i].current_serving_service != null ? data[i].current_serving_service : '----') + '</td><td>' + (data[i].current_serving_time != null ? data[i].current_serving_time : '---') + '</td><td>' + (data[i].total_serving_time != null ? data[i].total_serving_time : '---') + '</td><td>' + data[i].total_session_time + '</td><td>' + data[i].total_free_time + '</td><td>' + currentFreeTime + '</td><td class="counters-open">&#62;</td><td>' + data[i].served_customer_count + '</td><td>' + data[i].avg_serving_time + '</td><td>' + data[i].free_time_count + '</td><td>'+ data[i].noshow_count +'</td><td>$16</td><td>'+ data[i].reject_count +'</td></tr></thead>';
             var Body = '<tbody style="display: table-header-group;"><tr>';
             
             for (var j = 0; j < data[i].services.length; j++) {
@@ -50,6 +51,7 @@ $(function () {
             }
             
             Body += '</tbody>';
+            table += HeadRow;
             table += Body;
             table += '</table>';
             Tables.push(table);
@@ -101,6 +103,7 @@ $(function () {
                 branch: searchParamsId
             },
             success: function (data) {
+            console.log("TCL: autoRefreshData -> data", data)
     
                 drowUsersTable(data.users);
                 clearTimeout(timerData);
