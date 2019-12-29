@@ -17,6 +17,20 @@
 
 
 <body>
+    <div id="t-widget" class="widget">
+        <div class="widget-time">
+            <div class="widget-item widget-item-green">0-10 m.</div>
+            <div class="widget-item widget-item-yellow">10-15 m.</div>
+            <div class="widget-item widget-item-orange">16-20 m.</div>
+            <div class="widget-item widget-item-red">21+ m.</div>
+        </div>
+        <div class="widget-percent">
+            <div class="widget-item widget-item-green">0-40%</div>
+            <div class="widget-item widget-item-yellow">41-60%</div>
+            <div class="widget-item widget-item-orange">61-80%</div>
+            <div class="widget-item widget-item-red">81-100%</div>
+        </div>
+    </div>
     <div class="kapital-preloader">
         <img class="kapital-preloader-img" src="assets/images/KapitalBank.svg" alt="">
     </div>
@@ -55,10 +69,10 @@
     <div class="tabs d-flex justify-content-center">
         <a style="position: absolute; left: 10px;" href="/branches.html" class="btn btn-map--table">Branches</a>
         <div class="tab">
-            <div data-map="1" class="map-btn tab-btn tab-btn__active">Time</div>
+            <div data-map="1" class="map-btn tab-btn tab-btn__active" id="tabTime">Time</div>
         </div>
         <div class="tab">
-            <div data-map="2" class="map-btn tab-btn">Percent</div>
+            <div data-map="2" class="map-btn tab-btn" id="tabPercent">Percent</div>
         </div>
         <div class="btn btn-back">
             <img src="assets/icon/navigation/arrow_back_24px_outlined.png" alt="">

@@ -756,14 +756,6 @@ $(function () {
 
     }
 
-    if (inText == 'Percent') {
-
-      $(".tab-btn").removeClass('tab-btn__active')
-      $(this).addClass('tab-btn__active')
-      showTimeOnMap = false;
-
-    }
-
     redrow();
 
   })
@@ -787,4 +779,46 @@ $(function () {
   })
 
   
+
+  //open tooltip in click map-btn //Ramin
+
+   
+    $(".map-btn").click(function(){
+      var inText = $(this).text()
+    if (inText == 'Percent') {
+        $(".widget .widget-time").css("display","none")
+        $(".map-btn").removeClass('tab-btn__active')
+        $(this).addClass('tab-btn__active')
+
+        $(".question-img").click(function(){
+          $(".widget .widget-time").css("display","none")
+          $(".widget .widget-percent").css("display","flex")
+
+        });
+      }else if(inText == 'Time') {
+              $(".widget .widget-percent").css("display","none")
+              $(".map-btn").removeClass('tab-btn__active')
+              $(this).addClass('tab-btn__active')
+
+              $(".question-img").click(function(){
+                $(".widget .widget-time").css("display","flex")
+                $(".widget .widget-percent").css("display","none")
+              });
+      }
+      
+            
+    });
+
+    $(".widget").css("display","none")
+   
+    $(".question-img").click(function(){
+      $(".widget .widget-time").css("display","flex")
+      $(".widget .widget-percent").css("display","none")
+      
+      $(".widget").toggle();
+
+    });
+
+   
+
 })
