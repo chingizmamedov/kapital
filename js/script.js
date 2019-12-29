@@ -649,6 +649,7 @@ $(function () {
       url: heatmap_url + '/get_map_data/',
       type: 'GET',
       success: function (data) {
+      console.log("TCL: autoGetMap -> data", data)
         setInputData(data.branches);
         setCardData(data);
         clearTimeout(mapTimer);

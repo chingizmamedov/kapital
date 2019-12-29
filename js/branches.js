@@ -472,9 +472,11 @@ var closeTabs = [],
   drowArr = [],
   newDrowTableData,
   newArr = [],
+  inputValue = '',
   paginationLock = false,
   searchEneble = false,
   tableTimer,
+  searchTimer,
   listAllItemCount = 500,
   listShowCount = 20, // Count of list item, how many item from table must be shown
   paginationCount, // Count of Pagination (how many pagination button must be)
@@ -704,74 +706,74 @@ function drowSearchTable(searchList) {
           maxFreeTimeColor = 'red';
         }
         table += '<tr><td class="table-branch table-branch-row"><a href="/departament.html?filial=' + searchList[i].id + '" target="blank">' + searchList[i].name + '</a></td>';
-        table += '<td style="background-color: #6c7ae0 !important;" data-first="1" data-accordion="branches"><span>' + searchList[i].ticket_count + '</span></td>';
-        table += '<td style="background-color: #6c7ae0 !important;" data-accordion="branches"><span>' + searchList[i].served_customer_count + '</span></td>';
-        table += '<td style="background-color: #6c7ae0 !important;" data-accordion="branches"><span>' + searchList[i].waiting_customer_count + '</span></td>';
-        table += '<td style="background-color: ' + maxFreeTimeColor + ' !important;" data-accordion="branches"><span>' + searchList[i].max_free_time + '</span></td>';
-        table += '<td style="background-color: #6c7ae0 !important;" data-accordion="branches"><span>' + searchList[i].closed_counter_count + '</span></td>';
-        table += '<td style="background-color: #6c7ae0 !important;" data-accordion="branches"><span>' + searchList[i].open_counter_count + '</span></td>';
-        table += '<td style="background-color: #6c7ae0 !important;" data-accordion="branches"><span>' + searchList[i].free_user_count + '</span></td>';
-        table += '<td style="background-color: #4450aa !important;" data-first="1" data-accordion="services"><span>' + searchList[i].departments[0].ticket_count + '</span></td>';
-        table += '<td style="background-color: #4450aa !important;" data-accordion="services"><span>' + searchList[i].departments[0].served_customer_count + '</span></td>';
-        table += '<td style="background-color: #4450aa !important;" data-accordion="services"><span>' + searchList[i].departments[0].waiting_customer_count + '</span></td>';
-        table += '<td style="background-color: #4450aa !important;" data-accordion="services"><span>' + searchList[i].departments[0].fte + '</span></td>';
-        table += '<td style="background-color: #4450aa !important;" data-accordion="services"><span>' + searchList[i].departments[0].online_user_count + '</span></td>';
-        table += '<td style="background-color: #4450aa !important;" data-accordion="services"><span>' + searchList[i].departments[0].vacation_count + '</span></td>';
-        table += '<td style="background-color: #4450aa !important;" data-accordion="services"><span>' + searchList[i].departments[0].displacement_to_count + '</span></td>';
-        table += '<td style="background-color: #4450aa !important;" data-accordion="services"><span>' + searchList[i].departments[0].displacement_from_count + '</span></td>';
-        table += '<td style="background-color: #6c7ae0 !important;" data-first="1" data-accordion="sales"><span>' + searchList[i].departments[1].ticket_count + '</span></td>';
-        table += '<td style="background-color: #6c7ae0 !important;" data-accordion="sales"><span>' + searchList[i].departments[1].served_customer_count + '</span></td>';
-        table += '<td style="background-color: #6c7ae0 !important;" data-accordion="sales"><span>' + searchList[i].departments[1].waiting_customer_count + '</span></td>';
-        table += '<td style="background-color: #6c7ae0 !important;" data-accordion="sales"><span>' + searchList[i].departments[1].fte + '</span></td>';
-        table += '<td style="background-color: #6c7ae0 !important;" data-accordion="sales"><span>' + searchList[i].departments[1].online_user_count + '</span></td>';
-        table += '<td style="background-color: #6c7ae0 !important;" data-accordion="sales"><span>' + searchList[i].departments[1].vacation_count + '</span></td>';
-        table += '<td style="background-color: #6c7ae0 !important;" data-accordion="sales"><span>' + searchList[i].departments[1].displacement_to_count + '</span></td>';
-        table += '<td style="background-color: #6c7ae0 !important;" data-accordion="sales"><span>' + searchList[i].departments[1].displacement_from_count + '</span></td>';
-        table += '<td style="background-color: #4450aa !important;" data-first="1" data-accordion="cash"><span>' + searchList[i].departments[2].ticket_count + '</span></td>';
-        table += '<td style="background-color: #4450aa !important;" data-accordion="cash"><span>' + searchList[i].departments[2].served_customer_count + '</span></td>';
-        table += '<td style="background-color: #4450aa !important;" data-accordion="cash"><span>' + searchList[i].departments[2].waiting_customer_count + '</span></td>';
-        table += '<td style="background-color: #4450aa !important;" data-accordion="cash"><span>' + searchList[i].departments[2].fte + '</span></td>';
-        table += '<td style="background-color: #4450aa !important;" data-accordion="cash"><span>' + searchList[i].departments[2].online_user_count + '</span></td>';
-        table += '<td style="background-color: #4450aa !important;" data-accordion="cash"><span>' + searchList[i].departments[2].vacation_count + '</span></td>';
-        table += '<td style="background-color: #4450aa !important;" data-accordion="cash"><span>' + searchList[i].departments[2].displacement_to_count + '</span></td>';
-        table += '<td style="background-color: #4450aa !important;" data-accordion="cash"><span>' + searchList[i].departments[2].displacement_from_count + '</span></td>';
+        table += '<td style="background-color: #6c7ae0 !important;" data-first="1" data-saccordion="branches"><span>' + searchList[i].ticket_count + '</span></td>';
+        table += '<td style="background-color: #6c7ae0 !important;" data-saccordion="branches"><span>' + searchList[i].served_customer_count + '</span></td>';
+        table += '<td style="background-color: #6c7ae0 !important;" data-saccordion="branches"><span>' + searchList[i].waiting_customer_count + '</span></td>';
+        table += '<td style="background-color: ' + maxFreeTimeColor + ' !important;" data-saccordion="branches"><span>' + searchList[i].max_free_time + '</span></td>';
+        table += '<td style="background-color: #6c7ae0 !important;" data-saccordion="branches"><span>' + searchList[i].closed_counter_count + '</span></td>';
+        table += '<td style="background-color: #6c7ae0 !important;" data-saccordion="branches"><span>' + searchList[i].open_counter_count + '</span></td>';
+        table += '<td style="background-color: #6c7ae0 !important;" data-saccordion="branches"><span>' + searchList[i].free_user_count + '</span></td>';
+        table += '<td style="background-color: #4450aa !important;" data-first="1" data-saccordion="services"><span>' + searchList[i].departments[0].ticket_count + '</span></td>';
+        table += '<td style="background-color: #4450aa !important;" data-saccordion="services"><span>' + searchList[i].departments[0].served_customer_count + '</span></td>';
+        table += '<td style="background-color: #4450aa !important;" data-saccordion="services"><span>' + searchList[i].departments[0].waiting_customer_count + '</span></td>';
+        table += '<td style="background-color: #4450aa !important;" data-saccordion="services"><span>' + searchList[i].departments[0].fte + '</span></td>';
+        table += '<td style="background-color: #4450aa !important;" data-saccordion="services"><span>' + searchList[i].departments[0].online_user_count + '</span></td>';
+        table += '<td style="background-color: #4450aa !important;" data-saccordion="services"><span>' + searchList[i].departments[0].vacation_count + '</span></td>';
+        table += '<td style="background-color: #4450aa !important;" data-saccordion="services"><span>' + searchList[i].departments[0].displacement_to_count + '</span></td>';
+        table += '<td style="background-color: #4450aa !important;" data-saccordion="services"><span>' + searchList[i].departments[0].displacement_from_count + '</span></td>';
+        table += '<td style="background-color: #6c7ae0 !important;" data-first="1" data-saccordion="sales"><span>' + searchList[i].departments[1].ticket_count + '</span></td>';
+        table += '<td style="background-color: #6c7ae0 !important;" data-saccordion="sales"><span>' + searchList[i].departments[1].served_customer_count + '</span></td>';
+        table += '<td style="background-color: #6c7ae0 !important;" data-saccordion="sales"><span>' + searchList[i].departments[1].waiting_customer_count + '</span></td>';
+        table += '<td style="background-color: #6c7ae0 !important;" data-saccordion="sales"><span>' + searchList[i].departments[1].fte + '</span></td>';
+        table += '<td style="background-color: #6c7ae0 !important;" data-saccordion="sales"><span>' + searchList[i].departments[1].online_user_count + '</span></td>';
+        table += '<td style="background-color: #6c7ae0 !important;" data-saccordion="sales"><span>' + searchList[i].departments[1].vacation_count + '</span></td>';
+        table += '<td style="background-color: #6c7ae0 !important;" data-saccordion="sales"><span>' + searchList[i].departments[1].displacement_to_count + '</span></td>';
+        table += '<td style="background-color: #6c7ae0 !important;" data-saccordion="sales"><span>' + searchList[i].departments[1].displacement_from_count + '</span></td>';
+        table += '<td style="background-color: #4450aa !important;" data-first="1" data-saccordion="cash"><span>' + searchList[i].departments[2].ticket_count + '</span></td>';
+        table += '<td style="background-color: #4450aa !important;" data-saccordion="cash"><span>' + searchList[i].departments[2].served_customer_count + '</span></td>';
+        table += '<td style="background-color: #4450aa !important;" data-saccordion="cash"><span>' + searchList[i].departments[2].waiting_customer_count + '</span></td>';
+        table += '<td style="background-color: #4450aa !important;" data-saccordion="cash"><span>' + searchList[i].departments[2].fte + '</span></td>';
+        table += '<td style="background-color: #4450aa !important;" data-saccordion="cash"><span>' + searchList[i].departments[2].online_user_count + '</span></td>';
+        table += '<td style="background-color: #4450aa !important;" data-saccordion="cash"><span>' + searchList[i].departments[2].vacation_count + '</span></td>';
+        table += '<td style="background-color: #4450aa !important;" data-saccordion="cash"><span>' + searchList[i].departments[2].displacement_to_count + '</span></td>';
+        table += '<td style="background-color: #4450aa !important;" data-saccordion="cash"><span>' + searchList[i].departments[2].displacement_from_count + '</span></td>';
         if (searchList[i].departments[3] != undefined) {
-          table += '<td style="background-color: #6c7ae0 !important;" data-first="1" data-accordion="legal"><span>' + searchList[i].departments[3].ticket_count + '</span></td>';
-          table += '<td style="background-color: #6c7ae0 !important;" data-accordion="legal"><span>' + searchList[i].departments[3].served_customer_count + '</span></td>';
-          table += '<td style="background-color: #6c7ae0 !important;" data-accordion="legal"><span>' + searchList[i].departments[3].waiting_customer_count + '</span></td>';
-          table += '<td style="background-color: #6c7ae0 !important;" data-accordion="legal"><span>' + searchList[i].departments[3].fte + '</span></td>';
-          table += '<td style="background-color: #6c7ae0 !important;" data-accordion="legal"><span>' + searchList[i].departments[3].online_user_count + '</span></td>';
-          table += '<td style="background-color: #6c7ae0 !important;" data-accordion="legal"><span>' + searchList[i].departments[3].vacation_count + '</span></td>';
-          table += '<td style="background-color: #6c7ae0 !important;" data-accordion="legal"><span>' + searchList[i].departments[3].displacement_to_count + '</span></td>';
-          table += '<td style="background-color: #6c7ae0 !important;" data-accordion="legal"><span>' + searchList[i].departments[3].displacement_from_count + '</span></td>';
+          table += '<td style="background-color: #6c7ae0 !important;" data-first="1" data-saccordion="legal"><span>' + searchList[i].departments[3].ticket_count + '</span></td>';
+          table += '<td style="background-color: #6c7ae0 !important;" data-saccordion="legal"><span>' + searchList[i].departments[3].served_customer_count + '</span></td>';
+          table += '<td style="background-color: #6c7ae0 !important;" data-saccordion="legal"><span>' + searchList[i].departments[3].waiting_customer_count + '</span></td>';
+          table += '<td style="background-color: #6c7ae0 !important;" data-saccordion="legal"><span>' + searchList[i].departments[3].fte + '</span></td>';
+          table += '<td style="background-color: #6c7ae0 !important;" data-saccordion="legal"><span>' + searchList[i].departments[3].online_user_count + '</span></td>';
+          table += '<td style="background-color: #6c7ae0 !important;" data-saccordion="legal"><span>' + searchList[i].departments[3].vacation_count + '</span></td>';
+          table += '<td style="background-color: #6c7ae0 !important;" data-saccordion="legal"><span>' + searchList[i].departments[3].displacement_to_count + '</span></td>';
+          table += '<td style="background-color: #6c7ae0 !important;" data-saccordion="legal"><span>' + searchList[i].departments[3].displacement_from_count + '</span></td>';
         } else {
-          table += '<td style="background-color: #6c7ae0 !important;" data-first="1" data-accordion="legal"><span> ---- </span></td>';
-          table += '<td style="background-color: #6c7ae0 !important;" data-accordion="legal"><span> ---- </span></td>';
-          table += '<td style="background-color: #6c7ae0 !important;" data-accordion="legal"><span> ---- </span></td>';
-          table += '<td style="background-color: #6c7ae0 !important;" data-accordion="legal"><span> ---- </span></td>';
-          table += '<td style="background-color: #6c7ae0 !important;" data-accordion="legal"><span> ---- </span></td>';
-          table += '<td style="background-color: #6c7ae0 !important;" data-accordion="legal"><span> ---- </span></td>';
-          table += '<td style="background-color: #6c7ae0 !important;" data-accordion="legal"><span> ---- </span></td>';
-          table += '<td style="background-color: #6c7ae0 !important;" data-accordion="legal"><span> ---- </span></td>';
+          table += '<td style="background-color: #6c7ae0 !important;" data-first="1" data-saccordion="legal"><span> ---- </span></td>';
+          table += '<td style="background-color: #6c7ae0 !important;" data-saccordion="legal"><span> ---- </span></td>';
+          table += '<td style="background-color: #6c7ae0 !important;" data-saccordion="legal"><span> ---- </span></td>';
+          table += '<td style="background-color: #6c7ae0 !important;" data-saccordion="legal"><span> ---- </span></td>';
+          table += '<td style="background-color: #6c7ae0 !important;" data-saccordion="legal"><span> ---- </span></td>';
+          table += '<td style="background-color: #6c7ae0 !important;" data-saccordion="legal"><span> ---- </span></td>';
+          table += '<td style="background-color: #6c7ae0 !important;" data-saccordion="legal"><span> ---- </span></td>';
+          table += '<td style="background-color: #6c7ae0 !important;" data-saccordion="legal"><span> ---- </span></td>';
         }
         if (searchList[i].departments[4]) {
-          table += '<td style="background-color: #4450aa !important;" data-first="1" data-accordion="cash-legal"><span>' + searchList[i].departments[4].ticket_count + '</span></td>';
-          table += '<td style="background-color: #4450aa !important;" data-accordion="cash-legal"><span>' + searchList[i].departments[4].served_customer_count + '</span></td>';
-          table += '<td style="background-color: #4450aa !important;" data-accordion="cash-legal"><span>' + searchList[i].departments[4].waiting_customer_count + '</span></td>';
-          table += '<td style="background-color: #4450aa !important;" data-accordion="cash-legal"><span>' + searchList[i].departments[4].fte + '</span></td>';
-          table += '<td style="background-color: #4450aa !important;" data-accordion="cash-legal"><span>' + searchList[i].departments[4].online_user_count + '</span></td>';
-          table += '<td style="background-color: #4450aa !important;" data-accordion="cash-legal"><span>' + searchList[i].departments[4].vacation_count + '</span></td>';
-          table += '<td style="background-color: #4450aa !important;" data-accordion="cash-legal"><span>' + searchList[i].departments[4].displacement_to_count + '</span></td>';
-          table += '<td style="background-color: #4450aa !important;" data-accordion="cash-legal"><span>' + searchList[i].departments[4].displacement_from_count + '</span></td></tr>';
+          table += '<td style="background-color: #4450aa !important;" data-first="1" data-saccordion="cash-legal"><span>' + searchList[i].departments[4].ticket_count + '</span></td>';
+          table += '<td style="background-color: #4450aa !important;" data-saccordion="cash-legal"><span>' + searchList[i].departments[4].served_customer_count + '</span></td>';
+          table += '<td style="background-color: #4450aa !important;" data-saccordion="cash-legal"><span>' + searchList[i].departments[4].waiting_customer_count + '</span></td>';
+          table += '<td style="background-color: #4450aa !important;" data-saccordion="cash-legal"><span>' + searchList[i].departments[4].fte + '</span></td>';
+          table += '<td style="background-color: #4450aa !important;" data-saccordion="cash-legal"><span>' + searchList[i].departments[4].online_user_count + '</span></td>';
+          table += '<td style="background-color: #4450aa !important;" data-saccordion="cash-legal"><span>' + searchList[i].departments[4].vacation_count + '</span></td>';
+          table += '<td style="background-color: #4450aa !important;" data-saccordion="cash-legal"><span>' + searchList[i].departments[4].displacement_to_count + '</span></td>';
+          table += '<td style="background-color: #4450aa !important;" data-saccordion="cash-legal"><span>' + searchList[i].departments[4].displacement_from_count + '</span></td></tr>';
         } else {
-          table += '<td style="background-color: #4450aa !important;" data-first="1" data-accordion="cash-legal"><span> ---- </span></td>';
-          table += '<td style="background-color: #4450aa !important;" data-accordion="cash-legal"><span> ---- </span></td>';
-          table += '<td style="background-color: #4450aa !important;" data-accordion="cash-legal"><span> ---- </span></td>';
-          table += '<td style="background-color: #4450aa !important;" data-accordion="cash-legal"><span> ---- </span></td>';
-          table += '<td style="background-color: #4450aa !important;" data-accordion="cash-legal"><span> ---- </span></td>';
-          table += '<td style="background-color: #4450aa !important;" data-accordion="cash-legal"><span> ---- </span></td>';
-          table += '<td style="background-color: #4450aa !important;" data-accordion="cash-legal"><span> ---- </span></td>';
-          table += '<td style="background-color: #4450aa !important;" data-accordion="cash-legal"><span> ---- </span></td></tr>';
+          table += '<td style="background-color: #4450aa !important;" data-first="1" data-saccordion="cash-legal"><span> ---- </span></td>';
+          table += '<td style="background-color: #4450aa !important;" data-saccordion="cash-legal"><span> ---- </span></td>';
+          table += '<td style="background-color: #4450aa !important;" data-saccordion="cash-legal"><span> ---- </span></td>';
+          table += '<td style="background-color: #4450aa !important;" data-saccordion="cash-legal"><span> ---- </span></td>';
+          table += '<td style="background-color: #4450aa !important;" data-saccordion="cash-legal"><span> ---- </span></td>';
+          table += '<td style="background-color: #4450aa !important;" data-saccordion="cash-legal"><span> ---- </span></td>';
+          table += '<td style="background-color: #4450aa !important;" data-saccordion="cash-legal"><span> ---- </span></td>';
+          table += '<td style="background-color: #4450aa !important;" data-saccordion="cash-legal"><span> ---- </span></td></tr>';
         }
 
       }
@@ -788,80 +790,86 @@ function drowSearchTable(searchList) {
           maxFreeTimeColor = 'red';
         }
         table += '<tr><td class="table-branch table-branch-row"><a href="/departament.html?filial=' + searchList[i].id + '" target="blank">' + searchList[i].name + '</a></td>';
-        table += '<td data-first="1" data-accordion="branches"><span>' + searchList[i].ticket_count + '</span></td>';
-        table += '<td data-accordion="branches"><span>' + searchList[i].served_customer_count + '</span></td>';
-        table += '<td data-accordion="branches"><span>' + searchList[i].waiting_customer_count + '</span></td>';
-        table += '<td style="background-color: ' + maxFreeTimeColor + ' !important;" data-accordion="branches"><span>' + searchList[i].max_free_time + '</span></td>';
-        table += '<td data-accordion="branches"><span>' + searchList[i].closed_counter_count + '</span></td>';
-        table += '<td data-accordion="branches"><span>' + searchList[i].open_counter_count + '</span></td>';
-        table += '<td data-accordion="branches"><span>' + searchList[i].free_user_count + '</span></td>';
-        table += '<td data-first="1" data-accordion="services"><span>' + searchList[i].departments[0].ticket_count + '</span></td>';
-        table += '<td data-accordion="services"><span>' + searchList[i].departments[0].served_customer_count + '</span></td>';
-        table += '<td data-accordion="services"><span>' + searchList[i].departments[0].waiting_customer_count + '</span></td>';
-        table += '<td data-accordion="services"><span>' + searchList[i].departments[0].fte + '</span></td>';
-        table += '<td data-accordion="services"><span>' + searchList[i].departments[0].online_user_count + '</span></td>';
-        table += '<td data-accordion="services"><span>' + searchList[i].departments[0].vacation_count + '</span></td>';
-        table += '<td data-accordion="services"><span>' + searchList[i].departments[0].displacement_to_count + '</span></td>';
-        table += '<td data-accordion="services"><span>' + searchList[i].departments[0].displacement_from_count + '</span></td>';
-        table += '<td data-first="1" data-accordion="sales"><span>' + searchList[i].departments[1].ticket_count + '</span></td>';
-        table += '<td data-accordion="sales"><span>' + searchList[i].departments[1].served_customer_count + '</span></td>';
-        table += '<td data-accordion="sales"><span>' + searchList[i].departments[1].waiting_customer_count + '</span></td>';
-        table += '<td data-accordion="sales"><span>' + searchList[i].departments[1].fte + '</span></td>';
-        table += '<td data-accordion="sales"><span>' + searchList[i].departments[1].online_user_count + '</span></td>';
-        table += '<td data-accordion="sales"><span>' + searchList[i].departments[1].vacation_count + '</span></td>';
-        table += '<td data-accordion="sales"><span>' + searchList[i].departments[1].displacement_to_count + '</span></td>';
-        table += '<td data-accordion="sales"><span>' + searchList[i].departments[1].displacement_from_count + '</span></td>';
-        table += '<td data-first="1" data-accordion="cash"><span>' + searchList[i].departments[2].ticket_count + '</span></td>';
-        table += '<td data-accordion="cash"><span>' + searchList[i].departments[2].served_customer_count + '</span></td>';
-        table += '<td data-accordion="cash"><span>' + searchList[i].departments[2].waiting_customer_count + '</span></td>';
-        table += '<td data-accordion="cash"><span>' + searchList[i].departments[2].fte + '</span></td>';
-        table += '<td data-accordion="cash"><span>' + searchList[i].departments[2].online_user_count + '</span></td>';
-        table += '<td data-accordion="cash"><span>' + searchList[i].departments[2].vacation_count + '</span></td>';
-        table += '<td data-accordion="cash"><span>' + searchList[i].departments[2].displacement_to_count + '</span></td>';
-        table += '<td data-accordion="cash"><span>' + searchList[i].departments[2].displacement_from_count + '</span></td>';
+        table += '<td data-first="1" data-saccordion="branches"><span>' + searchList[i].ticket_count + '</span></td>';
+        table += '<td data-saccordion="branches"><span>' + searchList[i].served_customer_count + '</span></td>';
+        table += '<td data-saccordion="branches"><span>' + searchList[i].waiting_customer_count + '</span></td>';
+        table += '<td style="background-color: ' + maxFreeTimeColor + ' !important;" data-saccordion="branches"><span>' + searchList[i].max_free_time + '</span></td>';
+        table += '<td data-saccordion="branches"><span>' + searchList[i].closed_counter_count + '</span></td>';
+        table += '<td data-saccordion="branches"><span>' + searchList[i].open_counter_count + '</span></td>';
+        table += '<td data-saccordion="branches"><span>' + searchList[i].free_user_count + '</span></td>';
+        table += '<td data-first="1" data-saccordion="services"><span>' + searchList[i].departments[0].ticket_count + '</span></td>';
+        table += '<td data-saccordion="services"><span>' + searchList[i].departments[0].served_customer_count + '</span></td>';
+        table += '<td data-saccordion="services"><span>' + searchList[i].departments[0].waiting_customer_count + '</span></td>';
+        table += '<td data-saccordion="services"><span>' + searchList[i].departments[0].fte + '</span></td>';
+        table += '<td data-saccordion="services"><span>' + searchList[i].departments[0].online_user_count + '</span></td>';
+        table += '<td data-saccordion="services"><span>' + searchList[i].departments[0].vacation_count + '</span></td>';
+        table += '<td data-saccordion="services"><span>' + searchList[i].departments[0].displacement_to_count + '</span></td>';
+        table += '<td data-saccordion="services"><span>' + searchList[i].departments[0].displacement_from_count + '</span></td>';
+        table += '<td data-first="1" data-saccordion="sales"><span>' + searchList[i].departments[1].ticket_count + '</span></td>';
+        table += '<td data-saccordion="sales"><span>' + searchList[i].departments[1].served_customer_count + '</span></td>';
+        table += '<td data-saccordion="sales"><span>' + searchList[i].departments[1].waiting_customer_count + '</span></td>';
+        table += '<td data-saccordion="sales"><span>' + searchList[i].departments[1].fte + '</span></td>';
+        table += '<td data-saccordion="sales"><span>' + searchList[i].departments[1].online_user_count + '</span></td>';
+        table += '<td data-saccordion="sales"><span>' + searchList[i].departments[1].vacation_count + '</span></td>';
+        table += '<td data-saccordion="sales"><span>' + searchList[i].departments[1].displacement_to_count + '</span></td>';
+        table += '<td data-saccordion="sales"><span>' + searchList[i].departments[1].displacement_from_count + '</span></td>';
+        table += '<td data-first="1" data-saccordion="cash"><span>' + searchList[i].departments[2].ticket_count + '</span></td>';
+        table += '<td data-saccordion="cash"><span>' + searchList[i].departments[2].served_customer_count + '</span></td>';
+        table += '<td data-saccordion="cash"><span>' + searchList[i].departments[2].waiting_customer_count + '</span></td>';
+        table += '<td data-saccordion="cash"><span>' + searchList[i].departments[2].fte + '</span></td>';
+        table += '<td data-saccordion="cash"><span>' + searchList[i].departments[2].online_user_count + '</span></td>';
+        table += '<td data-saccordion="cash"><span>' + searchList[i].departments[2].vacation_count + '</span></td>';
+        table += '<td data-saccordion="cash"><span>' + searchList[i].departments[2].displacement_to_count + '</span></td>';
+        table += '<td data-saccordion="cash"><span>' + searchList[i].departments[2].displacement_from_count + '</span></td>';
         if (searchList[i].departments[3] != undefined) {
-          table += '<td data-first="1" data-accordion="legal"><span>' + searchList[i].departments[3].ticket_count + '</span></td>';
-          table += '<td data-accordion="legal"><span>' + searchList[i].departments[3].served_customer_count + '</span></td>';
-          table += '<td data-accordion="legal"><span>' + searchList[i].departments[3].waiting_customer_count + '</span></td>';
-          table += '<td data-accordion="legal"><span>' + searchList[i].departments[3].fte + '</span></td>';
-          table += '<td data-accordion="legal"><span>' + searchList[i].departments[3].online_user_count + '</span></td>';
-          table += '<td data-accordion="legal"><span>' + searchList[i].departments[3].vacation_count + '</span></td>';
-          table += '<td data-accordion="legal"><span>' + searchList[i].departments[3].displacement_to_count + '</span></td>';
-          table += '<td data-accordion="legal"><span>' + searchList[i].departments[3].displacement_from_count + '</span></td>';
+          table += '<td data-first="1" data-saccordion="legal"><span>' + searchList[i].departments[3].ticket_count + '</span></td>';
+          table += '<td data-saccordion="legal"><span>' + searchList[i].departments[3].served_customer_count + '</span></td>';
+          table += '<td data-saccordion="legal"><span>' + searchList[i].departments[3].waiting_customer_count + '</span></td>';
+          table += '<td data-saccordion="legal"><span>' + searchList[i].departments[3].fte + '</span></td>';
+          table += '<td data-saccordion="legal"><span>' + searchList[i].departments[3].online_user_count + '</span></td>';
+          table += '<td data-saccordion="legal"><span>' + searchList[i].departments[3].vacation_count + '</span></td>';
+          table += '<td data-saccordion="legal"><span>' + searchList[i].departments[3].displacement_to_count + '</span></td>';
+          table += '<td data-saccordion="legal"><span>' + searchList[i].departments[3].displacement_from_count + '</span></td>';
         } else {
-          table += '<td data-first="1" data-accordion="legal"><span> ---- </span></td>';
-          table += '<td data-accordion="legal"><span> ---- </span></td>';
-          table += '<td data-accordion="legal"><span> ---- </span></td>';
-          table += '<td data-accordion="legal"><span> ---- </span></td>';
-          table += '<td data-accordion="legal"><span> ---- </span></td>';
-          table += '<td data-accordion="legal"><span> ---- </span></td>';
-          table += '<td data-accordion="legal"><span> ---- </span></td>';
-          table += '<td data-accordion="legal"><span> ---- </span></td>';
+          table += '<td data-first="1" data-saccordion="legal"><span> ---- </span></td>';
+          table += '<td data-saccordion="legal"><span> ---- </span></td>';
+          table += '<td data-saccordion="legal"><span> ---- </span></td>';
+          table += '<td data-saccordion="legal"><span> ---- </span></td>';
+          table += '<td data-saccordion="legal"><span> ---- </span></td>';
+          table += '<td data-saccordion="legal"><span> ---- </span></td>';
+          table += '<td data-saccordion="legal"><span> ---- </span></td>';
+          table += '<td data-saccordion="legal"><span> ---- </span></td>';
         }
         if (searchList[i].departments[4]) {
-          table += '<td data-first="1" data-accordion="cash-legal"><span>' + searchList[i].departments[4].ticket_count + '</span></td>';
-          table += '<td data-accordion="cash-legal"><span>' + searchList[i].departments[4].served_customer_count + '</span></td>';
-          table += '<td data-accordion="cash-legal"><span>' + searchList[i].departments[4].waiting_customer_count + '</span></td>';
-          table += '<td data-accordion="cash-legal"><span>' + searchList[i].departments[4].fte + '</span></td>';
-          table += '<td data-accordion="cash-legal"><span>' + searchList[i].departments[4].online_user_count + '</span></td>';
-          table += '<td data-accordion="cash-legal"><span>' + searchList[i].departments[4].vacation_count + '</span></td>';
-          table += '<td data-accordion="cash-legal"><span>' + searchList[i].departments[4].displacement_to_count + '</span></td>';
-          table += '<td data-accordion="cash-legal"><span>' + searchList[i].departments[4].displacement_from_count + '</span></td></tr>';
+          table += '<td data-first="1" data-saccordion="cash-legal"><span>' + searchList[i].departments[4].ticket_count + '</span></td>';
+          table += '<td data-saccordion="cash-legal"><span>' + searchList[i].departments[4].served_customer_count + '</span></td>';
+          table += '<td data-saccordion="cash-legal"><span>' + searchList[i].departments[4].waiting_customer_count + '</span></td>';
+          table += '<td data-saccordion="cash-legal"><span>' + searchList[i].departments[4].fte + '</span></td>';
+          table += '<td data-saccordion="cash-legal"><span>' + searchList[i].departments[4].online_user_count + '</span></td>';
+          table += '<td data-saccordion="cash-legal"><span>' + searchList[i].departments[4].vacation_count + '</span></td>';
+          table += '<td data-saccordion="cash-legal"><span>' + searchList[i].departments[4].displacement_to_count + '</span></td>';
+          table += '<td data-saccordion="cash-legal"><span>' + searchList[i].departments[4].displacement_from_count + '</span></td></tr>';
         } else {
-          table += '<td data-first="1" data-accordion="cash-legal"><span> ---- </span></td>';
-          table += '<td data-accordion="cash-legal"><span> ---- </span></td>';
-          table += '<td data-accordion="cash-legal"><span> ---- </span></td>';
-          table += '<td data-accordion="cash-legal"><span> ---- </span></td>';
-          table += '<td data-accordion="cash-legal"><span> ---- </span></td>';
-          table += '<td data-accordion="cash-legal"><span> ---- </span></td>';
-          table += '<td data-accordion="cash-legal"><span> ---- </span></td>';
-          table += '<td data-accordion="cash-legal"><span> ---- </span></td></tr>';
+          table += '<td data-first="1" data-saccordion="cash-legal"><span> ---- </span></td>';
+          table += '<td data-saccordion="cash-legal"><span> ---- </span></td>';
+          table += '<td data-saccordion="cash-legal"><span> ---- </span></td>';
+          table += '<td data-saccordion="cash-legal"><span> ---- </span></td>';
+          table += '<td data-saccordion="cash-legal"><span> ---- </span></td>';
+          table += '<td data-saccordion="cash-legal"><span> ---- </span></td>';
+          table += '<td data-saccordion="cash-legal"><span> ---- </span></td>';
+          table += '<td data-saccordion="cash-legal"><span> ---- </span></td></tr>';
         }
 
       }
     }
   }
   $('#search-body').html(table);
+  for (var i = 0; i < closeTabs.length; i++) {
+
+    $(".table td[data-saccordion=" + closeTabs[i] + "]").hide();
+    $(".table td[data-saccordion=" + closeTabs[i] + "][data-first=1]").slice(2).after('<td class="fake" data-fake="' + closeTabs[i] + '" style=""></td>');
+
+  }
 }
 
 function drowPagination() {
@@ -976,8 +984,6 @@ function getTableData(inputVal) {
 
           }
 
-          
-
         }
       });
     }
@@ -996,6 +1002,7 @@ getTableData();
 
 // table tabs
 var tabletabsCount = 6;
+var stabletabsCount = 6;
 
 $(".accordion-head").click(function () {
 
@@ -1009,6 +1016,28 @@ $(".accordion-head").click(function () {
     $(".table td[data-accordion=" + dataAcc + "][data-first=1]").eq(0).after('<td rowspan="2" class="fake" data-fake="' + dataAcc + '" style="background:#bf2127 !important; padding: 0; font-size: 12px;"></td>');
     $(".table td[data-accordion=" + dataAcc + "][data-first=1]").eq(0).siblings('.fake[data-fake=' + dataAcc + ']').html('<div style="transform: rotate(-90deg); transform-origin: center;">' + colName + '</div>');
     $(".table td[data-accordion=" + dataAcc + "][data-first=1]").slice(2).after('<td class="fake" data-fake="' + dataAcc + '" style=""></td>');
+
+  } else {
+
+    return false;
+
+  }
+
+});
+
+$(".saccordion-head").click(function () {
+  // debugger
+  if (stabletabsCount > 1) {
+
+    --stabletabsCount;
+    var dataAcc = $(this).attr('data-saccordion');
+    console.log("TCL: dataAcc", dataAcc)
+    closeTabs.push(dataAcc);
+    $(".table td[data-saccordion=" + dataAcc + "]").hide();
+    var colName = $(".table td[data-saccordion=" + dataAcc + "][data-first=1]").eq(0).html()
+    $(".table td[data-saccordion=" + dataAcc + "][data-first=1]").eq(0).after('<td rowspan="2" class="fake" data-fake="' + dataAcc + '" style="background:#bf2127 !important; padding: 0; font-size: 12px;"></td>');
+    $(".table td[data-saccordion=" + dataAcc + "][data-first=1]").eq(0).siblings('.fake[data-fake=' + dataAcc + ']').html('<div style="transform: rotate(-90deg); transform-origin: center;">' + colName + '</div>');
+    $(".table td[data-saccordion=" + dataAcc + "][data-first=1]").slice(2).after('<td class="fake" data-fake="' + dataAcc + '" style=""></td>');
 
   } else {
 
@@ -1085,9 +1114,9 @@ tippy('.uic', {
 */
 $("#search").on('input', function (e) {
     
-  var inputValue = $(this).val();
+  inputValue = $(this).val();
   if(inputValue.length > 0) {
-
+    
     $(".table-wrap-list").hide();
     $(".table-wrap-search").show();
     $.ajax({
@@ -1099,8 +1128,9 @@ $("#search").on('input', function (e) {
         search: inputValue
       },
       success: function (data) {
-      console.log("TCL: data", data)
-      drowSearchTable(data.branches);
+        refreshSearchedData();
+        drowSearchTable(data.branches);
+        
       }
     });
   } else {
@@ -1108,6 +1138,37 @@ $("#search").on('input', function (e) {
     $(".table-wrap-search").hide();
   }
   
+  function refreshSearchedData() {
+  console.log("TCL: refreshSearchedData -> refreshSearchedData");
+    
+    clearTimeout(searchTimer);
+    console.log("TCL: refreshSearchedData -> searchTimer", searchTimer)
+    $('#map-preloader').show();
+    if(inputValue.length > 0) {
+
+      $.ajax({
+        url: heatmap_url + '/get_branches_data/',
+        type: 'POST',
+        data: {
+          limit: 200,
+          offset: 0,
+          search: inputValue
+        },
+        success: function (data) {
+          clearTimeout(searchTimer);
+          drowSearchTable(data.branches);
+          $('#map-preloader').show();
+          searchTimer = setTimeout(function() {
+            refreshSearchedData()
+          }, 10000 )
+        }
+      });
+
+    }
+    
+
+  }
+    
 
 })
 

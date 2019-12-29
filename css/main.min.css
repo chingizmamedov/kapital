@@ -981,6 +981,10 @@ td.fake:after {
   display: block;
 }
 
+.counters-item {
+  width: 100%;
+}
+
 .fte {
   width: 100%;
   border-collapse: collapse;

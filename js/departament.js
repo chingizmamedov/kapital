@@ -59,7 +59,7 @@ $(function() {
             $('.counters-item').append(tables[i])
             
         }
-        
+    
     }
 
     $(document).on('click', '.open', function() {
