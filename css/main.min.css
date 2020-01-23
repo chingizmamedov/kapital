@@ -180,7 +180,6 @@ a {
 
 .question-text:before {
   position: absolute;
-  content: '';
   width: 10px;
   height: 10px;
   border: 2px solid #ACACAC;
@@ -197,14 +196,7 @@ a {
 }
 
 .widget {
-  position: absolute;
-  right: 18%;
-  top: 4.1%;
-  width: 400px;
-  margin: -2px;
-  color: #333;
-  font-weight: bold;
-  border-radius: 4px;
+  border-radius: 7px;
   overflow: hidden;
 }
 
@@ -244,6 +236,32 @@ a {
 
 .widget-item-red {
   background: red;
+  color: #fff;
+}
+
+.log-wrap {
+  position: relative;
+}
+
+.logOut {
+  position: absolute;
+  right: 0;
+  font-size: 12px;
+  display: inline-block;
+  background: #790e2e;
+  padding: 4px;
+  border-radius: 4px;
+  margin-top: 3px;
+  -webkit-transition: .3s;
+  -o-transition: .3s;
+  transition: .3s;
+}
+
+.logOut:hover {
+  background: red;
+}
+
+.logOut a {
   color: #fff;
 }
 
@@ -761,6 +779,9 @@ td.fake:after {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
 }
 
 .tables-wrap .table-item {
@@ -1117,6 +1138,41 @@ td.fake:after {
 
 .counters-open:hover {
   background-color: #1b3e80;
+}
+
+.alert-modal {
+  position: fixed;
+  -webkit-box-shadow: 0 0 10px #e1e1e1;
+          box-shadow: 0 0 10px #e1e1e1;
+  padding: 10px;
+  padding-right: 14px;
+  background: #790e2e;
+  color: white;
+  top: 30px;
+  left: 0;
+  right: -220px;
+  margin-left: auto;
+  width: 216px;
+  border-radius: 7px;
+  -webkit-transition: .6s right;
+  -o-transition: .6s right;
+  transition: .6s right;
+  z-index: 20;
+}
+
+.alert-modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.alert-modal-active {
+  right: 30px;
+}
+
+.alert-modal-success {
+  background: green;
 }
 
 .filters {
@@ -1516,5 +1572,27 @@ td.fake:after {
 
 #branches, #date, #user {
   display: none;
+}
+
+.free-points-list {
+  padding: 12px 20px 8px;
+  background: #6c7ae0;
+}
+
+.free-points-item {
+  color: #333;
+  background: #fff;
+  margin-bottom: 11px;
+  padding: 5px;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 0 2px #333;
+          box-shadow: 0 0 2px #333;
+  display: inline-block;
+  width: 240px;
+}
+
+.free-points-item p {
+  font-size: 16px;
+  font-weight: 400;
 }
 /*# sourceMappingURL=main.min.css.map */
